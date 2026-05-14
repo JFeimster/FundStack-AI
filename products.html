@@ -27,44 +27,66 @@
         .glass-panel { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.06); }
         .product-card { transition: all 0.2s ease; border: 1px solid rgba(255,255,255,0.05); }
         .product-card:hover { border-color: #00F0FF; background: rgba(0, 240, 255, 0.02); }
+        
+        /* Custom Select Styling */
+        select { 
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e"); 
+            background-position: right 0.5rem center; 
+            background-repeat: no-repeat; 
+            background-size: 1.5em 1.5em; 
+            padding-right: 2.5rem; 
+            -webkit-appearance: none; 
+            -moz-appearance: none; 
+            appearance: none; 
+        }
+        option { background-color: #111111; color: white; }
     </style>
 </head>
-<body class="antialiased">
+<body class="antialiased selection:bg-brand-500 selection:text-dark-900">
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 border-b border-white/5 bg-dark-900/90 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
             <a href="index.html" class="font-display font-bold text-xl tracking-tight flex items-center gap-2">
-                <div class="w-3 h-3 bg-brand-500 rounded-full"></div>
+                <div class="w-3 h-3 bg-brand-500 rounded-full animate-pulse"></div>
                 FUNDSTACK<span class="text-brand-500">AI</span>
             </a>
-            <div class="flex gap-6 text-[11px] font-bold uppercase tracking-widest text-gray-500">
+            <div class="hidden md:flex gap-8 text-[11px] font-bold uppercase tracking-widest text-gray-500">
                 <a href="guide.html" class="hover:text-brand-500 transition-colors">Success Guide</a>
-                <span class="text-brand-500">Product Matrix</span>
+                <span class="text-brand-500 border-b border-brand-500 pb-1">Product Matrix</span>
+                <a href="qualifier.html" class="hover:text-brand-500 transition-colors">Lead Qualifier</a>
+                <a href="simulator.html" class="hover:text-brand-500 transition-colors">Simulator</a>
             </div>
+            <a href="index.html#apply" class="bg-brand-500 text-dark-900 px-5 py-2 rounded-full font-bold text-[10px] uppercase tracking-tighter hover:bg-white transition-all shadow-[0_0_15px_rgba(0,240,255,0.3)]">
+                Become a Partner
+            </a>
         </div>
     </nav>
 
     <main class="pt-32 pb-24 px-6 max-w-7xl mx-auto">
         <div class="mb-12">
-            <h1 class="font-display text-4xl md:text-6xl font-bold mb-4 tracking-tighter uppercase">Product Matrix</h1>
-            <p class="text-gray-400 text-lg max-w-2xl">Search across 59 active funding products. Use the filters below to match your client's profile.</p>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-panel text-[10px] font-bold text-brand-500 mb-6 border-brand-500/20 uppercase tracking-widest">
+                Confidential Portfolio Directory
+            </div>
+            <h1 class="font-display text-4xl md:text-6xl font-bold mb-4 tracking-tighter uppercase leading-tight">Capital Path <br/> Matrix</h1>
+            <p class="text-gray-400 text-lg max-w-2xl">White-labeled routing directory. Match your client's qualification profile to the optimal capital path without exposing backend lender relationships.</p>
         </div>
 
-        <!-- Filters -->
+        <!-- Matrix Filters -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12">
             <div class="glass-panel p-4 rounded-xl">
                 <label class="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Category</label>
-                <select id="filterCategory" class="w-full bg-transparent text-white font-bold focus:outline-none cursor-pointer appearance-none">
+                <select id="filterCategory" class="w-full bg-transparent text-white font-bold focus:outline-none cursor-pointer">
                     <option value="all">All Categories</option>
-                    <option value="Business">Business</option>
+                    <option value="Business">Business Purpose</option>
                     <option value="Real Estate">Real Estate</option>
-                    <option value="Personal">Personal</option>
+                    <option value="Marketplace">Marketplace (E-com)</option>
+                    <option value="Startup">Startup / Personal</option>
                 </select>
             </div>
             <div class="glass-panel p-4 rounded-xl">
                 <label class="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Credit Tier</label>
-                <select id="filterCredit" class="w-full bg-transparent text-white font-bold focus:outline-none cursor-pointer appearance-none">
+                <select id="filterCredit" class="w-full bg-transparent text-white font-bold focus:outline-none cursor-pointer">
                     <option value="all">Any Credit</option>
                     <option value="Good">Good (680+)</option>
                     <option value="Fair">Fair (600-679)</option>
@@ -73,70 +95,109 @@
             </div>
             <div class="glass-panel p-4 rounded-xl">
                 <label class="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Funding Type</label>
-                <select id="filterType" class="w-full bg-transparent text-white font-bold focus:outline-none cursor-pointer appearance-none">
+                <select id="filterType" class="w-full bg-transparent text-white font-bold focus:outline-none cursor-pointer">
                     <option value="all">All Types</option>
                     <option value="Term Loan">Term Loans</option>
                     <option value="Revenue Advance">Revenue Advances</option>
-                    <option value="Mortgage">Mortgages</option>
+                    <option value="Line of Credit">Lines of Credit</option>
+                    <option value="Asset Backed">Asset Backed</option>
                 </select>
             </div>
             <div class="relative glass-panel p-4 rounded-xl flex items-center">
-                <input type="text" id="searchInput" placeholder="Search products..." class="w-full bg-transparent text-white font-bold focus:outline-none placeholder:text-gray-700">
+                <input type="text" id="searchInput" placeholder="Search by name..." class="w-full bg-transparent text-white font-bold focus:outline-none placeholder:text-gray-700">
             </div>
         </div>
 
-        <div class="glass-panel rounded-2xl overflow-hidden shadow-2xl">
+        <!-- Product Table -->
+        <div class="glass-panel rounded-[2rem] overflow-hidden shadow-2xl border border-white/5">
             <div class="overflow-x-auto">
                 <table class="w-full text-left border-collapse">
                     <thead class="bg-white/5 font-display text-[10px] uppercase tracking-[0.2em] text-gray-500">
                         <tr>
-                            <th class="p-6 border-b border-white/5">Product Name</th>
-                            <th class="p-6 border-b border-white/5">Provider</th>
+                            <th class="p-6 border-b border-white/5">Funding Product</th>
+                            <th class="p-6 border-b border-white/5">Category</th>
                             <th class="p-6 border-b border-white/5">Credit</th>
-                            <th class="p-6 border-b border-white/5">Amount</th>
+                            <th class="p-6 border-b border-white/5">Max Amount</th>
                             <th class="p-6 border-b border-white/5">Speed</th>
                             <th class="p-6 border-b border-white/5 text-right">Action</th>
                         </tr>
                     </thead>
                     <tbody id="productContainer" class="divide-y divide-white/5 text-sm">
-                        <!-- Products injected here -->
+                        <!-- Products injected via JS -->
                     </tbody>
                 </table>
             </div>
         </div>
     </main>
 
+    <footer class="py-12 border-t border-white/5 text-center">
+        <div class="text-[10px] text-gray-600 uppercase tracking-widest font-bold mb-4 tracking-[0.4em]">
+            &copy; 2026 FUNDSTACK-AI | PARTNER NETWORK RESOURCE
+        </div>
+    </footer>
+
     <script>
         const products = [
-            { name: "Startup Funding Program", provider: "Moonshine Capital", credit: "Good", amount: "$10k - $150k", speed: "1-2 Weeks", type: "Unsecured Line", cat: "Personal" },
-            { name: "Working Capital Loan", provider: "Credibly", credit: "Subprime", amount: "$5k - $600k", speed: "24 Hours", type: "Term Loan", cat: "Business" },
-            { name: "Business Expansion Loan", provider: "Credibly", credit: "Fair", amount: "$5k - $600k", speed: "3-5 Days", type: "Term Loan", cat: "Business" },
-            { name: "Merchant Cash Advance", provider: "Uplyft Capital", credit: "Subprime", amount: "$5k - $500k", speed: "24 Hours", type: "Revenue Advance", cat: "Business" },
-            { name: "Rental Loans (DSCR)", provider: "Visio Lending", credit: "Good", amount: "$75k - $5M", speed: "3-4 Weeks", type: "Mortgage", cat: "Real Estate" },
-            { name: "Fix and Flip Bridge", provider: "New Silver", credit: "Fair", amount: "$100k - $5M", speed: "5-7 Days", type: "Hard Money", cat: "Real Estate" },
-            { name: "AR Finance Path", provider: "Moonshine Capital", credit: "Fair", amount: "Up to $1M", speed: "1-3 Days", type: "Factoring", cat: "Business" },
-            { name: "SBA 7(a) Loan", provider: "SmartBiz", credit: "Good", amount: "$30k - $5M", speed: "4-8 Weeks", type: "Term Loan", cat: "Business" }
+            // STARTUP FAMILY
+            { name: "0% Interest Startup Credit Line", cat: "Startup", credit: "Good", amount: "$150,000", speed: "1-2 Weeks", type: "Line of Credit" },
+            { name: "Personal-to-Business Leverage Path", cat: "Startup", credit: "Good", amount: "$100,000", speed: "2-3 Weeks", type: "Unsecured Line" },
+            { name: "Business Credit Builder Track", cat: "Startup", credit: "Fair", amount: "Varies", speed: "N/A", type: "Service" },
+            { name: "Startup Funding Program", cat: "Startup", credit: "Good", amount: "$150,000", speed: "1-2 Weeks", type: "Unsecured Line" },
+            
+            // WORKING CAPITAL FAMILY
+            { name: "Flexible Working Capital Loan", cat: "Business", credit: "Subprime", amount: "$600,000", speed: "24 Hours", type: "Term Loan" },
+            { name: "High-Magnitude Expansion Loan", cat: "Business", credit: "Fair", amount: "$1,000,000", speed: "3-5 Days", type: "Term Loan" },
+            { name: "Performance Revenue Advance", cat: "Business", credit: "Subprime", amount: "$500,000", speed: "24 Hours", type: "Revenue Advance" },
+            { name: "SBA 7(a) Bridge Path", cat: "Business", credit: "Good", amount: "$5,000,000", speed: "4-8 Weeks", type: "Term Loan" },
+            { name: "Accounts Receivable Finance (Factoring)", cat: "Business", credit: "Fair", amount: "Up to $1M", speed: "1-3 Days", type: "Asset Backed" },
+            { name: "Medical Practice Growth Line", cat: "Business", credit: "Good", amount: "$250,000", speed: "5-7 Days", type: "Line of Credit" },
+            { name: "Bridge-to-SBA Path", cat: "Business", credit: "Fair", amount: "$5,000,000", speed: "2-3 Weeks", type: "Term Loan" },
+            { name: "Unsecured Term Loan", cat: "Business", credit: "Good", amount: "$250,000", speed: "3-5 Days", type: "Term Loan" },
+            { name: "Small Business Installment Loan", cat: "Business", credit: "Fair", amount: "$100,000", speed: "1-3 Days", type: "Term Loan" },
+            
+            // REAL ESTATE FAMILY
+            { name: "Cash-Flow Rental Mortgage (DSCR)", cat: "Real Estate", credit: "Good", amount: "$5,000,000", speed: "3-4 Weeks", type: "Asset Backed" },
+            { name: "Fix-and-Flip Bridge Track", cat: "Real Estate", credit: "Fair", amount: "$5,000,000", speed: "5-7 Days", type: "Asset Backed" },
+            { name: "Commercial Property Refinance", cat: "Real Estate", credit: "Good", amount: "$10,000,000", speed: "4-6 Weeks", type: "Asset Backed" },
+            { name: "Rental Property Cash Flow Track", cat: "Real Estate", credit: "Good", amount: "Varies", speed: "3-4 Weeks", type: "Asset Backed" },
+            
+            // MARKETPLACE FAMILY
+            { name: "E-com Inventory Advance", cat: "Marketplace", credit: "Fair", amount: "$250,000", speed: "24-48 Hours", type: "Revenue Advance" },
+            { name: "Daily Seller Payout Path", cat: "Marketplace", credit: "Fair", amount: "Varies", speed: "Instant", type: "Revenue Advance" },
+            { name: "Seller Growth Capital Plan", cat: "Marketplace", credit: "Subprime", amount: "$100,000", speed: "24 Hours", type: "Revenue Advance" },
+            { name: "Seller Revenue Share Path", cat: "Marketplace", credit: "Fair", amount: "Varies", speed: "Fast", type: "Revenue Advance" },
+            
+            // NICHE / ASSET FAMILY
+            { name: "Equipment Lease-Back Liquidity", cat: "Business", credit: "Fair", amount: "$2,000,000", speed: "1-2 Weeks", type: "Asset Backed" },
+            { name: "Franchise Acquisition Path", cat: "Business", credit: "Good", amount: "$1,500,000", speed: "2-4 Weeks", type: "Term Loan" },
+            { name: "Retirement Capital Conversion Path", cat: "Business", credit: "Good", amount: "Varies", speed: "3-4 Weeks", type: "Asset Backed" }
         ];
 
         function renderProducts(list) {
             const container = document.getElementById('productContainer');
+            if (list.length === 0) {
+                container.innerHTML = '<tr><td colspan="6" class="p-12 text-center text-gray-500 italic uppercase tracking-widest">No matching capital paths found. Broaden your search filters.</td></tr>';
+                return;
+            }
             container.innerHTML = list.map(p => `
                 <tr class="hover:bg-white/[0.02] transition-colors group">
                     <td class="p-6">
-                        <div class="font-bold text-white mb-1">${p.name}</div>
-                        <div class="text-[10px] text-gray-500 uppercase tracking-widest">${p.type}</div>
+                        <div class="font-bold text-white mb-1 group-hover:text-brand-500 transition-colors uppercase tracking-tight">${p.name}</div>
+                        <div class="text-[10px] text-gray-500 uppercase tracking-widest font-mono">${p.type}</div>
                     </td>
-                    <td class="p-6 text-gray-400 font-medium">${p.provider}</td>
+                    <td class="p-6">
+                        <span class="text-[10px] font-bold text-gray-400 border border-white/10 px-2 py-1 rounded uppercase tracking-tighter">${p.cat}</span>
+                    </td>
                     <td class="p-6">
                         <span class="px-2 py-1 rounded text-[10px] font-bold uppercase ${
                             p.credit === 'Good' ? 'bg-green-500/10 text-green-500' : 
                             p.credit === 'Fair' ? 'bg-yellow-500/10 text-yellow-500' : 'bg-red-500/10 text-red-500'
                         }">${p.credit}</span>
                     </td>
-                    <td class="p-6 text-gray-300 font-mono">${p.amount}</td>
-                    <td class="p-6 text-gray-400">${p.speed}</td>
+                    <td class="p-6 text-sm text-gray-300 font-mono">${p.amount}</td>
+                    <td class="p-6 text-[10px] text-gray-400 uppercase tracking-widest font-bold">${p.speed}</td>
                     <td class="p-6 text-right">
-                        <a href="index.html#apply" class="bg-white/5 border border-white/10 text-white px-4 py-1.5 rounded text-[10px] font-bold uppercase hover:bg-brand-500 hover:text-dark-900 transition-all inline-block">Submit File</a>
+                        <a href="qualifier.html" class="bg-white/5 border border-white/10 text-white px-4 py-1.5 rounded-full text-[10px] font-bold uppercase hover:bg-brand-500 hover:text-dark-900 transition-all inline-block">Qualify File</a>
                     </td>
                 </tr>
             `).join('');
@@ -151,8 +212,8 @@
             const filtered = products.filter(p => {
                 const matchCat = cat === 'all' || p.cat === cat;
                 const matchCred = cred === 'all' || p.credit === cred;
-                const matchType = type === 'all' || p.type === type;
-                const matchSearch = p.name.toLowerCase().includes(search) || p.provider.toLowerCase().includes(search);
+                const matchType = type === 'all' || p.type.includes(type);
+                const matchSearch = p.name.toLowerCase().includes(search);
                 return matchCat && matchCred && matchType && matchSearch;
             });
             renderProducts(filtered);
