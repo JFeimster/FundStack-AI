@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Matrix | FundStack-AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: { 500: '#00F0FF', 900: '#003B45' },
+                        dark: { 900: '#050505', 800: '#0A0A0A', 700: '#111111' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #050505; color: #ffffff; }
+        .glass-panel { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.06); }
+        .product-card { transition: all 0.2s ease; border: 1px solid rgba(255,255,255,0.05); }
+        .product-card:hover { border-color: #00F0FF; background: rgba(0, 240, 255, 0.02); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 border-b border-white/5 bg-dark-900/90 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="index.html" class="font-display font-bold text-xl tracking-tight flex items-center gap-2">
+                <div class="w-3 h-3 bg-brand-500 rounded-full"></div>
+                FUNDSTACK<span class="text-brand-500">AI</span>
+            </a>
+            <div class="flex gap-6 text-[11px] font-bold uppercase tracking-widest text-gray-500">
+                <a href="guide.html" class="hover:text-brand-500 transition-colors">Success Guide</a>
+                <span class="text-brand-500">Product Matrix</span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-24 px-6 max-w-7xl mx-auto">
+        <div class="mb-12">
+            <h1 class="font-display text-4xl md:text-6xl font-bold mb-4 tracking-tighter uppercase">Product Matrix</h1>
+            <p class="text-gray-400 text-lg max-w-2xl">Search across 59 active funding products. Use the filters below to match your client's profile.</p>
+        </div>
+
+        <!-- Filters -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12">
+            <div class="glass-panel p-4 rounded-xl">
+                <label class="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Category</label>
+                <select id="filterCategory" class="w-full bg-transparent text-white font-bold focus:outline-none cursor-pointer appearance-none">
+                    <option value="all">All Categories</option>
+                    <option value="Business">Business</option>
+                    <option value="Real Estate">Real Estate</option>
+                    <option value="Personal">Personal</option>
+                </select>
+            </div>
+            <div class="glass-panel p-4 rounded-xl">
+                <label class="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Credit Tier</label>
+                <select id="filterCredit" class="w-full bg-transparent text-white font-bold focus:outline-none cursor-pointer appearance-none">
+                    <option value="all">Any Credit</option>
+                    <option value="Good">Good (680+)</option>
+                    <option value="Fair">Fair (600-679)</option>
+                    <option value="Subprime">Subprime (&lt;600)</option>
+                </select>
+            </div>
+            <div class="glass-panel p-4 rounded-xl">
+                <label class="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Funding Type</label>
+                <select id="filterType" class="w-full bg-transparent text-white font-bold focus:outline-none cursor-pointer appearance-none">
+                    <option value="all">All Types</option>
+                    <option value="Term Loan">Term Loans</option>
+                    <option value="Revenue Advance">Revenue Advances</option>
+                    <option value="Mortgage">Mortgages</option>
+                </select>
+            </div>
+            <div class="relative glass-panel p-4 rounded-xl flex items-center">
+                <input type="text" id="searchInput" placeholder="Search products..." class="w-full bg-transparent text-white font-bold focus:outline-none placeholder:text-gray-700">
+            </div>
+        </div>
+
+        <div class="glass-panel rounded-2xl overflow-hidden shadow-2xl">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead class="bg-white/5 font-display text-[10px] uppercase tracking-[0.2em] text-gray-500">
+                        <tr>
+                            <th class="p-6 border-b border-white/5">Product Name</th>
+                            <th class="p-6 border-b border-white/5">Provider</th>
+                            <th class="p-6 border-b border-white/5">Credit</th>
+                            <th class="p-6 border-b border-white/5">Amount</th>
+                            <th class="p-6 border-b border-white/5">Speed</th>
+                            <th class="p-6 border-b border-white/5 text-right">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productContainer" class="divide-y divide-white/5 text-sm">
+                        <!-- Products injected here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const products = [
+            { name: "Startup Funding Program", provider: "Moonshine Capital", credit: "Good", amount: "$10k - $150k", speed: "1-2 Weeks", type: "Unsecured Line", cat: "Personal" },
+            { name: "Working Capital Loan", provider: "Credibly", credit: "Subprime", amount: "$5k - $600k", speed: "24 Hours", type: "Term Loan", cat: "Business" },
+            { name: "Business Expansion Loan", provider: "Credibly", credit: "Fair", amount: "$5k - $600k", speed: "3-5 Days", type: "Term Loan", cat: "Business" },
+            { name: "Merchant Cash Advance", provider: "Uplyft Capital", credit: "Subprime", amount: "$5k - $500k", speed: "24 Hours", type: "Revenue Advance", cat: "Business" },
+            { name: "Rental Loans (DSCR)", provider: "Visio Lending", credit: "Good", amount: "$75k - $5M", speed: "3-4 Weeks", type: "Mortgage", cat: "Real Estate" },
+            { name: "Fix and Flip Bridge", provider: "New Silver", credit: "Fair", amount: "$100k - $5M", speed: "5-7 Days", type: "Hard Money", cat: "Real Estate" },
+            { name: "AR Finance Path", provider: "Moonshine Capital", credit: "Fair", amount: "Up to $1M", speed: "1-3 Days", type: "Factoring", cat: "Business" },
+            { name: "SBA 7(a) Loan", provider: "SmartBiz", credit: "Good", amount: "$30k - $5M", speed: "4-8 Weeks", type: "Term Loan", cat: "Business" }
+        ];
+
+        function renderProducts(list) {
+            const container = document.getElementById('productContainer');
+            container.innerHTML = list.map(p => `
+                <tr class="hover:bg-white/[0.02] transition-colors group">
+                    <td class="p-6">
+                        <div class="font-bold text-white mb-1">${p.name}</div>
+                        <div class="text-[10px] text-gray-500 uppercase tracking-widest">${p.type}</div>
+                    </td>
+                    <td class="p-6 text-gray-400 font-medium">${p.provider}</td>
+                    <td class="p-6">
+                        <span class="px-2 py-1 rounded text-[10px] font-bold uppercase ${
+                            p.credit === 'Good' ? 'bg-green-500/10 text-green-500' : 
+                            p.credit === 'Fair' ? 'bg-yellow-500/10 text-yellow-500' : 'bg-red-500/10 text-red-500'
+                        }">${p.credit}</span>
+                    </td>
+                    <td class="p-6 text-gray-300 font-mono">${p.amount}</td>
+                    <td class="p-6 text-gray-400">${p.speed}</td>
+                    <td class="p-6 text-right">
+                        <a href="index.html#apply" class="bg-white/5 border border-white/10 text-white px-4 py-1.5 rounded text-[10px] font-bold uppercase hover:bg-brand-500 hover:text-dark-900 transition-all inline-block">Submit File</a>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function filterProducts() {
+            const cat = document.getElementById('filterCategory').value;
+            const cred = document.getElementById('filterCredit').value;
+            const type = document.getElementById('filterType').value;
+            const search = document.getElementById('searchInput').value.toLowerCase();
+
+            const filtered = products.filter(p => {
+                const matchCat = cat === 'all' || p.cat === cat;
+                const matchCred = cred === 'all' || p.credit === cred;
+                const matchType = type === 'all' || p.type === type;
+                const matchSearch = p.name.toLowerCase().includes(search) || p.provider.toLowerCase().includes(search);
+                return matchCat && matchCred && matchType && matchSearch;
+            });
+            renderProducts(filtered);
+        }
+
+        document.querySelectorAll('select, input').forEach(el => el.addEventListener('input', filterProducts));
+        renderProducts(products);
+    </script>
+</body>
+</html>
