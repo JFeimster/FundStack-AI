@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Simulator | FundStack-AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: { 500: '#00F0FF', 900: '#003B45' },
+                        dark: { 900: '#050505', 800: '#0A0A0A', 700: '#111111' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #050505; color: #ffffff; }
+        .glass-panel { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.06); }
+        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 18px; width: 18px; border-radius: 2px; background: #00F0FF; cursor: pointer; margin-top: -8px; box-shadow: 0 0 10px rgba(0,240,255,0.5); }
+        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 2px; cursor: pointer; background: rgba(255,255,255,0.1); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 border-b border-white/5 bg-dark-900/90 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="index.html" class="font-display font-bold text-xl tracking-tight flex items-center gap-2">
+                <div class="w-3 h-3 bg-brand-500 rounded-full"></div>
+                FUNDSTACK<span class="text-brand-500">AI</span>
+            </a>
+            <div class="flex gap-6 text-[11px] font-bold uppercase tracking-widest text-gray-500">
+                <a href="qualifier.html" class="hover:text-brand-500 transition-colors">Lead Qualifier</a>
+                <a href="products.html" class="hover:text-brand-500 transition-colors">Product Matrix</a>
+                <span class="text-brand-500">Yield Simulator</span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-24 px-6 max-w-7xl mx-auto">
+        <div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div class="max-w-2xl">
+                <h1 class="font-display text-4xl md:text-6xl font-bold mb-4 tracking-tighter uppercase">Yield Simulator</h1>
+                <p class="text-gray-400 text-lg">Calculate your potential earnings and model the ROI impact for your clients. Move from estimates to precision.</p>
+            </div>
+            <div class="glass-panel px-6 py-4 rounded-2xl border-brand-500/20">
+                <div class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1">Your Active Tier</div>
+                <div class="text-brand-500 font-display text-xl font-bold uppercase tracking-tighter">Gold (70% Split)</div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <!-- Partner Commission Engine -->
+            <div class="glass-panel p-8 md:p-12 rounded-[2.5rem] border-white/10">
+                <h2 class="font-display text-2xl font-bold mb-8 uppercase tracking-tight">Partner Yield Engine</h2>
+                
+                <div class="space-y-10">
+                    <div>
+                        <div class="flex justify-between mb-4">
+                            <label class="text-xs font-bold text-gray-500 uppercase">Monthly Volume ($)</label>
+                            <span id="volLabel" class="text-brand-500 font-bold">$500k</span>
+                        </div>
+                        <input type="range" id="volInput" min="50000" max="5000000" step="50000" value="500000" oninput="calcPartner()">
+                    </div>
+                    
+                    <div>
+                        <div class="flex justify-between mb-4">
+                            <label class="text-xs font-bold text-gray-500 uppercase">Avg. Origination Fee (%)</label>
+                            <span id="feeLabel" class="text-brand-500 font-bold">5%</span>
+                        </div>
+                        <input type="range" id="feeInput" min="1" max="15" step="0.5" value="5" oninput="calcPartner()">
+                    </div>
+
+                    <div class="pt-8 border-t border-white/5">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="p-6 bg-white/5 rounded-2xl">
+                                <div class="text-[10px] font-bold text-gray-500 uppercase mb-2">Gross Points</div>
+                                <div id="grossPoints" class="text-2xl font-bold">$25,000</div>
+                            </div>
+                            <div class="p-6 bg-brand-500 rounded-2xl">
+                                <div class="text-[10px] font-bold text-dark-900 uppercase mb-2">Net Commission</div>
+                                <div id="netComm" class="text-2xl font-bold text-dark-900">$17,500</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Client ROI Modeler -->
+            <div class="glass-panel p-8 md:p-12 rounded-[2.5rem] border-white/10">
+                <h2 class="font-display text-2xl font-bold mb-8 uppercase tracking-tight">Client Growth ROI</h2>
+                <p class="text-xs text-gray-500 mb-8 uppercase font-mono tracking-widest">Model the impact of capital deployment for your borrowers.</p>
+                
+                <div class="space-y-10">
+                    <div>
+                        <div class="flex justify-between mb-4">
+                            <label class="text-xs font-bold text-gray-500 uppercase">Capital Deployed</label>
+                            <span id="capLabel" class="text-brand-500 font-bold">$100k</span>
+                        </div>
+                        <input type="range" id="capInput" min="10000" max="1000000" step="10000" value="100000" oninput="calcROI()">
+                    </div>
+                    
+                    <div>
+                        <div class="flex justify-between mb-4">
+                            <label class="text-xs font-bold text-gray-500 uppercase">Expected Revenue Multiplier</label>
+                            <span id="multLabel" class="text-brand-500 font-bold">2.5x</span>
+                        </div>
+                        <input type="range" id="multInput" min="1" max="10" step="0.5" value="2.5" oninput="calcROI()">
+                    </div>
+
+                    <div class="pt-8 border-t border-white/5">
+                        <div class="p-6 bg-dark-900 border border-brand-500/20 rounded-2xl relative overflow-hidden">
+                            <div class="absolute inset-0 bg-brand-500/5 animate-pulse"></div>
+                            <div class="relative z-10 flex justify-between items-center">
+                                <div>
+                                    <div class="text-[10px] font-bold text-gray-500 uppercase mb-1">Projected Gross Growth</div>
+                                    <div id="roiTotal" class="text-3xl font-bold text-white">$250,000</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-[10px] font-bold text-brand-500 uppercase mb-1">Net ROI</div>
+                                    <div id="netROI" class="text-xl font-bold text-brand-500">150%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Tier Explanation -->
+        <section class="mt-12 glass-panel p-8 rounded-[2rem] border-white/5">
+            <h3 class="font-display text-xl font-bold mb-6 uppercase tracking-tighter">Commission Tier Logic</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-4 border-l-2 border-gray-800">
+                    <div class="font-bold text-gray-500 uppercase text-[10px] mb-1">Tier 1: Associate</div>
+                    <div class="text-lg font-bold">50% Split</div>
+                    <div class="text-xs text-gray-600 mt-2">Default entry level. Access to basic qualifiers.</div>
+                </div>
+                <div class="p-4 border-l-2 border-brand-500">
+                    <div class="font-bold text-brand-500 uppercase text-[10px] mb-1">Tier 2: Producer</div>
+                    <div class="text-lg font-bold">60% Split</div>
+                    <div class="text-xs text-gray-600 mt-2">Triggered at $250k funded monthly volume.</div>
+                </div>
+                <div class="p-4 border-l-2 border-white">
+                    <div class="font-bold text-white uppercase text-[10px] mb-1">Tier 3: Alpha Partner</div>
+                    <div class="text-lg font-bold">70% Split</div>
+                    <div class="text-xs text-gray-600 mt-2">Triggered at $1M+ funded monthly volume.</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-12 border-t border-white/5 text-center text-[10px] text-gray-600 uppercase tracking-widest font-bold">
+        &copy; 2026 FundStack-AI | Advanced Modeling Suite
+    </footer>
+
+    <script>
+        function format(v) { return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(v); }
+
+        function calcPartner() {
+            const vol = parseInt(document.getElementById('volInput').value);
+            const fee = parseFloat(document.getElementById('feeInput').value) / 100;
+            
+            // Dynamic Split Logic from Handbook
+            let split = 0.50;
+            if (vol >= 250000) split = 0.60;
+            if (vol >= 1000000) split = 0.70;
+
+            const gross = vol * fee;
+            const net = gross * split;
+
+            document.getElementById('volLabel').innerText = format(vol);
+            document.getElementById('feeLabel').innerText = (fee * 100) + '%';
+            document.getElementById('grossPoints').innerText = format(gross);
+            document.getElementById('netComm').innerText = format(net);
+        }
+
+        function calcROI() {
+            const cap = parseInt(document.getElementById('capInput').value);
+            const mult = parseFloat(document.getElementById('multInput').value);
+            
+            const total = cap * mult;
+            const netVal = total - cap;
+            const percentage = ((total - cap) / cap) * 100;
+
+            document.getElementById('capLabel').innerText = format(cap);
+            document.getElementById('multLabel').innerText = mult + 'x';
+            document.getElementById('roiTotal').innerText = format(total);
+            document.getElementById('netROI').innerText = percentage.toFixed(0) + '%';
+        }
+
+        // Init
+        calcPartner();
+        calcROI();
+    </script>
+</body>
+</html>
