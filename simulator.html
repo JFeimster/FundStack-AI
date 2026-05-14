@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Simulator | FundStack-AI</title>
+    <title>Yield Simulator | FundStack-AI</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <script>
@@ -26,144 +26,216 @@
         body { background-color: #050505; color: #ffffff; }
         .glass-panel { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.06); }
         input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
-        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 18px; width: 18px; border-radius: 2px; background: #00F0FF; cursor: pointer; margin-top: -8px; box-shadow: 0 0 10px rgba(0,240,255,0.5); }
-        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 2px; cursor: pointer; background: rgba(255,255,255,0.1); }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 18px; width: 18px; border-radius: 2px; background: #00F0FF; cursor: pointer; margin-top: -8px; box-shadow: 0 0 15px rgba(0,240,255,0.6); transition: transform 0.1s; }
+        input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.2); }
+        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 2px; cursor: pointer; background: rgba(255,255,255,0.2); border-radius: 2px; }
+        .tier-active { border-color: #00F0FF !important; background: rgba(0, 240, 255, 0.05) !important; }
+        .tier-active-text { color: #00F0FF !important; }
+        .glow-text { text-shadow: 0 0 20px rgba(0, 240, 255, 0.4); }
     </style>
 </head>
-<body class="antialiased">
+<body class="antialiased selection:bg-brand-500 selection:text-dark-900">
+
+    <!-- Ambient Grid Background -->
+    <div class="fixed top-[-20%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-brand-900/20 blur-[120px] pointer-events-none z-0"></div>
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 border-b border-white/5 bg-dark-900/90 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
             <a href="index.html" class="font-display font-bold text-xl tracking-tight flex items-center gap-2">
-                <div class="w-3 h-3 bg-brand-500 rounded-full"></div>
+                <div class="w-3 h-3 bg-brand-500 rounded-full animate-pulse"></div>
                 FUNDSTACK<span class="text-brand-500">AI</span>
             </a>
-            <div class="flex gap-6 text-[11px] font-bold uppercase tracking-widest text-gray-500">
-                <a href="qualifier.html" class="hover:text-brand-500 transition-colors">Lead Qualifier</a>
+            <div class="hidden md:flex gap-8 text-[11px] font-bold uppercase tracking-widest text-gray-500">
+                <a href="guide.html" class="hover:text-brand-500 transition-colors">Success Guide</a>
                 <a href="products.html" class="hover:text-brand-500 transition-colors">Product Matrix</a>
-                <span class="text-brand-500">Yield Simulator</span>
+                <a href="qualifier.html" class="hover:text-brand-500 transition-colors">Lead Qualifier</a>
+                <span class="text-brand-500 border-b border-brand-500 pb-1">Simulator</span>
             </div>
+            <a href="index.html#apply" class="bg-brand-500 text-dark-900 px-5 py-2 rounded-full font-bold text-[10px] uppercase tracking-tighter hover:bg-white transition-all shadow-[0_0_15px_rgba(0,240,255,0.3)]">
+                Become a Partner
+            </a>
         </div>
     </nav>
 
-    <main class="pt-32 pb-24 px-6 max-w-7xl mx-auto">
-        <div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+    <main class="pt-32 pb-24 px-6 max-w-7xl mx-auto relative z-10">
+        <!-- Header -->
+        <div class="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/5 pb-8">
             <div class="max-w-2xl">
-                <h1 class="font-display text-4xl md:text-6xl font-bold mb-4 tracking-tighter uppercase">Yield Simulator</h1>
-                <p class="text-gray-400 text-lg">Calculate your potential earnings and model the ROI impact for your clients. Move from estimates to precision.</p>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-panel text-[10px] font-bold text-brand-500 mb-6 border-brand-500/20 uppercase tracking-widest">
+                    Yield & ROI Modeler
+                </div>
+                <h1 class="font-display text-4xl md:text-6xl font-bold mb-4 tracking-tighter uppercase leading-tight">Advanced Yield <br/> Simulator</h1>
+                <p class="text-gray-400 text-lg">Calculate your projected net commissions and model the "Cost of Capital" ROI to overcome pricing objections with your borrowers.</p>
             </div>
-            <div class="glass-panel px-6 py-4 rounded-2xl border-brand-500/20">
-                <div class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1">Your Active Tier</div>
-                <div class="text-brand-500 font-display text-xl font-bold uppercase tracking-tighter">Gold (70% Split)</div>
+            <div class="glass-panel px-8 py-6 rounded-2xl border-white/10 text-right min-w-[200px]">
+                <div class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1">Active Split Tier</div>
+                <div id="activeTierBadge" class="text-brand-500 font-display text-2xl font-bold uppercase tracking-tighter glow-text">Associate</div>
+                <div id="activeSplitBadge" class="text-xs text-gray-400 mt-1 font-mono">50% Output</div>
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
             
-            <!-- Partner Commission Engine -->
-            <div class="glass-panel p-8 md:p-12 rounded-[2.5rem] border-white/10">
-                <h2 class="font-display text-2xl font-bold mb-8 uppercase tracking-tight">Partner Yield Engine</h2>
-                
-                <div class="space-y-10">
-                    <div>
-                        <div class="flex justify-between mb-4">
-                            <label class="text-xs font-bold text-gray-500 uppercase">Monthly Volume ($)</label>
-                            <span id="volLabel" class="text-brand-500 font-bold">$500k</span>
-                        </div>
-                        <input type="range" id="volInput" min="50000" max="5000000" step="50000" value="500000" oninput="calcPartner()">
-                    </div>
+            <!-- PARTNER COMMISSION ENGINE -->
+            <div class="glass-panel rounded-[2rem] border-white/10 flex flex-col">
+                <div class="p-8 md:p-12 flex-1">
+                    <h2 class="font-display text-2xl font-bold mb-2 uppercase tracking-tight text-white flex items-center gap-3">
+                        <svg class="w-6 h-6 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        Partner Yield Engine
+                    </h2>
+                    <p class="text-xs text-gray-500 uppercase tracking-widest mb-10">Project your monthly take-home revenue.</p>
                     
-                    <div>
-                        <div class="flex justify-between mb-4">
-                            <label class="text-xs font-bold text-gray-500 uppercase">Avg. Origination Fee (%)</label>
-                            <span id="feeLabel" class="text-brand-500 font-bold">5%</span>
-                        </div>
-                        <input type="range" id="feeInput" min="1" max="15" step="0.5" value="5" oninput="calcPartner()">
-                    </div>
-
-                    <div class="pt-8 border-t border-white/5">
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="p-6 bg-white/5 rounded-2xl">
-                                <div class="text-[10px] font-bold text-gray-500 uppercase mb-2">Gross Points</div>
-                                <div id="grossPoints" class="text-2xl font-bold">$25,000</div>
+                    <div class="space-y-12">
+                        <div>
+                            <div class="flex justify-between mb-4">
+                                <label class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Monthly Funded Volume</label>
+                                <span id="volLabel" class="text-brand-500 font-bold font-mono text-lg">$500,000</span>
                             </div>
-                            <div class="p-6 bg-brand-500 rounded-2xl">
-                                <div class="text-[10px] font-bold text-dark-900 uppercase mb-2">Net Commission</div>
-                                <div id="netComm" class="text-2xl font-bold text-dark-900">$17,500</div>
+                            <input type="range" id="volInput" min="50000" max="5000000" step="50000" value="500000" oninput="calcPartner()">
+                            
+                            <!-- Dynamic Tier Progress Bar -->
+                            <div class="flex justify-between text-[9px] font-bold uppercase tracking-widest text-gray-600 mt-4">
+                                <span id="tier1Marker" class="text-brand-500">Tier 1</span>
+                                <span id="tier2Marker" class="transition-colors">$250k (Tier 2)</span>
+                                <span id="tier3Marker" class="transition-colors">$1M+ (Tier 3)</span>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-4">
+                                <label class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Avg. Origination Fee</label>
+                                <span id="feeLabel" class="text-white font-bold font-mono text-lg">5%</span>
+                            </div>
+                            <input type="range" id="feeInput" min="1" max="15" step="0.5" value="5" oninput="calcPartner()">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Yield Results -->
+                <div class="bg-dark-900/50 p-8 md:p-12 border-t border-white/5 rounded-b-[2rem]">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <div class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Total Gross Points</div>
+                            <div id="grossPoints" class="text-3xl font-display font-bold text-gray-300">$25,000</div>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute -inset-4 bg-brand-500/10 blur-xl rounded-full pointer-events-none"></div>
+                            <div class="relative">
+                                <div class="text-[10px] font-bold text-brand-500 uppercase tracking-widest mb-2">Your Net Commission</div>
+                                <div id="netComm" class="text-4xl font-display font-black text-white glow-text">$15,000</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Client ROI Modeler -->
-            <div class="glass-panel p-8 md:p-12 rounded-[2.5rem] border-white/10">
-                <h2 class="font-display text-2xl font-bold mb-8 uppercase tracking-tight">Client Growth ROI</h2>
-                <p class="text-xs text-gray-500 mb-8 uppercase font-mono tracking-widest">Model the impact of capital deployment for your borrowers.</p>
-                
-                <div class="space-y-10">
-                    <div>
-                        <div class="flex justify-between mb-4">
-                            <label class="text-xs font-bold text-gray-500 uppercase">Capital Deployed</label>
-                            <span id="capLabel" class="text-brand-500 font-bold">$100k</span>
+            <!-- CLIENT ROI MODELER (Objection Handling) -->
+            <div class="glass-panel rounded-[2rem] border-white/10 flex flex-col bg-gradient-to-br from-brand-900/20 to-transparent">
+                <div class="p-8 md:p-12 flex-1">
+                    <h2 class="font-display text-2xl font-bold mb-2 uppercase tracking-tight text-white flex items-center gap-3">
+                        <svg class="w-6 h-6 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                        Borrower ROI Modeler
+                    </h2>
+                    <p class="text-xs text-gray-500 uppercase tracking-widest mb-10 leading-relaxed">Handle the "Rate is too high" objection by proving the Net ROI of the capital deployment.</p>
+                    
+                    <div class="space-y-12">
+                        <div>
+                            <div class="flex justify-between mb-4">
+                                <label class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Capital Advanced</label>
+                                <span id="capLabel" class="text-white font-bold font-mono text-lg">$100,000</span>
+                            </div>
+                            <input type="range" id="capInput" min="10000" max="1000000" step="10000" value="100000" oninput="calcROI()">
                         </div>
-                        <input type="range" id="capInput" min="10000" max="1000000" step="10000" value="100000" oninput="calcROI()">
+                        
+                        <div>
+                            <div class="flex justify-between mb-4">
+                                <label class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Expected Revenue Multiplier</label>
+                                <span id="multLabel" class="text-white font-bold font-mono text-lg">2.5x</span>
+                            </div>
+                            <input type="range" id="multInput" min="1.1" max="5" step="0.1" value="2.5" oninput="calcROI()">
+                            <p class="text-[9px] text-gray-600 mt-2 uppercase">How much revenue will this capital generate? (e.g. Buying inventory at wholesale)</p>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between mb-4">
+                                <label class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Cost of Capital (Factor Rate)</label>
+                                <span id="factorLabel" class="text-red-400 font-bold font-mono text-lg">1.25</span>
+                            </div>
+                            <input type="range" id="factorInput" min="1.05" max="1.50" step="0.01" value="1.25" oninput="calcROI()">
+                            <p class="text-[9px] text-gray-600 mt-2 uppercase">Simulate a high-cost alternative advance.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ROI Results -->
+                <div class="bg-dark-900/80 p-8 md:p-12 border-t border-white/5 rounded-b-[2rem]">
+                    <div class="flex justify-between items-end mb-6 pb-6 border-b border-white/5">
+                        <div>
+                            <div class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1">New Gross Revenue</div>
+                            <div id="roiTotal" class="text-xl font-display font-bold text-white">$250,000</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-[10px] font-bold text-red-500 uppercase tracking-widest mb-1">Cost of Capital</div>
+                            <div id="costOfCapital" class="text-xl font-display font-bold text-red-400">-$25,000</div>
+                        </div>
                     </div>
                     
-                    <div>
-                        <div class="flex justify-between mb-4">
-                            <label class="text-xs font-bold text-gray-500 uppercase">Expected Revenue Multiplier</label>
-                            <span id="multLabel" class="text-brand-500 font-bold">2.5x</span>
+                    <div class="flex justify-between items-center bg-white/5 p-6 rounded-2xl border border-white/10">
+                        <div>
+                            <div class="text-[10px] font-bold text-brand-500 uppercase tracking-widest mb-1">Net Profit to Borrower</div>
+                            <div id="netProfit" class="text-3xl font-display font-black text-brand-500 glow-text">$125,000</div>
                         </div>
-                        <input type="range" id="multInput" min="1" max="10" step="0.5" value="2.5" oninput="calcROI()">
-                    </div>
-
-                    <div class="pt-8 border-t border-white/5">
-                        <div class="p-6 bg-dark-900 border border-brand-500/20 rounded-2xl relative overflow-hidden">
-                            <div class="absolute inset-0 bg-brand-500/5 animate-pulse"></div>
-                            <div class="relative z-10 flex justify-between items-center">
-                                <div>
-                                    <div class="text-[10px] font-bold text-gray-500 uppercase mb-1">Projected Gross Growth</div>
-                                    <div id="roiTotal" class="text-3xl font-bold text-white">$250,000</div>
-                                </div>
-                                <div class="text-right">
-                                    <div class="text-[10px] font-bold text-brand-500 uppercase mb-1">Net ROI</div>
-                                    <div id="netROI" class="text-xl font-bold text-brand-500">150%</div>
-                                </div>
-                            </div>
+                        <div class="text-right">
+                            <div class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1">Net ROI</div>
+                            <div id="netROI" class="text-2xl font-display font-bold text-white">125%</div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
 
-        <!-- Tier Explanation -->
-        <section class="mt-12 glass-panel p-8 rounded-[2rem] border-white/5">
-            <h3 class="font-display text-xl font-bold mb-6 uppercase tracking-tighter">Commission Tier Logic</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="p-4 border-l-2 border-gray-800">
-                    <div class="font-bold text-gray-500 uppercase text-[10px] mb-1">Tier 1: Associate</div>
-                    <div class="text-lg font-bold">50% Split</div>
-                    <div class="text-xs text-gray-600 mt-2">Default entry level. Access to basic qualifiers.</div>
+        <!-- Commission Tier Explanation -->
+        <section class="mt-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div id="tierBox1" class="glass-panel p-6 rounded-2xl border-white/10 transition-all duration-300">
+                    <div class="flex justify-between items-center mb-4">
+                        <div id="tierText1" class="font-bold text-gray-500 uppercase text-[10px] tracking-widest transition-colors duration-300">Tier 1: Associate</div>
+                        <div class="text-white font-mono text-sm">0 - $249k</div>
+                    </div>
+                    <div class="text-3xl font-display font-bold text-white mb-2">50% Split</div>
+                    <div class="text-xs text-gray-500">Default entry level. Access to base qualifiers and standard CRM routing.</div>
                 </div>
-                <div class="p-4 border-l-2 border-brand-500">
-                    <div class="font-bold text-brand-500 uppercase text-[10px] mb-1">Tier 2: Producer</div>
-                    <div class="text-lg font-bold">60% Split</div>
-                    <div class="text-xs text-gray-600 mt-2">Triggered at $250k funded monthly volume.</div>
+
+                <div id="tierBox2" class="glass-panel p-6 rounded-2xl border-white/10 transition-all duration-300">
+                    <div class="flex justify-between items-center mb-4">
+                        <div id="tierText2" class="font-bold text-gray-500 uppercase text-[10px] tracking-widest transition-colors duration-300">Tier 2: Producer</div>
+                        <div class="text-white font-mono text-sm">$250k - $999k</div>
+                    </div>
+                    <div class="text-3xl font-display font-bold text-white mb-2">60% Split</div>
+                    <div class="text-xs text-gray-500">Unlocks priority Deal Desk review and dedicated pipeline manager.</div>
                 </div>
-                <div class="p-4 border-l-2 border-white">
-                    <div class="font-bold text-white uppercase text-[10px] mb-1">Tier 3: Alpha Partner</div>
-                    <div class="text-lg font-bold">70% Split</div>
-                    <div class="text-xs text-gray-600 mt-2">Triggered at $1M+ funded monthly volume.</div>
+
+                <div id="tierBox3" class="glass-panel p-6 rounded-2xl border-white/10 transition-all duration-300">
+                    <div class="flex justify-between items-center mb-4">
+                        <div id="tierText3" class="font-bold text-gray-500 uppercase text-[10px] tracking-widest transition-colors duration-300">Tier 3: Alpha Node</div>
+                        <div class="text-white font-mono text-sm">$1M+ Monthly</div>
+                    </div>
+                    <div class="text-3xl font-display font-bold text-white mb-2">70% Split</div>
+                    <div class="text-xs text-gray-500">Maximum payout tier. Direct API access and custom white-label asset creation.</div>
                 </div>
             </div>
         </section>
+        
+        <div class="mt-16 text-center">
+            <a href="index.html#apply" class="inline-block bg-white text-dark-900 px-12 py-4 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-brand-500 transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(0,240,255,0.4)]">
+                Initialize Partner Setup
+            </a>
+        </div>
     </main>
 
     <footer class="py-12 border-t border-white/5 text-center text-[10px] text-gray-600 uppercase tracking-widest font-bold">
-        &copy; 2026 FundStack-AI | Advanced Modeling Suite
+        &copy; 2026 FundStack-AI | Engineering As Marketing Suite
     </footer>
 
     <script>
@@ -173,35 +245,74 @@
             const vol = parseInt(document.getElementById('volInput').value);
             const fee = parseFloat(document.getElementById('feeInput').value) / 100;
             
-            // Dynamic Split Logic from Handbook
             let split = 0.50;
-            if (vol >= 250000) split = 0.60;
-            if (vol >= 1000000) split = 0.70;
+            let tierName = "Associate";
+            
+            // Reset Tier UI
+            [1,2,3].forEach(i => {
+                document.getElementById('tierBox'+i).classList.remove('tier-active');
+                document.getElementById('tierText'+i).classList.remove('tier-active-text');
+            });
+            document.getElementById('tier2Marker').classList.remove('text-brand-500');
+            document.getElementById('tier3Marker').classList.remove('text-brand-500');
+
+            // Apply Tier Logic
+            if (vol < 250000) {
+                document.getElementById('tierBox1').classList.add('tier-active');
+                document.getElementById('tierText1').classList.add('tier-active-text');
+            } else if (vol >= 250000 && vol < 1000000) {
+                split = 0.60;
+                tierName = "Producer";
+                document.getElementById('tierBox2').classList.add('tier-active');
+                document.getElementById('tierText2').classList.add('tier-active-text');
+                document.getElementById('tier2Marker').classList.add('text-brand-500');
+            } else if (vol >= 1000000) {
+                split = 0.70;
+                tierName = "Alpha Node";
+                document.getElementById('tierBox3').classList.add('tier-active');
+                document.getElementById('tierText3').classList.add('tier-active-text');
+                document.getElementById('tier2Marker').classList.add('text-brand-500');
+                document.getElementById('tier3Marker').classList.add('text-brand-500');
+            }
 
             const gross = vol * fee;
             const net = gross * split;
 
             document.getElementById('volLabel').innerText = format(vol);
-            document.getElementById('feeLabel').innerText = (fee * 100) + '%';
+            document.getElementById('feeLabel').innerText = (fee * 100).toFixed(1) + '%';
             document.getElementById('grossPoints').innerText = format(gross);
             document.getElementById('netComm').innerText = format(net);
+            
+            document.getElementById('activeTierBadge').innerText = tierName;
+            document.getElementById('activeSplitBadge').innerText = (split * 100) + "% Payout Split";
         }
 
         function calcROI() {
             const cap = parseInt(document.getElementById('capInput').value);
             const mult = parseFloat(document.getElementById('multInput').value);
+            const factor = parseFloat(document.getElementById('factorInput').value);
             
-            const total = cap * mult;
-            const netVal = total - cap;
-            const percentage = ((total - cap) / cap) * 100;
+            const totalRevenue = cap * mult;
+            const paybackAmount = cap * factor;
+            const costOfCapital = paybackAmount - cap;
+            
+            // Profit after paying back the principal AND the fee
+            const netProfit = totalRevenue - paybackAmount; 
+            
+            // ROI relative to the original capital deployed
+            const roiPercentage = (netProfit / cap) * 100;
 
             document.getElementById('capLabel').innerText = format(cap);
-            document.getElementById('multLabel').innerText = mult + 'x';
-            document.getElementById('roiTotal').innerText = format(total);
-            document.getElementById('netROI').innerText = percentage.toFixed(0) + '%';
+            document.getElementById('multLabel').innerText = mult.toFixed(1) + 'x';
+            document.getElementById('factorLabel').innerText = factor.toFixed(2);
+            
+            document.getElementById('roiTotal').innerText = format(totalRevenue);
+            document.getElementById('costOfCapital').innerText = "-" + format(costOfCapital);
+            document.getElementById('netProfit').innerText = format(netProfit);
+            document.getElementById('netROI').innerText = roiPercentage.toFixed(0) + '%';
         }
 
-        // Init
+        // Initialize on load
         calcPartner();
         calcROI();
     </script>
