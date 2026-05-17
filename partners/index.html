@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Become a Funding Partner | FundStack-AI & Moonshine Capital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            500: '#00F0FF',
+                            600: '#00D1DF',
+                            900: '#003B45',
+                        },
+                        dark: {
+                            900: '#050505',
+                            800: '#0A0A0A',
+                            700: '#111111',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #050505; color: #ffffff; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .bento-card { transition: all 0.3s ease; }
+        .bento-card:hover { border-color: rgba(0, 240, 255, 0.4); background: rgba(255, 255, 255, 0.04); }
+        
+        .tally-container iframe {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .tally-container iframe::-webkit-scrollbar {
+            display: none;
+        }
+        .glow-text {
+            text-shadow: 0 0 25px rgba(0, 240, 255, 0.45);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-500 selection:text-dark-900 overflow-x-hidden">
+
+    <!-- Ambient background glows -->
+    <div class="fixed top-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-brand-900/10 blur-[130px] pointer-events-none z-0"></div>
+    <div class="fixed bottom-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-blue-900/10 blur-[130px] pointer-events-none z-0"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 border-b border-white/5 bg-dark-900/90 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="../index.html" class="font-display font-bold text-xl tracking-tight flex items-center gap-2">
+                <div class="w-3 h-3 bg-brand-500 rounded-full animate-pulse"></div>
+                FUNDSTACK<span class="text-brand-500">AI</span>
+            </a>
+            <div class="hidden md:flex gap-8 text-[11px] font-bold uppercase tracking-[0.15em] text-gray-500">
+                <a href="../guide.html" class="hover:text-brand-500 transition-colors">Success Guide</a>
+                <a href="../products.html" class="hover:text-brand-500 transition-colors">Product Matrix</a>
+                <a href="../simulator.html" class="hover:text-white transition-colors">Simulator</a>
+                <a href="../link-in-bio.html" class="hover:text-white transition-colors">Partner Directory</a>
+            </div>
+            <a href="#apply-form" class="bg-brand-500 text-dark-900 px-6 py-2.5 rounded-full font-bold text-[11px] uppercase tracking-widest hover:bg-white transition-all shadow-[0_0_15px_rgba(0,240,255,0.35)]">
+                Become a Partner
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative z-10 pt-48 pb-20 px-6 max-w-7xl mx-auto text-center">
+        <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full glass-panel text-[10px] font-bold text-brand-500 mb-8 border-brand-500/30 uppercase tracking-[0.2em] glow-text">
+            Sovereign Funding Rails for High-Performance Originators
+        </div>
+        <h1 class="font-display text-5xl md:text-8xl font-bold tracking-tighter mb-8 leading-[0.95] uppercase">
+            Turn relationships <br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-blue-300">
+                into infinite yield.
+            </span>
+        </h1>
+        <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-12 font-light leading-relaxed">
+            Stop losing files to slow banks or back-door brokers. Join **The Alpha Originator Desk** at Moonshine Capital. Access 59+ white-labeled capital structures, instant AI retrieval toolsets, and automatic lifetime renewal attribution.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 w-full justify-center max-w-md mx-auto">
+            <a href="#apply-form" class="w-full bg-white text-dark-900 px-8 py-4 font-extrabold text-sm uppercase tracking-widest rounded-full hover:bg-brand-500 transition-all text-center">
+                Secure Your Code Node
+            </a>
+            <a href="#operator-suite" class="w-full glass-panel text-white px-8 py-4 font-bold text-sm uppercase tracking-widest rounded-full hover:bg-white/10 transition-all text-center border-white/20">
+                Explore Operator Suite
+            </a>
+        </div>
+    </header>
+
+    <!-- Strategic Pillars Section (The Sizzle) -->
+    <section class="relative z-10 py-16 px-6 max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="font-display text-3xl md:text-5xl font-bold uppercase tracking-tighter">Why Top Brokers Originate Here</h2>
+            <p class="text-gray-400 text-sm md:text-base mt-3 max-w-xl mx-auto">We provide the dynamic infrastructure. You scale your network.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="glass-panel p-8 rounded-3xl border-white/5 bg-gradient-to-b from-white/[0.01] to-transparent">
+                <div class="w-12 h-12 rounded-2xl bg-brand-500/10 flex items-center justify-center text-brand-500 mb-6 border border-brand-500/20">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h3 class="font-display text-xl font-bold uppercase mb-3">Uncapped Tier Payouts</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Scale your split dynamically up to a <span class="text-brand-500 font-bold">70% net commission cut</span>. No arbitrary holdbacks or administrative gatekeeping.</p>
+            </div>
+
+            <div class="glass-panel p-8 rounded-3xl border-white/5 bg-gradient-to-b from-white/[0.01] to-transparent">
+                <div class="w-12 h-12 rounded-2xl bg-brand-500/10 flex items-center justify-center text-brand-500 mb-6 border border-brand-500/20">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                </div>
+                <h3 class="font-display text-xl font-bold uppercase mb-3">0% Bypass Risk</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Your files are entirely white-labeled. We strip all backend providers and anchor every lead back to your unique <span class="text-white font-semibold">partner_id</span> inside our CRM.</p>
+            </div>
+
+            <div class="glass-panel p-8 rounded-3xl border-white/5 bg-gradient-to-b from-white/[0.01] to-transparent">
+                <div class="w-12 h-12 rounded-2xl bg-brand-500/10 flex items-center justify-center text-brand-500 mb-6 border border-brand-500/20">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <h3 class="font-display text-xl font-bold uppercase mb-3">AI-Engineered Advantage</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Leverage the Turndown Recovery AI, the Blue Collar Banker qualifier, and fast-match logic to capture, segment, and score files automatically.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Embedded Tally Application Section -->
+    <section id="apply-form" class="relative z-10 py-16 px-6 max-w-5xl mx-auto border-t border-white/10">
+        <div class="text-center mb-12">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-panel text-[9px] font-bold text-brand-500 mb-4 border-brand-500/20 uppercase tracking-[0.25em]">
+                Partner Intake Gate
+            </div>
+            <h2 class="font-display text-4xl md:text-6xl font-bold mb-4 tracking-tighter uppercase">Initialize Your Node</h2>
+            <p class="text-gray-400 text-base max-w-xl mx-auto">Fill out the official onboarding form below. Our intake engines will review your profile to allocate your dedicated syndicate code.</p>
+        </div>
+
+        <div class="glass-panel rounded-[2.5rem] border-white/10 shadow-2xl relative overflow-hidden bg-dark-800/40">
+            <div class="absolute inset-0 bg-brand-500/5 animate-pulse pointer-events-none"></div>
+            <div class="relative z-10 tally-container min-h-[500px] p-2">
+                <iframe 
+                    data-tally-src="https://tally.so/embed/mOe658?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
+                    loading="lazy" 
+                    width="100%" 
+                    height="500" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0" 
+                    title="Join the #1 B2B Funding Platform!">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Connected Partner Assets (The Operator Suite) -->
+    <section id="operator-suite" class="relative z-10 py-16 px-6 max-w-6xl mx-auto border-t border-white/10">
+        <div class="text-center mb-16">
+            <h2 class="font-display text-3xl md:text-5xl font-bold uppercase tracking-tighter">The Origination Suite</h2>
+            <p class="text-gray-400 text-sm md:text-base mt-3 max-w-xl mx-auto">Equip your deal-making process with high-utility assets built to convert.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Asset 1: Success Guide -->
+            <a href="../guide.html" class="bento-card glass-panel p-8 rounded-3xl border-white/5 flex flex-col justify-between group">
+                <div>
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="text-[9px] font-mono text-brand-500 uppercase tracking-widest font-bold">OPERATIONAL MANUAL</span>
+                        <svg class="w-5 h-5 text-gray-600 group-hover:text-brand-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold uppercase mb-3">Partner Success Guide</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">A digital translation of the Moonshine Capital Master Handbook. Learn how to pre-vet leads, understand the 4 Underwriting Pillars, and utilize optimal routing logic.</p>
+                </div>
+                <div class="text-xs font-bold text-brand-500 uppercase tracking-widest border-t border-white/5 pt-4">Explore Guide →</div>
+            </a>
+
+            <!-- Asset 2: Link in Bio -->
+            <a href="../link-in-bio.html" class="bento-card glass-panel p-8 rounded-3xl border-white/5 flex flex-col justify-between group">
+                <div>
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="text-[9px] font-mono text-brand-500 uppercase tracking-widest font-bold">MARKETING DEPLOYMENT</span>
+                        <svg class="w-5 h-5 text-gray-600 group-hover:text-brand-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold uppercase mb-3">Partner Link-in-Bio</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">A high-conversion, mobile-optimized profile card and tool index designed specifically for social media distribution, direct DM outreach, and quick broker profiling.</p>
+                </div>
+                <div class="text-xs font-bold text-brand-500 uppercase tracking-widest border-t border-white/5 pt-4">Preview Profile Asset →</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative z-10 py-24 px-6 border-t border-white/5 text-center bg-dark-900/50">
+        <div class="max-w-4xl mx-auto">
+            <div class="font-display font-bold text-xl tracking-tight mb-8">
+                FUNDSTACK<span class="text-brand-500">AI</span>
+            </div>
+            <p class="text-gray-500 text-sm mb-12 max-w-lg mx-auto">Only 50 partner nodes are activated per quarter to ensure premium support at our Deal Desk. Secure your onboarding space today.</p>
+            <div class="text-gray-600 font-bold text-[10px] uppercase tracking-[0.4em]">
+                &copy; 2026 FUNDSTACK-AI | A MOONSHINE CAPITAL TECHNOLOGY PARTNER
+            </div>
+        </div>
+    </footer>
+
+    <!-- Tally Widget Embed Script -->
+    <script>
+        var d=document,w="https://tally.so/widgets/embed.js",v=function(){
+            if("undefined"!=typeof Tally) {
+                Tally.loadEmbeds();
+            } else {
+                d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}));
+            }
+        };
+        if("undefined"!=typeof Tally) v();
+        else if(d.querySelector('script[src="'+w+'"]')==null){
+            var s=d.createElement("script");
+            s.src=w;
+            s.onload=v;
+            s.onerror=v;
+            d.body.appendChild(s);
+        }
+    </script>
+</body>
+</html>
