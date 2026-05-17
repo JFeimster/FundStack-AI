@@ -14,18 +14,18 @@ This file tracks active cleanup items, implementation risks, and route/documenta
 
 **Status:** Open
 
-Several older vertical and solution pages still include repeated Tailwind CDN configuration, inline styles, glass panel styling, button classes, and background/glow patterns.
+Several older vertical and solution detail pages still include repeated Tailwind CDN configuration, inline styles, glass panel styling, button classes, and background/glow patterns.
 
 Progress:
 
 - `assets/css/styles.css` now exists as the shared style foundation.
-- `tools/index.html`, `index.html`, `partners/index.html`, `qualifier.html`, `dashboard.html`, and several core tool pages use the shared CSS foundation.
+- `tools/index.html`, `index.html`, `partners/index.html`, `qualifier.html`, `dashboard.html`, several core tool pages, and the main hub pages use the shared CSS foundation.
 
 Required action:
 
 - Continue moving shared visual patterns into reusable classes where practical.
 - Keep Tailwind CDN only if remaining static-first and no build step is approved.
-- Prioritize vertical and solution pages in a later visual standardization pass.
+- Prioritize vertical and solution detail pages in a later visual standardization pass.
 
 ### 2. Remaining JavaScript Consolidation
 
@@ -36,7 +36,7 @@ Some pages still include page-specific JavaScript for calculators, sliders, redi
 Progress:
 
 - `assets/js/app.js` now exists as the shared JS utility foundation.
-- `tools/index.html`, `index.html`, `partners/index.html`, `qualifier.html`, `dashboard.html`, and several core tool pages use the shared JS foundation.
+- `tools/index.html`, `index.html`, `partners/index.html`, `qualifier.html`, `dashboard.html`, several core tool pages, and the main hub pages use the shared JS foundation.
 - The homepage client-side AI/Gemini demo stub has been removed.
 
 Required action:
@@ -44,49 +44,32 @@ Required action:
 - Move shared helpers into `assets/js/app.js` where safe.
 - Keep calculator-specific logic inside individual pages where that keeps the static site easier to maintain.
 
-### 3. Vertical and Solution Page Compliance Review Needed
+### 3. Vertical and Solution Detail Page Review Needed
 
 **Status:** Open
 
-Core tool pages have received a compliance-focused standardization pass, but vertical and solution pages may still include aggressive or absolute language.
+The main vertical and solution hub pages have been upgraded, but the individual vertical and solution detail pages still need a design/content pass.
 
-Required action:
-
-- Review vertical and solution page outputs and CTAs.
-- Add standard disclaimer blocks.
-- Soften language that implies approval, terms, amounts, timing, or outcomes are guaranteed.
-
-### 4. Hub Page Design Pass Needed
-
-**Status:** Open
-
-The following hubs now exist but several are intentionally minimal and should receive a stronger dark-luxe design pass later:
+Target pages:
 
 ```txt
-funding/index.html
-partners/assets.html
-verticals/index.html
-solutions/index.html
+verticals/trucking.html
+verticals/medical.html
+verticals/ecommerce.html
+verticals/contractors.html
+verticals/real-estate.html
+solutions/bank-denial.html
+solutions/payroll-gap.html
+solutions/equipment-now.html
+solutions/zero-revenue.html
 ```
 
 Required action:
 
-- Upgrade these hubs with shared CSS classes.
-- Add richer cards and CTA sections.
-- Preserve compliance-safe language.
-- Avoid large brittle rewrites unless done in a controlled batch.
-
-### 5. Hub Metadata Enhancement Deferred
-
-**Status:** Open
-
-The main SEO plumbing is now in place, but one richer hub metadata rewrite was blocked by the connector safety layer during Commit 8.
-
-Required action:
-
-- Revisit Open Graph and meta description improvements in smaller file-specific patches.
-- Avoid oversized rewrites when only metadata changes are needed.
-- Prioritize `tools/index.html`, `funding/index.html`, `partners/assets.html`, `verticals/index.html`, and `solutions/index.html`.
+- Review page copy for sharpness, usefulness, and accuracy.
+- Add stronger dark-luxe layouts where needed.
+- Keep CTAs confident and useful.
+- Avoid turning pages into bland disclaimer wallpaper.
 
 ## Resolved Issues
 
@@ -181,11 +164,6 @@ verticals/index.html
 solutions/index.html
 ```
 
-Notes:
-
-- `tools/index.html` uses the shared CSS and JS foundation.
-- The other hubs are minimal static pages and should be upgraded in a later design/copy pass.
-
 ### Homepage and Partner Messaging Cleaned Up
 
 **Status:** Resolved
@@ -195,7 +173,7 @@ The homepage and partner page were rewritten to:
 - Use shared CSS and JS foundations.
 - Remove the homepage client-side AI/Gemini demo stub.
 - Link to the new hub pages.
-- Replace aggressive or risky claims with compliance-safe positioning.
+- Replace aggressive or risky claims with stronger, cleaner positioning.
 - Preserve the Tally partner intake embed.
 - Keep the repo static-first.
 
@@ -215,14 +193,6 @@ tools/cost-of-capital.html
 dscr-precheck.html
 tools/amazon-cashflow.html
 ```
-
-Key cleanup completed:
-
-- Replaced approval-style language with planning/review language.
-- Added or improved disclaimer language.
-- Replaced hardcoded `fundstack.ai` dashboard links with the current Vercel domain.
-- Removed or softened phrases such as “you qualify,” “pre-approval,” “secure the capital,” and “take the capital.”
-- Added shared CSS/JS references where practical.
 
 ### Static SEO and Hosting Basics Added
 
@@ -280,11 +250,32 @@ Protection was then restored in the repo:
 c9754ce9cc2b072c6f6d75f5a6c7c8b52a106e4f
 ```
 
+### Hub Page Upgrade and Metadata Patch Completed
+
+**Status:** Resolved
+
+Batch 10 upgraded the main hub pages and added metadata where needed:
+
+```txt
+funding/index.html
+partners/assets.html
+verticals/index.html
+solutions/index.html
+tools/index.html
+```
+
+Completed:
+
+- Replaced minimal placeholder hubs with dark-luxe FundStack pages.
+- Added metadata/Open Graph tags to upgraded hubs.
+- Preserved static-first structure.
+- Kept copy sharp and practical instead of over-disclaimed.
+
 ## Recommended Next Batch
 
 Recommended next work:
 
-1. Upgrade minimal hub pages with the shared dark-luxe design system.
-2. Add hub metadata in smaller file-specific patches.
-3. Review vertical and solution page copy for compliance-safe language.
-4. Continue CSS/JS consolidation where practical.
+1. Review and upgrade individual vertical pages.
+2. Review and upgrade individual solution pages.
+3. Continue CSS/JS consolidation only where it makes maintenance easier.
+4. Deploy once after the next approved batch is complete.
