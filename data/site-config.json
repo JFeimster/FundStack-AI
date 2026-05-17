@@ -1,0 +1,55 @@
+{
+  "siteName": "FundStack AI",
+  "legalName": "Moonshine Capital",
+  "liveUrl": "https://fund-stack-ai.vercel.app/",
+  "repository": "JFeimster/FundStack-AI",
+  "deployment": {
+    "provider": "Vercel",
+    "projectName": "fund-stack-ai",
+    "autoGitDeploymentsEnabled": false,
+    "note": "Automatic Git deployments are disabled in vercel.json. Do not manually deploy unless approved."
+  },
+  "positioning": {
+    "shortDescription": "A static-first funding intelligence and partner enablement hub for Moonshine Capital.",
+    "primaryAudience": [
+      "funding partners",
+      "referral partners",
+      "business loan brokers",
+      "business service professionals",
+      "small business owners exploring funding options"
+    ],
+    "corePromise": "Help partners and business owners organize funding conversations with better tools, cleaner intake, and smarter readiness guidance."
+  },
+  "brand": {
+    "tone": [
+      "dark-luxe fintech",
+      "direct",
+      "practical",
+      "high-signal",
+      "partner-first"
+    ],
+    "colors": {
+      "background": "#050505",
+      "panel": "#111111",
+      "brand": "#00F0FF",
+      "brandDark": "#003B45",
+      "text": "#FFFFFF",
+      "muted": "#9CA3AF"
+    }
+  },
+  "defaultCta": {
+    "label": "Explore Funding Options",
+    "href": "#apply"
+  },
+  "partnerCta": {
+    "label": "Become a Partner",
+    "href": "/partners/index.html"
+  },
+  "forms": {
+    "partnerApplicationTallyEmbed": "https://tally.so/embed/mOe658?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+  },
+  "compliance": {
+    "defaultDisclaimer": "Provider criteria apply. Approval, terms, amounts, and timing are not guaranteed.",
+    "publicCopyRule": "Use profile-based, educational language. Do not imply approval, terms, amounts, or funding timing are guaranteed."
+  }
+}
