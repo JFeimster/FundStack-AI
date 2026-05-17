@@ -19,7 +19,7 @@ The immediate goal is to organize the current static pages into clear zones:
 
 ## Verified Current Structure
 
-The following files and folders have been verified during route repair:
+The following files and folders have been verified during route repair and hub-page creation:
 
 ```txt
 /
@@ -46,12 +46,15 @@ The following files and folders have been verified during route repair:
 │   ├── compliance-language.json
 │   └── site-config.json
 ├── funding/
+│   ├── index.html
 │   └── products.html
 ├── partners/
 │   ├── index.html
+│   ├── assets.html
 │   ├── guide.html
 │   └── link-in-bio.html
 ├── tools/
+│   ├── index.html
 │   ├── fund-match-quiz.html
 │   ├── fundability-score.html
 │   ├── startup-planner.html
@@ -59,6 +62,19 @@ The following files and folders have been verified during route repair:
 │   ├── dscr-precheck.html         # redirect shim to ../dscr-precheck.html
 │   ├── ecom-cashflow-tool.html    # redirect shim to amazon-cashflow.html
 │   └── amazon-cashflow.html
+├── verticals/
+│   ├── index.html
+│   ├── trucking.html
+│   ├── medical.html
+│   ├── ecommerce.html
+│   ├── contractors.html
+│   └── real-estate.html
+├── solutions/
+│   ├── index.html
+│   ├── bank-denial.html
+│   ├── payroll-gap.html
+│   ├── equipment-now.html
+│   └── zero-revenue.html
 └── docs/
     ├── ai-agents-architecture.md
     ├── build-roadmap.md
@@ -68,6 +84,23 @@ The following files and folders have been verified during route repair:
     ├── product-routing-logic.md
     └── site-structure.md
 ```
+
+## Hub Pages Added
+
+The following hub pages now exist:
+
+```txt
+tools/index.html
+funding/index.html
+partners/assets.html
+verticals/index.html
+solutions/index.html
+```
+
+Notes:
+
+- `tools/index.html` uses the shared CSS and JS foundation.
+- `funding/index.html`, `partners/assets.html`, `verticals/index.html`, and `solutions/index.html` are intentionally minimal static hubs. They can be upgraded in later design/copy passes.
 
 ## Redirect Shims Added
 
@@ -162,7 +195,7 @@ Primary files:
 
 - `partners/index.html`
 - `partners/guide.html`
-- `partners/assets.html` (recommended future hub)
+- `partners/assets.html`
 
 ### Partner Assets
 
@@ -182,6 +215,7 @@ Interactive utilities used as lead magnets, qualification helpers, or partner-fa
 Verified tool routes:
 
 - `qualifier.html`
+- `tools/index.html`
 - `tools/fund-match-quiz.html`
 - `tools/fundability-score.html`
 - `tools/startup-planner.html`
@@ -198,8 +232,9 @@ Compatibility routes:
 
 Product matrix, funding categories, and internal/external education around capital options. Public-facing versions must remain white-labeled and compliance-safe.
 
-Verified route:
+Verified routes:
 
+- `funding/index.html`
 - `funding/products.html`
 
 Compatibility route:
@@ -210,28 +245,26 @@ Compatibility route:
 
 Industry-specific pages for focused acquisition.
 
-Examples:
+Verified routes:
 
-- Trucking.
-- Medical/dental.
-- E-commerce.
-- Contractors.
-- Real estate.
-
-These routes still need a fresh inventory pass before sitemap or hub-page creation.
+- `verticals/index.html`
+- `verticals/trucking.html`
+- `verticals/medical.html`
+- `verticals/ecommerce.html`
+- `verticals/contractors.html`
+- `verticals/real-estate.html`
 
 ### Problem-Solution Funnels
 
 Pages organized around an urgent capital pain point.
 
-Examples:
+Verified routes:
 
-- Bank denial.
-- Payroll gap.
-- Equipment need.
-- Zero-revenue/startup funding.
-
-These routes still need a fresh inventory pass before sitemap or hub-page creation.
+- `solutions/index.html`
+- `solutions/bank-denial.html`
+- `solutions/payroll-gap.html`
+- `solutions/equipment-now.html`
+- `solutions/zero-revenue.html`
 
 ### Internal Docs
 
@@ -256,12 +289,7 @@ Examples:
 
 - Root pages should link to nested pages with explicit relative paths, such as `tools/index.html`.
 - Nested pages should link back to root with `../index.html` where appropriate.
-- When a file moves, update:
-  - Page navigation.
-  - Homepage cards/CTAs.
-  - Partner page cards/CTAs.
-  - README current page list.
-  - `docs/known-issues.md`.
+- When a file moves, update page navigation, homepage cards/CTAs, partner page cards/CTAs, README, and `docs/known-issues.md`.
 
 ## Future Migration Note
 
