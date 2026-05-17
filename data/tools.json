@@ -1,0 +1,92 @@
+{
+  "tools": [
+    {
+      "id": "blue-collar-banker-qualifier",
+      "title": "Blue Collar Banker Qualifier",
+      "href": "/qualifier.html",
+      "status": "active",
+      "audience": ["partners", "brokers", "business owners"],
+      "category": "lead qualification",
+      "description": "A practical lead qualifier for estimating funding readiness based on basic business profile signals.",
+      "primaryUseCase": "Pre-screen a business funding lead before pushing them into a full application.",
+      "disclaimerType": "tool"
+    },
+    {
+      "id": "funding-match-quiz",
+      "title": "Funding Match Quiz",
+      "href": "/tools/fund-match-quiz.html",
+      "status": "needs-path-validation",
+      "audience": ["business owners", "partners"],
+      "category": "routing quiz",
+      "description": "A quiz-style intake tool intended to route users toward likely funding families.",
+      "primaryUseCase": "Classify a prospect by use case, revenue, time in business, and funding need.",
+      "disclaimerType": "tool"
+    },
+    {
+      "id": "fundability-score",
+      "title": "Fundability Score",
+      "href": "/tools/fundability-score.html",
+      "status": "needs-path-validation",
+      "audience": ["business owners", "partners"],
+      "category": "readiness score",
+      "description": "A fundability/readiness scoring widget for structured intake and CRM handoff.",
+      "primaryUseCase": "Estimate readiness and identify friction points before application review.",
+      "disclaimerType": "tool"
+    },
+    {
+      "id": "startup-planner",
+      "title": "Startup Planner",
+      "href": "/tools/startup-planner.html",
+      "status": "needs-path-validation",
+      "audience": ["startup founders", "new business owners"],
+      "category": "startup readiness",
+      "description": "A planning tool for startup funding readiness, early capital paths, and business-credit preparation.",
+      "primaryUseCase": "Help newer businesses understand whether they need funding, readiness work, or credit-leverage planning.",
+      "disclaimerType": "tool"
+    },
+    {
+      "id": "cost-of-capital",
+      "title": "Cost of Capital Calculator",
+      "href": "/tools/cost-of-capital.html",
+      "status": "needs-path-validation",
+      "audience": ["business owners", "partners"],
+      "category": "calculator",
+      "description": "A calculator for comparing the cost and ROI implications of different funding scenarios.",
+      "primaryUseCase": "Help a business owner understand whether capital cost makes sense relative to the business use case.",
+      "disclaimerType": "tool"
+    },
+    {
+      "id": "dscr-precheck",
+      "title": "DSCR Pre-Check",
+      "href": "/tools/dscr-precheck.html",
+      "status": "needs-path-validation",
+      "audience": ["real estate investors", "partners"],
+      "category": "real estate calculator",
+      "description": "A real estate investor pre-check for DSCR-style deal conversations.",
+      "primaryUseCase": "Estimate whether a rental/investor property profile may be worth reviewing.",
+      "disclaimerType": "tool"
+    },
+    {
+      "id": "ecommerce-cashflow-tool",
+      "title": "E-commerce Cashflow Tool",
+      "href": "/tools/ecom-cashflow-tool.html",
+      "status": "needs-path-validation",
+      "audience": ["e-commerce sellers", "marketplace sellers"],
+      "category": "cashflow calculator",
+      "description": "A seller-focused cash-flow planning tool for inventory, payout gaps, and platform-driven funding conversations.",
+      "primaryUseCase": "Help marketplace sellers understand cash-flow pressure before seeking capital.",
+      "disclaimerType": "tool"
+    },
+    {
+      "id": "partner-dashboard",
+      "title": "Partner Dashboard",
+      "href": "/dashboard.html",
+      "status": "active",
+      "audience": ["partners", "operators"],
+      "category": "partner asset",
+      "description": "A static dashboard-style page for partner tracking concepts and future attribution workflows.",
+      "primaryUseCase": "Support partner enablement and tracking education.",
+      "disclaimerType": "partner"
+    }
+  ]
+}
