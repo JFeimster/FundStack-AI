@@ -1,139 +1,112 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Com Survival Calculator | FundStack-AI</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Space Grotesk', 'sans-serif'] }, colors: { brand: { 500: '#00F0FF', 900: '#003B45' }, dark: { 900: '#050505', 800: '#0A0A0A' } } } }
-        }
-    </script>
-    <style>
-        body { background-color: #050505; color: #ffffff; }
-        .glass-panel { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.06); }
-        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
-        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 18px; width: 18px; border-radius: 2px; background: #00F0FF; cursor: pointer; margin-top: -8px; box-shadow: 0 0 10px rgba(0,240,255,0.6); }
-        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 2px; background: rgba(255,255,255,0.2); }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-commerce Cashflow Calculator | FundStack AI</title>
+  <meta name="description" content="A planning calculator for estimating marketplace payout gaps and e-commerce working capital pressure.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <style>
+    input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
+    input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 18px; width: 18px; border-radius: 2px; background: #00F0FF; cursor: pointer; margin-top: -8px; box-shadow: 0 0 10px rgba(0,240,255,0.6); }
+    input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 2px; background: rgba(255,255,255,0.2); }
+  </style>
 </head>
-<body class="antialiased min-h-screen p-6 relative flex flex-col justify-center items-center">
+<body class="antialiased min-h-screen p-6 relative fs-page-shell">
+  <nav class="fixed w-full left-0 top-0 z-50 border-b border-white/5 bg-dark-900/90 backdrop-blur-md">
+    <div class="fs-container h-16 flex items-center justify-between">
+      <a href="../index.html" class="font-display font-bold text-xl tracking-tight flex items-center gap-2"><span class="w-3 h-3 bg-brand-500 rounded-full"></span>FUNDSTACK<span class="text-brand-500">AI</span></a>
+      <div class="hidden md:flex gap-7 text-[11px] font-bold uppercase tracking-[0.12em] text-gray-500">
+        <a href="index.html" class="hover:text-brand-500 transition-colors">Tools</a>
+        <a href="../verticals/ecommerce.html" class="hover:text-brand-500 transition-colors">E-commerce</a>
+        <a href="../funding/index.html" class="hover:text-brand-500 transition-colors">Funding</a>
+      </div>
+      <a href="../index.html#apply" class="fs-button fs-button-primary !py-2 !px-5 text-[11px]">Partner Intake</a>
+    </div>
+  </nav>
 
-    <div class="fixed top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-brand-900/20 blur-[120px] pointer-events-none z-0"></div>
-
-    <div class="w-full max-w-4xl relative z-10">
-        <div class="text-center mb-10">
-            <h1 class="font-display text-4xl md:text-5xl font-bold mb-4 tracking-tighter uppercase">The Cash Flow Squeeze</h1>
-            <p class="text-gray-400 max-w-xl mx-auto">Model the exact dollar amount of working capital required to survive marketplace payout lags (DD+7) without stocking out.</p>
-        </div>
-
-        <div class="glass-panel p-8 md:p-12 rounded-[2rem] border-white/5">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <!-- Inputs -->
-                <div class="space-y-8">
-                    <div>
-                        <div class="flex justify-between mb-4">
-                            <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Avg. Monthly Gross Sales</label>
-                            <span id="salesLabel" class="text-white font-bold font-mono">$100,000</span>
-                        </div>
-                        <input type="range" id="salesInput" min="10000" max="500000" step="5000" value="100000" oninput="calcGap()">
-                    </div>
-
-                    <div>
-                        <div class="flex justify-between mb-4">
-                            <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Platform Payout Lag</label>
-                            <span id="lagLabel" class="text-white font-bold font-mono">14 Days</span>
-                        </div>
-                        <input type="range" id="lagInput" min="1" max="30" step="1" value="14" oninput="calcGap()">
-                        <p class="text-[9px] text-gray-600 mt-2 uppercase">Amazon typically holds funds for Delivery Date + 7 Days.</p>
-                    </div>
-
-                    <div>
-                        <div class="flex justify-between mb-4">
-                            <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Supplier Payment Terms</label>
-                            <span id="termsLabel" class="text-white font-bold font-mono">Net 0 (Pay on Order)</span>
-                        </div>
-                        <select id="termsInput" class="w-full bg-dark-900 border border-white/10 p-4 rounded-xl text-white outline-none focus:border-brand-500 text-sm font-mono" onchange="calcGap()">
-                            <option value="0">Net 0 (Pay immediately)</option>
-                            <option value="15">Net 15</option>
-                            <option value="30">Net 30</option>
-                        </select>
-                    </div>
-                </div>
-
-                <!-- Outputs -->
-                <div class="flex flex-col justify-center">
-                    <div class="bg-dark-900/80 p-8 rounded-2xl border border-white/10 relative overflow-hidden">
-                        <div class="absolute top-0 left-0 w-1 h-full bg-red-500" id="alertBar"></div>
-                        
-                        <div class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Liquidity Gap (Cash Squeeze)</div>
-                        <div id="gapAmount" class="font-display text-4xl font-black text-red-400 mb-6">-$46,666</div>
-                        
-                        <p id="gapDesc" class="text-sm text-gray-400 leading-relaxed mb-6">
-                            Because you pay your supplier faster than the marketplace pays you, you will have a cash deficit. You need outside capital to fund inventory replacements.
-                        </p>
-                        
-                        <div class="border-t border-white/5 pt-6">
-                            <div class="text-[10px] font-bold text-brand-500 uppercase tracking-widest mb-3">Recommended Capital Path</div>
-                            <div id="solution" class="text-white font-bold text-sm bg-white/5 px-4 py-3 rounded-xl border border-white/10">
-                                E-Com Inventory Advance
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <button class="mt-6 w-full bg-brand-500 text-dark-900 py-4 rounded-xl font-bold uppercase tracking-widest text-xs hover:bg-white transition-colors">
-                        Solve Cash Gap Instantly
-                    </button>
-                </div>
-            </div>
-        </div>
+  <main class="w-full max-w-4xl mx-auto pt-28 pb-16 relative z-10">
+    <div class="text-center mb-10">
+      <div class="fs-kicker mb-5">Seller Cashflow Tool</div>
+      <h1 class="fs-display text-4xl md:text-6xl font-black mb-4">E-commerce Cashflow Calculator</h1>
+      <p class="text-gray-400 max-w-xl mx-auto leading-relaxed">Estimate how marketplace payout lag and supplier terms may create working-capital pressure.</p>
     </div>
 
-    <script>
-        function format(v) { return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(v); }
+    <div class="fs-panel p-8 md:p-12 rounded-[2rem]">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="space-y-8">
+          <div>
+            <div class="flex justify-between mb-4"><label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Avg. Monthly Gross Sales</label><span id="salesLabel" class="text-white font-bold font-mono">$100,000</span></div>
+            <input type="range" id="salesInput" min="10000" max="500000" step="5000" value="100000" oninput="calcGap()">
+          </div>
+          <div>
+            <div class="flex justify-between mb-4"><label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Platform Payout Lag</label><span id="lagLabel" class="text-white font-bold font-mono">14 Days</span></div>
+            <input type="range" id="lagInput" min="1" max="30" step="1" value="14" oninput="calcGap()">
+            <p class="text-[9px] text-gray-600 mt-2 uppercase">Use your actual marketplace payout timing when available.</p>
+          </div>
+          <div>
+            <div class="flex justify-between mb-4"><label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Supplier Payment Terms</label><span id="termsLabel" class="text-white font-bold font-mono">Net 0</span></div>
+            <select id="termsInput" class="w-full bg-dark-900 border border-white/10 p-4 rounded-xl text-white outline-none focus:border-brand-500 text-sm font-mono" onchange="calcGap()">
+              <option value="0">Net 0 (Pay immediately)</option>
+              <option value="15">Net 15</option>
+              <option value="30">Net 30</option>
+            </select>
+          </div>
+        </div>
 
-        function calcGap() {
-            const sales = parseInt(document.getElementById('salesInput').value);
-            const lagDays = parseInt(document.getElementById('lagInput').value);
-            const termsDays = parseInt(document.getElementById('termsInput').value);
+        <div class="flex flex-col justify-center">
+          <div class="bg-dark-900/80 p-8 rounded-2xl border border-white/10 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-1 h-full bg-red-500" id="alertBar"></div>
+            <div class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Estimated Cashflow Gap</div>
+            <div id="gapAmount" class="font-display text-4xl font-black text-red-400 mb-6">-$46,666</div>
+            <p id="gapDesc" class="text-sm text-gray-400 leading-relaxed mb-6">This estimate shows potential working-capital pressure caused by timing differences between supplier payments and platform payouts.</p>
+            <div class="border-t border-white/5 pt-6">
+              <div class="text-[10px] font-bold text-brand-500 uppercase tracking-widest mb-3">Suggested Review Path</div>
+              <div id="solution" class="text-white font-bold text-sm bg-white/5 px-4 py-3 rounded-xl border border-white/10">Seller Cashflow Review</div>
+            </div>
+          </div>
+          <a href="../index.html#apply" class="mt-6 w-full bg-brand-500 text-dark-900 py-4 rounded-xl font-bold uppercase tracking-widest text-xs hover:bg-white transition-colors text-center">Request Partner Review</a>
+        </div>
+      </div>
+    </div>
+    <div class="fs-disclaimer mt-8">This calculator is for planning and education only. It does not guarantee funding, approval, timing, repayment terms, or platform-specific eligibility. Actual options depend on business profile, sales history, documentation, underwriting review, and provider criteria.</div>
+  </main>
 
-            document.getElementById('salesLabel').innerText = format(sales);
-            document.getElementById('lagLabel').innerText = lagDays + ' Days';
-            
-            const termsText = termsDays === 0 ? 'Net 0' : `Net ${termsDays}`;
-            document.getElementById('termsLabel').innerText = termsText;
-
-            // Daily sales velocity
-            const dailySales = sales / 30;
-            
-            // The Gap: How many days are you waiting for money AFTER you had to pay the supplier?
-            const gapDays = lagDays - termsDays;
-            
-            const gapEl = document.getElementById('gapAmount');
-            const alertBar = document.getElementById('alertBar');
-            const desc = document.getElementById('gapDesc');
-            const solution = document.getElementById('solution');
-
-            if (gapDays > 0) {
-                // You have a cash deficit
-                const deficit = dailySales * gapDays;
-                gapEl.innerText = "-" + format(deficit);
-                gapEl.className = "font-display text-4xl font-black text-red-400 mb-6";
-                alertBar.className = "absolute top-0 left-0 w-1 h-full bg-red-500";
-                desc.innerText = `You wait ${lagDays} days for revenue, but pay suppliers in ${termsDays} days. This creates a ${gapDays}-day cash void, tying up working capital.`;
-                solution.innerText = "Daily Seller Payout Path";
-            } else {
-                // You are cashflow positive
-                gapEl.innerText = "$0 Squeeze";
-                gapEl.className = "font-display text-4xl font-black text-green-400 mb-6";
-                alertBar.className = "absolute top-0 left-0 w-1 h-full bg-green-500";
-                desc.innerText = `Your supplier terms (Net ${termsDays}) cover your marketplace payout delay (${lagDays} days). You are safely floating inventory.`;
-                solution.innerText = "Scale via Revenue Growth Advance";
-            }
-        }
-        calcGap();
-    </script>
+  <script>
+    function format(v) { return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(v); }
+    function calcGap() {
+      const sales = parseInt(document.getElementById('salesInput').value);
+      const lagDays = parseInt(document.getElementById('lagInput').value);
+      const termsDays = parseInt(document.getElementById('termsInput').value);
+      document.getElementById('salesLabel').innerText = format(sales);
+      document.getElementById('lagLabel').innerText = lagDays + ' Days';
+      const termsText = termsDays === 0 ? 'Net 0' : `Net ${termsDays}`;
+      document.getElementById('termsLabel').innerText = termsText;
+      const dailySales = sales / 30;
+      const gapDays = lagDays - termsDays;
+      const gapEl = document.getElementById('gapAmount');
+      const alertBar = document.getElementById('alertBar');
+      const desc = document.getElementById('gapDesc');
+      const solution = document.getElementById('solution');
+      if (gapDays > 0) {
+        const deficit = dailySales * gapDays;
+        gapEl.innerText = '-' + format(deficit);
+        gapEl.className = 'font-display text-4xl font-black text-red-400 mb-6';
+        alertBar.className = 'absolute top-0 left-0 w-1 h-full bg-red-500';
+        desc.innerText = `Estimated ${gapDays}-day timing gap between supplier payment terms and marketplace payout timing. Review whether working capital support may be useful.`;
+        solution.innerText = 'Seller Cashflow Review';
+      } else {
+        gapEl.innerText = '$0 Timing Gap';
+        gapEl.className = 'font-display text-4xl font-black text-green-400 mb-6';
+        alertBar.className = 'absolute top-0 left-0 w-1 h-full bg-green-500';
+        desc.innerText = 'Your supplier terms appear to cover the selected marketplace payout timing in this simplified model.';
+        solution.innerText = 'Growth Planning Review';
+      }
+    }
+    calcGap();
+  </script>
+  <script src="../assets/js/app.js"></script>
 </body>
 </html>
