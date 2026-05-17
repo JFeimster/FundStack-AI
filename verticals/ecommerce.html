@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce & Amazon Seller Funding | FundStack-AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Space Grotesk', 'sans-serif'] }, colors: { brand: { 500: '#00F0FF', 900: '#003B45' }, dark: { 900: '#050505', 800: '#0A0A0A' } } } }
+        }
+    </script>
+    <style>
+        body { background-color: #050505; color: #ffffff; }
+        .glass-panel { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.06); }
+        .glow-text { text-shadow: 0 0 20px rgba(0, 240, 255, 0.4); }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-500 selection:text-dark-900 overflow-x-hidden">
+
+    <!-- Ambient Grid Background -->
+    <div class="fixed top-[-20%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-brand-900/20 blur-[120px] pointer-events-none z-0"></div>
+
+    <nav class="fixed w-full z-50 border-b border-white/5 bg-dark-900/90 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="index.html" class="font-display font-bold text-xl tracking-tight flex items-center gap-2">
+                <div class="w-3 h-3 bg-brand-500 rounded-full animate-pulse"></div>
+                FUNDSTACK<span class="text-brand-500">AI</span>
+            </a>
+            <a href="index.html#apply" class="bg-white text-dark-900 px-5 py-2 rounded-full font-bold text-[10px] uppercase tracking-tighter hover:bg-brand-500 transition-all">
+                Apply Now
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative z-10 pt-40 pb-20 px-6 max-w-5xl mx-auto text-center">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-panel text-[10px] font-bold text-brand-500 mb-6 border-brand-500/20 uppercase tracking-widest">
+            For Amazon, Shopify & Walmart Sellers
+        </div>
+        <h1 class="font-display text-5xl md:text-7xl font-bold tracking-tighter mb-6 leading-tight">
+            Stop waiting on <br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-blue-400 glow-text">
+                platform payouts.
+            </span>
+        </h1>
+        <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+            Marketplace capital designed for inventory cycles. We underwrite based on your platform sales data, not your FICO score. Get funded in 24 hours.
+        </p>
+        <a href="index.html#apply" class="inline-block bg-brand-500 text-dark-900 px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-white transition-all shadow-[0_0_20px_rgba(0,240,255,0.3)] hover:shadow-[0_0_30px_rgba(0,240,255,0.5)]">
+            Check Your Eligibility
+        </a>
+    </header>
+
+    <!-- The Problem / Solution -->
+    <section class="relative z-10 py-16 px-6 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-panel p-10 md:p-14 rounded-[2.5rem] border-red-500/10 bg-gradient-to-br from-red-500/5 to-transparent">
+                <div class="w-12 h-12 bg-red-500/10 rounded-xl flex items-center justify-center text-red-500 mb-6 border border-red-500/20">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h3 class="font-display text-2xl font-bold mb-4 uppercase">The Cash Flow Trap</h3>
+                <p class="text-gray-400 leading-relaxed text-sm">You sell $50k in inventory today, but Amazon holds the payout for 14 days. Meanwhile, your supplier needs to be paid for the Q4 restock tomorrow. Traditional banks don't understand marketplace mechanics.</p>
+            </div>
+            
+            <div class="glass-panel p-10 md:p-14 rounded-[2.5rem] border-brand-500/20 bg-gradient-to-br from-brand-900/20 to-transparent">
+                <div class="w-12 h-12 bg-brand-500/10 rounded-xl flex items-center justify-center text-brand-500 mb-6 border border-brand-500/20">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <h3 class="font-display text-2xl font-bold mb-4 uppercase text-white">The Marketplace Solution</h3>
+                <p class="text-gray-400 leading-relaxed text-sm">We sync directly to your seller account. We advance you capital based on your trailing 6 months of gross sales. Use it for inventory, PPC ads, or logistics. As you sell, we take a small fixed percentage until repaid.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specific E-Com Products -->
+    <section class="relative z-10 py-16 px-6 max-w-6xl mx-auto">
+        <h2 class="font-display text-3xl font-bold mb-10 uppercase tracking-tighter text-center">E-Commerce Capital Paths</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="glass-panel p-8 rounded-3xl border-white/5 hover:border-brand-500/30 transition-all">
+                <div class="text-[10px] text-gray-500 uppercase tracking-widest font-mono mb-2">Funded in 24-48 Hrs</div>
+                <h3 class="text-xl font-bold mb-2">Inventory Advance</h3>
+                <p class="text-sm text-gray-400 mb-6">Up to $250k specifically underwritten to bridge the gap between manufacturer POs and marketplace payouts.</p>
+                <a href="index.html#apply" class="text-brand-500 text-xs font-bold uppercase tracking-widest hover:text-white">Apply Now →</a>
+            </div>
+            <div class="glass-panel p-8 rounded-3xl border-white/5 hover:border-brand-500/30 transition-all">
+                <div class="text-[10px] text-gray-500 uppercase tracking-widest font-mono mb-2">Funded Instantly</div>
+                <h3 class="text-xl font-bold mb-2">Daily Seller Payouts</h3>
+                <p class="text-sm text-gray-400 mb-6">Stop waiting on 14-day holds. We advance your daily sales volume directly to your operating account.</p>
+                <a href="index.html#apply" class="text-brand-500 text-xs font-bold uppercase tracking-widest hover:text-white">Apply Now →</a>
+            </div>
+            <div class="glass-panel p-8 rounded-3xl border-white/5 hover:border-brand-500/30 transition-all">
+                <div class="text-[10px] text-gray-500 uppercase tracking-widest font-mono mb-2">Revenue Dependent</div>
+                <h3 class="text-xl font-bold mb-2">Seller Rev-Share</h3>
+                <p class="text-sm text-gray-400 mb-6">A flexible capital injection where repayments dynamically scale with your daily sales volume. No fixed daily draw.</p>
+                <a href="index.html#apply" class="text-brand-500 text-xs font-bold uppercase tracking-widest hover:text-white">Apply Now →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <footer class="relative z-10 py-24 px-6 border-t border-white/5 text-center mt-12 bg-gradient-to-t from-dark-900 to-transparent">
+        <h2 class="font-display text-4xl font-bold mb-6 uppercase tracking-tighter">Scale Your Store.</h2>
+        <p class="text-gray-400 text-lg mb-10 max-w-lg mx-auto">Connect your store metrics to our routing engine today to see your eligible limits.</p>
+        <a href="index.html#apply" class="inline-block bg-white text-dark-900 px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-brand-500 transition-all">
+            Get Funded
+        </a>
+    </footer>
+
+</body>
+</html>
