@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funding Match Quiz | FundStack-AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Space Grotesk', 'sans-serif'] }, colors: { brand: { 500: '#00F0FF', 900: '#003B45' }, dark: { 900: '#050505', 800: '#0A0A0A' } } } }
+        }
+    </script>
+    <style>
+        body { background-color: #050505; color: #ffffff; }
+        .glass-panel { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.06); }
+        .quiz-option { transition: all 0.2s; border: 1px solid rgba(255,255,255,0.1); cursor: pointer; }
+        .quiz-option:hover { border-color: #00F0FF; background: rgba(0, 240, 255, 0.05); }
+        .quiz-option.selected { border-color: #00F0FF; background: rgba(0, 240, 255, 0.1); box-shadow: 0 0 20px rgba(0, 240, 255, 0.2); }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col items-center justify-center p-6 relative">
+
+    <div class="fixed inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none z-0"></div>
+
+    <div class="w-full max-w-2xl relative z-10 glass-panel p-8 md:p-12 rounded-[2.5rem] shadow-2xl">
+        <!-- Progress Bar -->
+        <div class="mb-8">
+            <div class="flex justify-between text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">
+                <span id="stepIndicator">Step 1 of 4</span>
+                <span>Fund Match Engine</span>
+            </div>
+            <div class="w-full h-1 bg-white/10 rounded-full overflow-hidden">
+                <div id="progressBar" class="h-full bg-brand-500 transition-all duration-500" style="width: 25%;"></div>
+            </div>
+        </div>
+
+        <!-- Step 1: Use Case -->
+        <div id="step1" class="quiz-step">
+            <h2 class="font-display text-2xl font-bold mb-6">What is the primary use case for this capital?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="quiz-option p-6 rounded-2xl" onclick="selectOption('usecase', 'working_capital', this)">
+                    <div class="font-bold mb-1">Working Capital</div>
+                    <div class="text-xs text-gray-400">Payroll, marketing, operations.</div>
+                </div>
+                <div class="quiz-option p-6 rounded-2xl" onclick="selectOption('usecase', 'startup', this)">
+                    <div class="font-bold mb-1">Startup / New Venture</div>
+                    <div class="text-xs text-gray-400">Less than 6 months in business.</div>
+                </div>
+                <div class="quiz-option p-6 rounded-2xl" onclick="selectOption('usecase', 'real_estate', this)">
+                    <div class="font-bold mb-1">Real Estate</div>
+                    <div class="text-xs text-gray-400">Fix & flip, rentals, commercial.</div>
+                </div>
+                <div class="quiz-option p-6 rounded-2xl" onclick="selectOption('usecase', 'equipment', this)">
+                    <div class="font-bold mb-1">Equipment / Assets</div>
+                    <div class="text-xs text-gray-400">Heavy machinery or vehicles.</div>
+                </div>
+            </div>
+            <button onclick="nextStep(2)" class="mt-8 w-full bg-white text-dark-900 py-4 rounded-xl font-bold uppercase tracking-widest hover:bg-brand-500 transition-colors">Continue</button>
+        </div>
+
+        <!-- Step 2: Revenue -->
+        <div id="step2" class="quiz-step hidden">
+            <h2 class="font-display text-2xl font-bold mb-6">What is your average monthly gross revenue?</h2>
+            <div class="space-y-4">
+                <div class="quiz-option p-5 rounded-xl font-bold" onclick="selectOption('revenue', '0', this)">$0 (Pre-Revenue)</div>
+                <div class="quiz-option p-5 rounded-xl font-bold" onclick="selectOption('revenue', '10000', this)">$1,000 - $15,000</div>
+                <div class="quiz-option p-5 rounded-xl font-bold" onclick="selectOption('revenue', '50000', this)">$15,000 - $100,000</div>
+                <div class="quiz-option p-5 rounded-xl font-bold" onclick="selectOption('revenue', '150000', this)">$100,000+</div>
+            </div>
+            <div class="flex gap-4 mt-8">
+                <button onclick="prevStep(1)" class="w-1/3 bg-white/5 py-4 rounded-xl font-bold text-sm uppercase tracking-widest">Back</button>
+                <button onclick="nextStep(3)" class="w-2/3 bg-white text-dark-900 py-4 rounded-xl font-bold text-sm uppercase tracking-widest hover:bg-brand-500 transition-colors">Continue</button>
+            </div>
+        </div>
+
+        <!-- Step 3: Credit -->
+        <div id="step3" class="quiz-step hidden">
+            <h2 class="font-display text-2xl font-bold mb-6">What is your estimated personal credit score?</h2>
+            <div class="space-y-4">
+                <div class="quiz-option p-5 rounded-xl font-bold" onclick="selectOption('credit', '720', this)">Excellent (720+)</div>
+                <div class="quiz-option p-5 rounded-xl font-bold" onclick="selectOption('credit', '680', this)">Good (680 - 719)</div>
+                <div class="quiz-option p-5 rounded-xl font-bold" onclick="selectOption('credit', '620', this)">Fair (600 - 679)</div>
+                <div class="quiz-option p-5 rounded-xl font-bold" onclick="selectOption('credit', '550', this)">Subprime (< 600)</div>
+            </div>
+            <div class="flex gap-4 mt-8">
+                <button onclick="prevStep(2)" class="w-1/3 bg-white/5 py-4 rounded-xl font-bold text-sm uppercase tracking-widest">Back</button>
+                <button onclick="calculateMatch()" class="w-2/3 bg-brand-500 text-dark-900 py-4 rounded-xl font-bold text-sm uppercase tracking-widest hover:bg-white transition-colors">Analyze Match</button>
+            </div>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="result" class="hidden text-center">
+            <div class="w-16 h-16 bg-brand-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg class="w-8 h-8 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            </div>
+            <div class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Optimal Capital Path Found</div>
+            <h2 id="matchTitle" class="font-display text-3xl font-bold mb-4 text-white">Unsecured Working Capital</h2>
+            <p id="matchDesc" class="text-gray-400 text-sm mb-8">Based on your cash flow and credit profile, you qualify for our rapid deployment business term structures.</p>
+            
+            <div class="bg-dark-900 p-6 rounded-2xl border border-white/5 mb-8 text-left">
+                <div class="text-[10px] font-bold text-brand-500 uppercase tracking-widest mb-4">Estimated Parameters</div>
+                <ul id="matchDetails" class="space-y-3 text-sm font-mono text-gray-300">
+                    <!-- Injected via JS -->
+                </ul>
+            </div>
+
+            <button onclick="alert('In production, this routes to the CRM specific application form.')" class="w-full bg-white text-dark-900 py-4 rounded-xl font-bold uppercase tracking-widest hover:bg-brand-500 transition-colors">
+                Start Secure Application
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const answers = {};
+
+        function selectOption(category, value, element) {
+            answers[category] = value;
+            // Clear siblings
+            const siblings = element.parentElement.children;
+            for(let el of siblings) el.classList.remove('selected');
+            element.classList.add('selected');
+        }
+
+        function nextStep(step) {
+            document.querySelectorAll('.quiz-step').forEach(el => el.classList.add('hidden'));
+            document.getElementById('step' + step).classList.remove('hidden');
+            document.getElementById('stepIndicator').innerText = `Step ${step} of 4`;
+            document.getElementById('progressBar').style.width = (step * 25) + '%';
+        }
+
+        function prevStep(step) {
+            nextStep(step);
+        }
+
+        function calculateMatch() {
+            document.querySelectorAll('.quiz-step').forEach(el => el.classList.add('hidden'));
+            document.getElementById('result').classList.remove('hidden');
+            document.getElementById('stepIndicator').innerText = `Complete`;
+            document.getElementById('progressBar').style.width = '100%';
+
+            const title = document.getElementById('matchTitle');
+            const desc = document.getElementById('matchDesc');
+            const details = document.getElementById('matchDetails');
+
+            // Routing Logic based on 04-partner-routing-attribution-spec.md
+            if (answers.usecase === 'startup' || answers.revenue === '0') {
+                if (parseInt(answers.credit) >= 680) {
+                    title.innerText = "0% Interest Startup Line";
+                    desc.innerText = "You meet the FICO threshold for our high-leverage credit stacking program.";
+                    details.innerHTML = `<li>Max Target: $150,000</li><li>Speed: 1-2 Weeks</li><li>Requirement: No recent derogatory marks.</li>`;
+                } else {
+                    title.innerText = "Business Credit Builder";
+                    desc.innerText = "Before applying for capital, we need to optimize your business entity and credit profile.";
+                    details.innerHTML = `<li>Focus: Fundability Prep</li><li>Timeline: 30-90 Days</li>`;
+                }
+            } else if (answers.usecase === 'real_estate') {
+                title.innerText = "Asset-Backed Bridge & DSCR";
+                desc.innerText = "We bypass your personal income and underwrite based on the property's potential.";
+                details.innerHTML = `<li>LTV: Up to 80%</li><li>Rates: 7% - 11%</li><li>Speed: 14-21 Days</li>`;
+            } else {
+                // Working capital logic
+                if (parseInt(answers.revenue) >= 15000 && parseInt(answers.credit) < 680) {
+                    title.innerText = "Performance Revenue Advance";
+                    desc.innerText = "Your cash flow is strong. We can deploy capital rapidly based on your bank deposits, bypassing strict FICO limits.";
+                    details.innerHTML = `<li>Max Target: Up to 1.5x Monthly Rev</li><li>Speed: 24-48 Hours</li><li>Collateral: None Required</li>`;
+                } else {
+                    title.innerText = "Prime Business Term Loan";
+                    desc.innerText = "Strong credit and cash flow qualify you for our best-rate expansion capital.";
+                    details.innerHTML = `<li>Max Target: $500,000+</li><li>Terms: 12-36 Months</li><li>Rates: Single Digit Potential</li>`;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
