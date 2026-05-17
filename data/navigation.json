@@ -35,6 +35,33 @@
       "description": "Problem-solution pages for urgent funding scenarios."
     }
   ],
+  "hubs": [
+    {
+      "label": "Tool Library",
+      "href": "/tools/index.html",
+      "status": "active"
+    },
+    {
+      "label": "Funding Hub",
+      "href": "/funding/index.html",
+      "status": "active-minimal"
+    },
+    {
+      "label": "Partner Assets",
+      "href": "/partners/assets.html",
+      "status": "active-minimal"
+    },
+    {
+      "label": "Verticals Hub",
+      "href": "/verticals/index.html",
+      "status": "active-minimal"
+    },
+    {
+      "label": "Solutions Hub",
+      "href": "/solutions/index.html",
+      "status": "active-minimal"
+    }
+  ],
   "partner": [
     {
       "label": "Become a Partner",
@@ -81,6 +108,46 @@
     {
       "label": "E-commerce Cashflow Tool",
       "href": "/tools/ecom-cashflow-tool.html"
+    }
+  ],
+  "verticals": [
+    {
+      "label": "Logistics and Trucking",
+      "href": "/verticals/trucking.html"
+    },
+    {
+      "label": "Medical and Dental Practices",
+      "href": "/verticals/medical.html"
+    },
+    {
+      "label": "E-commerce and Marketplace Sellers",
+      "href": "/verticals/ecommerce.html"
+    },
+    {
+      "label": "Contractors and Construction",
+      "href": "/verticals/contractors.html"
+    },
+    {
+      "label": "Real Estate Investors",
+      "href": "/verticals/real-estate.html"
+    }
+  ],
+  "solutions": [
+    {
+      "label": "Bank Loan Denial",
+      "href": "/solutions/bank-denial.html"
+    },
+    {
+      "label": "Payroll Gap",
+      "href": "/solutions/payroll-gap.html"
+    },
+    {
+      "label": "Equipment Need",
+      "href": "/solutions/equipment-now.html"
+    },
+    {
+      "label": "Pre-Revenue Startup Capital",
+      "href": "/solutions/zero-revenue.html"
     }
   ],
   "footer": [
