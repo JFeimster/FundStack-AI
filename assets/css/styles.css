@@ -1,0 +1,222 @@
+/*
+  FundStack AI Shared Styles
+  Static-first CSS foundation for future page cleanup.
+  Existing pages may still use inline Tailwind CDN styles until they are migrated.
+*/
+
+:root {
+  --fs-bg: #050505;
+  --fs-bg-soft: #0a0a0a;
+  --fs-panel: #111111;
+  --fs-border: rgba(255, 255, 255, 0.08);
+  --fs-border-strong: rgba(255, 255, 255, 0.14);
+  --fs-text: #ffffff;
+  --fs-muted: #9ca3af;
+  --fs-muted-strong: #6b7280;
+  --fs-brand: #00f0ff;
+  --fs-brand-soft: rgba(0, 240, 255, 0.12);
+  --fs-brand-border: rgba(0, 240, 255, 0.3);
+  --fs-brand-dark: #003b45;
+  --fs-radius-lg: 1.25rem;
+  --fs-radius-xl: 1.75rem;
+  --fs-radius-2xl: 2rem;
+  --fs-shadow-glow: 0 0 28px rgba(0, 240, 255, 0.2);
+  --fs-max-width: 80rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--fs-bg);
+  color: var(--fs-text);
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.fs-page-shell {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top right, rgba(0, 240, 255, 0.09), transparent 35rem),
+    radial-gradient(circle at bottom left, rgba(37, 99, 235, 0.08), transparent 32rem),
+    var(--fs-bg);
+}
+
+.fs-container {
+  width: min(100% - 2rem, var(--fs-max-width));
+  margin-inline: auto;
+}
+
+.fs-section {
+  padding: 5rem 0;
+}
+
+.fs-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--fs-brand-border);
+  border-radius: 999px;
+  background: var(--fs-brand-soft);
+  color: var(--fs-brand);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.fs-display {
+  font-family: "Space Grotesk", Inter, system-ui, sans-serif;
+  letter-spacing: -0.06em;
+  line-height: 0.95;
+}
+
+.fs-muted {
+  color: var(--fs-muted);
+}
+
+.fs-panel,
+.fs-glass-panel {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--fs-border);
+  border-radius: var(--fs-radius-xl);
+  backdrop-filter: blur(12px);
+}
+
+.fs-card,
+.fs-bento-card {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--fs-border);
+  border-radius: var(--fs-radius-xl);
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.fs-card:hover,
+.fs-bento-card:hover {
+  border-color: var(--fs-brand-border);
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.fs-button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.fs-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  padding: 0.9rem 1.25rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  border: 1px solid transparent;
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.fs-button:hover {
+  transform: translateY(-1px);
+}
+
+.fs-button-primary {
+  background: var(--fs-brand);
+  color: #031012;
+  box-shadow: var(--fs-shadow-glow);
+}
+
+.fs-button-primary:hover {
+  background: #ffffff;
+}
+
+.fs-button-secondary {
+  background: rgba(255, 255, 255, 0.035);
+  color: var(--fs-text);
+  border-color: var(--fs-border-strong);
+}
+
+.fs-button-secondary:hover {
+  border-color: var(--fs-brand-border);
+}
+
+.fs-disclaimer {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--fs-radius-lg);
+  padding: 1rem;
+  color: var(--fs-muted);
+  background: rgba(255, 255, 255, 0.025);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.fs-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.fs-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.fs-pill {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--fs-border);
+  color: var(--fs-muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.fs-status-good {
+  color: #22c55e;
+}
+
+.fs-status-warning {
+  color: #eab308;
+}
+
+.fs-status-risk {
+  color: #ef4444;
+}
+
+@media (max-width: 768px) {
+  .fs-section {
+    padding: 3.5rem 0;
+  }
+
+  .fs-grid-3,
+  .fs-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .fs-button-row {
+    flex-direction: column;
+  }
+
+  .fs-button {
+    width: 100%;
+  }
+}
