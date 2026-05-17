@@ -1,23 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Partner Assets | FundStack AI</title>
+  <meta name="description" content="Partner assets, tracked-link tools, guides, dashboards, and shareable funding resources for FundStack AI referral partners.">
+  <meta property="og:title" content="Partner Assets | FundStack AI">
+  <meta property="og:description" content="Shareable tools, guides, dashboards, and link assets for sharper funding referral conversations.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fund-stack-ai.vercel.app/partners/assets.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
-<body style="background:#050505;color:#fff;font-family:system-ui,sans-serif;padding:2rem;line-height:1.6;">
-  <main style="max-width:900px;margin:0 auto;">
-    <p><a style="color:#00F0FF;" href="../index.html">← Home</a></p>
-    <h1>Partner Assets</h1>
-    <p>A simple launchpad for partner-facing FundStack AI resources.</p>
-    <ul>
-      <li><a style="color:#00F0FF;" href="index.html">Become a Partner</a></li>
-      <li><a style="color:#00F0FF;" href="guide.html">Partner Success Guide</a></li>
-      <li><a style="color:#00F0FF;" href="link-in-bio.html">Partner Link-in-Bio</a></li>
-      <li><a style="color:#00F0FF;" href="../dashboard.html">Partner Dashboard</a></li>
-      <li><a style="color:#00F0FF;" href="../tools/index.html">Tool Library</a></li>
-    </ul>
-    <p style="color:#9ca3af;font-size:.9rem;">Partner resources support intake, education, and routing conversations. They are not final review decisions.</p>
+<body class="antialiased selection:bg-brand-500 selection:text-dark-900 overflow-x-hidden">
+  <main class="fs-page-shell">
+    <nav class="fixed w-full z-50 border-b border-white/5 bg-dark-900/90 backdrop-blur-md">
+      <div class="fs-container h-16 flex items-center justify-between">
+        <a href="../index.html" class="font-display font-bold text-xl tracking-tight flex items-center gap-2"><span class="w-3 h-3 bg-brand-500 rounded-full animate-pulse"></span>FUNDSTACK<span class="text-brand-500">AI</span></a>
+        <div class="hidden md:flex gap-8 text-[11px] font-bold uppercase tracking-[0.12em] text-gray-500">
+          <a href="index.html" class="hover:text-brand-500 transition-colors">Partners</a>
+          <a href="../tools/index.html" class="hover:text-brand-500 transition-colors">Tools</a>
+          <a href="../funding/index.html" class="hover:text-brand-500 transition-colors">Funding</a>
+          <a href="../dashboard.html" class="hover:text-brand-500 transition-colors">Dashboard</a>
+        </div>
+        <a href="../dashboard.html" class="fs-button fs-button-primary !py-2 !px-5 text-[11px]">Open Dashboard</a>
+      </div>
+    </nav>
+
+    <header class="pt-40 pb-16 px-6 text-center">
+      <div class="fs-kicker mb-6">Partner Arsenal</div>
+      <h1 class="fs-display text-5xl md:text-7xl font-black mb-6">Stop Sending Leads Empty-Handed</h1>
+      <p class="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">Give partners tools that make the first conversation useful: profile pages, readiness checks, tracked links, guides, and calculators that separate signal from wishful thinking.</p>
+      <div class="fs-button-row justify-center mt-10">
+        <a href="index.html" class="fs-button fs-button-primary">Become a Partner</a>
+        <a href="../tools/index.html" class="fs-button fs-button-secondary">Explore Tools</a>
+      </div>
+    </header>
+
+    <section class="fs-container pb-24">
+      <div class="fs-grid-3">
+        <a class="fs-card p-8" href="guide.html"><span class="fs-pill mb-5">Training</span><h2 class="font-display text-2xl font-bold mb-3">Partner Success Guide</h2><p class="fs-muted leading-relaxed">A field manual for cleaner intake, smarter handoffs, and better funding conversations.</p></a>
+        <a class="fs-card p-8" href="link-in-bio.html"><span class="fs-pill mb-5">Profile</span><h2 class="font-display text-2xl font-bold mb-3">Partner Link-in-Bio</h2><p class="fs-muted leading-relaxed">A compact mobile hub partners can share from social profiles, DMs, and local outreach.</p></a>
+        <a class="fs-card p-8" href="../dashboard.html"><span class="fs-pill mb-5">Tracking</span><h2 class="font-display text-2xl font-bold mb-3">Partner Dashboard</h2><p class="fs-muted leading-relaxed">Generate demo links, preview widget embeds, and organize campaign routing concepts.</p></a>
+        <a class="fs-card p-8" href="../qualifier.html"><span class="fs-pill mb-5">Pre-Screen</span><h2 class="font-display text-2xl font-bold mb-3">Lead Qualifier</h2><p class="fs-muted leading-relaxed">Quickly identify strengths, friction points, and what needs cleanup before review.</p></a>
+        <a class="fs-card p-8" href="../tools/fund-match-quiz.html"><span class="fs-pill mb-5">Routing</span><h2 class="font-display text-2xl font-bold mb-3">Funding Match Quiz</h2><p class="fs-muted leading-relaxed">Turn “I need money” into a cleaner product-path conversation.</p></a>
+        <a class="fs-card p-8" href="../verticals/index.html"><span class="fs-pill mb-5">Niches</span><h2 class="font-display text-2xl font-bold mb-3">Vertical Pages</h2><p class="fs-muted leading-relaxed">Share industry-specific pages for trucking, medical, e-commerce, contractors, and real estate.</p></a>
+      </div>
+      <div class="fs-panel p-8 md:p-10 rounded-[2rem] mt-10">
+        <div class="fs-kicker mb-5">Partner Rule</div>
+        <h2 class="fs-display text-3xl md:text-5xl font-black mb-5">Useful beats loud.</h2>
+        <p class="fs-muted text-lg leading-relaxed max-w-3xl">Partners do not need another generic flyer. They need tools that help them diagnose the conversation, educate the prospect, and send a cleaner file forward when the profile makes sense.</p>
+      </div>
+    </section>
   </main>
+  <script src="../assets/js/app.js"></script>
 </body>
 </html>
