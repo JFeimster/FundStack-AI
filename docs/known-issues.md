@@ -14,18 +14,17 @@ This file tracks active cleanup items, implementation risks, and route/documenta
 
 **Status:** Open
 
-Several older vertical and solution detail pages still include repeated Tailwind CDN configuration, inline styles, glass panel styling, button classes, and background/glow patterns.
+Most primary pages now use the shared style foundation, but some page-specific styling still remains where it keeps the static pages simple and self-contained.
 
 Progress:
 
-- `assets/css/styles.css` now exists as the shared style foundation.
-- `tools/index.html`, `index.html`, `partners/index.html`, `qualifier.html`, `dashboard.html`, several core tool pages, and the main hub pages use the shared CSS foundation.
+- `assets/css/styles.css` exists as the shared style foundation.
+- Homepage, partner page, hub pages, core tools, vertical detail pages, and solution detail pages now use the shared CSS foundation.
 
 Required action:
 
-- Continue moving shared visual patterns into reusable classes where practical.
-- Keep Tailwind CDN only if remaining static-first and no build step is approved.
-- Prioritize vertical and solution detail pages in a later visual standardization pass.
+- Continue moving shared visual patterns into reusable classes only where it reduces maintenance friction.
+- Do not over-engineer the static site into a framework just to satisfy a purity contest.
 
 ### 2. Remaining JavaScript Consolidation
 
@@ -35,41 +34,14 @@ Some pages still include page-specific JavaScript for calculators, sliders, redi
 
 Progress:
 
-- `assets/js/app.js` now exists as the shared JS utility foundation.
-- `tools/index.html`, `index.html`, `partners/index.html`, `qualifier.html`, `dashboard.html`, several core tool pages, and the main hub pages use the shared JS foundation.
-- The homepage client-side AI/Gemini demo stub has been removed.
+- `assets/js/app.js` exists as the shared JS utility foundation.
+- The major pages use the shared JS foundation.
+- Calculator-specific logic remains inside individual tool pages where appropriate.
 
 Required action:
 
 - Move shared helpers into `assets/js/app.js` where safe.
-- Keep calculator-specific logic inside individual pages where that keeps the static site easier to maintain.
-
-### 3. Vertical and Solution Detail Page Review Needed
-
-**Status:** Open
-
-The main vertical and solution hub pages have been upgraded, but the individual vertical and solution detail pages still need a design/content pass.
-
-Target pages:
-
-```txt
-verticals/trucking.html
-verticals/medical.html
-verticals/ecommerce.html
-verticals/contractors.html
-verticals/real-estate.html
-solutions/bank-denial.html
-solutions/payroll-gap.html
-solutions/equipment-now.html
-solutions/zero-revenue.html
-```
-
-Required action:
-
-- Review page copy for sharpness, usefulness, and accuracy.
-- Add stronger dark-luxe layouts where needed.
-- Keep CTAs confident and useful.
-- Avoid turning pages into bland disclaimer wallpaper.
+- Keep calculator-specific logic inside individual pages when that is clearer and safer.
 
 ## Resolved Issues
 
@@ -77,7 +49,7 @@ Required action:
 
 **Status:** Resolved
 
-`vercel.json` now contains `git.deploymentEnabled: false`.
+`vercel.json` contains `git.deploymentEnabled: false` after protected release cycles.
 
 This setting must remain in place unless a release step is explicitly approved.
 
@@ -93,8 +65,6 @@ data/tools.json
 data/compliance-language.json
 data/site-config.json
 ```
-
-These provide a lightweight source-of-truth layer for navigation, tool registry, compliance copy, and site configuration.
 
 ### Core Route and Link Drift Compatibility Added
 
@@ -113,42 +83,11 @@ tools/dscr-precheck.html -> ../dscr-precheck.html
 tools/ecom-cashflow-tool.html -> amazon-cashflow.html
 ```
 
-Verified canonical paths include:
-
-```txt
-funding/products.html
-partners/guide.html
-partners/link-in-bio.html
-tools/fund-match-quiz.html
-tools/fundability-score.html
-tools/startup-planner.html
-tools/cost-of-capital.html
-dscr-precheck.html
-tools/amazon-cashflow.html
-```
-
 ### Vertical and Solution Page Inventory Verified
 
 **Status:** Resolved
 
-The following vertical routes have been verified:
-
-```txt
-verticals/trucking.html
-verticals/medical.html
-verticals/ecommerce.html
-verticals/contractors.html
-verticals/real-estate.html
-```
-
-The following solution routes have been verified:
-
-```txt
-solutions/bank-denial.html
-solutions/payroll-gap.html
-solutions/equipment-now.html
-solutions/zero-revenue.html
-```
+Vertical and solution routes have been verified and upgraded.
 
 ### Ecosystem Hub Pages Added
 
@@ -168,20 +107,13 @@ solutions/index.html
 
 **Status:** Resolved
 
-The homepage and partner page were rewritten to:
-
-- Use shared CSS and JS foundations.
-- Remove the homepage client-side AI/Gemini demo stub.
-- Link to the new hub pages.
-- Replace aggressive or risky claims with stronger, cleaner positioning.
-- Preserve the Tally partner intake embed.
-- Keep the repo static-first.
+The homepage and partner page were rewritten to use shared assets, stronger positioning, better hub navigation, and cleaner partner-intake flow.
 
 ### Core Tool Pages Standardized
 
 **Status:** Resolved
 
-The following core tool pages were standardized for safer messaging, clearer navigation, consistent CTAs, and planning-focused disclaimers:
+The following core tool pages were standardized:
 
 ```txt
 qualifier.html
@@ -206,13 +138,6 @@ sitemap.xml
 vercel.json headers
 ```
 
-Completed:
-
-- Added `robots.txt` with sitemap reference.
-- Added `sitemap.xml` using verified routes only.
-- Added static security/cache headers in `vercel.json`.
-- Preserved `git.deploymentEnabled: false`.
-
 ### Release Process Documentation Added
 
 **Status:** Resolved
@@ -224,31 +149,11 @@ docs/deployment-guide.md
 docs/release-checklist.md
 ```
 
-README was updated with release guidance, deployment discipline, and links to the release docs.
-
 ### Intentional Release Deployment Completed
 
 **Status:** Resolved
 
-A controlled production deployment was triggered through a temporary deployment-enable commit and completed in Vercel.
-
-Release deployment:
-
-```txt
-dpl_2TpaThPSv93qJtpp7oPLHEbxPhGA
-```
-
-Release commit:
-
-```txt
-8e7d062b0de1f4618abc52f273bd21d186f44dcc
-```
-
-Protection was then restored in the repo:
-
-```txt
-c9754ce9cc2b072c6f6d75f5a6c7c8b52a106e4f
-```
+A controlled production deployment was triggered through temporary deployment-enable commits and completed in Vercel.
 
 ### Hub Page Upgrade and Metadata Patch Completed
 
@@ -264,18 +169,37 @@ solutions/index.html
 tools/index.html
 ```
 
+### Vertical and Solution Detail Pages Upgraded
+
+**Status:** Resolved
+
+Batch 11 upgraded the individual vertical and solution detail pages:
+
+```txt
+verticals/trucking.html
+verticals/medical.html
+verticals/ecommerce.html
+verticals/contractors.html
+verticals/real-estate.html
+solutions/bank-denial.html
+solutions/payroll-gap.html
+solutions/equipment-now.html
+solutions/zero-revenue.html
+```
+
 Completed:
 
-- Replaced minimal placeholder hubs with dark-luxe FundStack pages.
-- Added metadata/Open Graph tags to upgraded hubs.
-- Preserved static-first structure.
-- Kept copy sharp and practical instead of over-disclaimed.
+- Replaced older placeholder-style pages with real landing-page structures.
+- Added sharper, more useful conversion copy.
+- Added metadata/Open Graph tags.
+- Wired pages to relevant tools, hubs, and adjacent solution/vertical routes.
+- Preserved static-first architecture.
 
 ## Recommended Next Batch
 
 Recommended next work:
 
-1. Review and upgrade individual vertical pages.
-2. Review and upgrade individual solution pages.
-3. Continue CSS/JS consolidation only where it makes maintenance easier.
-4. Deploy once after the next approved batch is complete.
+1. Add a lightweight QA checklist page or docs file for live smoke testing.
+2. Review sitemap after Batch 11 deployment to ensure all upgraded routes are represented.
+3. Continue CSS/JS consolidation only where it reduces maintenance pain.
+4. Consider creating reusable page templates for future verticals and solution pages.
