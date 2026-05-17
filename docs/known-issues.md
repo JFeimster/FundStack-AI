@@ -88,34 +88,13 @@ Required action:
 - Avoid oversized rewrites when only metadata changes are needed.
 - Prioritize `tools/index.html`, `funding/index.html`, `partners/assets.html`, `verticals/index.html`, and `solutions/index.html`.
 
-### 6. Release Process Needs Documentation
-
-**Status:** Open
-
-Automatic Vercel Git deployments are disabled. A manual release process should be documented before any future deployment.
-
-Required action:
-
-- Add `docs/deployment-guide.md`.
-- Add `docs/release-checklist.md`.
-- Update README with release steps.
-
 ## Resolved Issues
 
 ### Automatic Vercel Git Deployments Disabled
 
 **Status:** Resolved
 
-`vercel.json` now contains:
-
-```json
-{
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "git": {
-    "deploymentEnabled": false
-  }
-}
-```
+`vercel.json` now contains `git.deploymentEnabled: false`.
 
 This setting must remain in place unless a release step is explicitly approved.
 
@@ -264,23 +243,48 @@ Completed:
 - Added static security/cache headers in `vercel.json`.
 - Preserved `git.deploymentEnabled: false`.
 
-## Notes for Next Commit Group
+### Release Process Documentation Added
 
-Recommended next group:
+**Status:** Resolved
 
-**Commit 9: Release Prep + Manual Deploy Checklist**
-
-Target files likely include:
+The following release docs now exist:
 
 ```txt
 docs/deployment-guide.md
 docs/release-checklist.md
-README.md
 ```
 
-Focus:
+README was updated with release guidance, deployment discipline, and links to the release docs.
 
-- Document manual deployment process.
-- Document release checklist.
-- Update README with release guidance.
-- Do not deploy without explicit approval.
+### Intentional Release Deployment Completed
+
+**Status:** Resolved
+
+A controlled production deployment was triggered through a temporary deployment-enable commit and completed in Vercel.
+
+Release deployment:
+
+```txt
+dpl_2TpaThPSv93qJtpp7oPLHEbxPhGA
+```
+
+Release commit:
+
+```txt
+8e7d062b0de1f4618abc52f273bd21d186f44dcc
+```
+
+Protection was then restored in the repo:
+
+```txt
+c9754ce9cc2b072c6f6d75f5a6c7c8b52a106e4f
+```
+
+## Recommended Next Batch
+
+Recommended next work:
+
+1. Upgrade minimal hub pages with the shared dark-luxe design system.
+2. Add hub metadata in smaller file-specific patches.
+3. Review vertical and solution page copy for compliance-safe language.
+4. Continue CSS/JS consolidation where practical.
