@@ -19,8 +19,8 @@ Multiple pages include repeated Tailwind CDN configuration, repeated glass panel
 Progress:
 
 - `assets/css/styles.css` now exists as the shared style foundation.
-- `tools/index.html` uses the shared CSS foundation.
-- Several existing pages still use inline styles and Tailwind CDN configuration.
+- `tools/index.html`, `index.html`, and `partners/index.html` use the shared CSS foundation.
+- Several existing tool, vertical, and solution pages still use inline styles and Tailwind CDN configuration.
 
 Required action:
 
@@ -36,48 +36,27 @@ Several pages include repeated or page-specific JavaScript for Tally embeds, cop
 Progress:
 
 - `assets/js/app.js` now exists as the shared JS utility foundation.
-- `tools/index.html` uses the shared JS foundation.
+- `tools/index.html`, `index.html`, and `partners/index.html` use the shared JS foundation.
+- The homepage client-side AI/Gemini demo stub has been removed.
 
 Required action:
 
 - Move shared utility helpers into that file where safe.
 - Keep page-specific calculator logic separate if it is easier to maintain.
 
-### 3. Client-Side AI API Risk
+### 3. Tool Page Compliance Review Needed
 
 **Status:** Open
 
-The homepage includes AI Recovery Demo behavior with a placeholder client-side API key pattern.
-
-Risk:
-
-- Any real API key placed in public HTML/JS would be exposed.
-- AI calls should eventually move to a secure server-side function, approved no-code automation, or controlled backend layer.
+Homepage and partner-page risky claims have been cleaned up, but several tool, vertical, and solution pages may still include aggressive or absolute language.
 
 Required action:
 
-- Keep the demo disabled or mocked unless a secure implementation is approved.
-- Document AI implementation options before adding real API credentials.
-
-### 4. Public Copy Compliance Review Needed
-
-**Status:** Open
-
-Some existing copy may use strong or absolute claims that should be softened.
-
-Examples to review:
-
-- “0% bypass risk.”
-- “#1 B2B Funding Platform.”
-- “Infinite yield.”
-- Any copy implying guaranteed approvals, speed, funding amounts, or outcomes.
-
-Required action:
-
-- Update public-facing copy to use compliance-safe language.
+- Review tool outputs and CTAs.
 - Add standard disclaimer blocks to tool pages.
+- Soften language that implies approval, terms, amounts, timing, or outcomes are guaranteed.
 
-### 5. Hub Page Design Pass Needed
+### 4. Hub Page Design Pass Needed
 
 **Status:** Open
 
@@ -97,7 +76,7 @@ Required action:
 - Preserve compliance-safe language.
 - Avoid large brittle rewrites unless done in a controlled batch.
 
-### 6. Static SEO Basics Missing or Unverified
+### 5. Static SEO Basics Missing or Unverified
 
 **Status:** Open
 
@@ -115,7 +94,7 @@ Required action:
 - Add these after route paths are confirmed.
 - Do not add stale URLs to sitemap.
 
-### 7. Release Process Needs Documentation
+### 6. Release Process Needs Documentation
 
 **Status:** Open
 
@@ -234,23 +213,43 @@ Notes:
 - `tools/index.html` uses the shared CSS and JS foundation.
 - The other hubs are minimal static pages and should be upgraded in a later design/copy pass.
 
+### Homepage and Partner Messaging Cleaned Up
+
+**Status:** Resolved
+
+The homepage and partner page were rewritten to:
+
+- Use shared CSS and JS foundations.
+- Remove the homepage client-side AI/Gemini demo stub.
+- Link to the new hub pages.
+- Replace aggressive or risky claims with compliance-safe positioning.
+- Preserve the Tally partner intake embed.
+- Keep the repo static-first.
+
 ## Notes for Next Commit Group
 
 Recommended next group:
 
-**Commit 6: Homepage + Partner Page Messaging Cleanup**
+**Commit 7: Tool Page Standardization**
 
-Target files:
+Target files likely include:
 
 ```txt
-index.html
-partners/index.html
+qualifier.html
+dashboard.html
+tools/fund-match-quiz.html
+tools/fundability-score.html
+tools/startup-planner.html
+tools/cost-of-capital.html
+tools/dscr-precheck.html
+tools/ecom-cashflow-tool.html
 ```
 
 Focus:
 
-- Tighten public-facing copy.
-- Soften risky claims.
-- Improve CTAs.
-- Link to the new hub pages where practical.
-- Preserve static-first structure and deployment controls.
+- Standardize headers/nav.
+- Standardize footer.
+- Add consistent disclaimer blocks.
+- Add consistent CTA blocks.
+- Add clear “what this tool does / does not do” language.
+- Move shared helpers into `assets/js/app.js` where safe.
