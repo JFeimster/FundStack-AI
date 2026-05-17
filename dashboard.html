@@ -1,186 +1,112 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard | FundStack-AI</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Space Grotesk', 'sans-serif'] },
-                    colors: { brand: { 500: '#00F0FF', 900: '#003B45' }, dark: { 900: '#050505', 800: '#0A0A0A', 700: '#111111' } }
-                }
-            }
-        }
-    </script>
-    <style>
-        body { background-color: #050505; color: #ffffff; }
-        .glass-panel { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.06); }
-        ::-webkit-scrollbar { width: 6px; height: 6px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partner Dashboard | FundStack AI</title>
+  <meta name="description" content="A static partner asset dashboard for tracked links, widgets, and campaign routing concepts.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body class="antialiased selection:bg-brand-500 selection:text-dark-900 overflow-hidden">
-
-    <div class="fixed top-[-20%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-brand-900/20 blur-[120px] pointer-events-none z-0"></div>
-
-    <div class="flex h-screen relative z-10">
-        <!-- Sidebar Navbar -->
-        <aside class="w-64 border-r border-white/5 bg-dark-900/80 backdrop-blur-xl flex flex-col justify-between hidden md:flex">
-            <div>
-                <div class="h-16 flex items-center px-6 border-b border-white/5">
-                    <a href="index.html" class="font-display font-bold text-lg tracking-tight flex items-center gap-2">
-                        <div class="w-2 h-2 bg-brand-500 rounded-full animate-pulse"></div>
-                        FUNDSTACK<span class="text-brand-500">AI</span>
-                    </a>
-                </div>
-                <nav class="p-4 space-y-2">
-                    <a href="dashboard.html" class="flex items-center gap-3 px-4 py-3 bg-brand-500/10 text-brand-500 rounded-xl font-bold text-[10px] uppercase tracking-widest border border-brand-500/20">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
-                        Asset Tracking
-                    </a>
-                    <a href="simulator.html" class="flex items-center gap-3 px-4 py-3 text-gray-500 hover:text-white rounded-xl font-bold text-[10px] uppercase tracking-widest transition-colors">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                        Command Center
-                    </a>
-                    <a href="qualifier.html" class="flex items-center gap-3 px-4 py-3 text-gray-500 hover:text-white rounded-xl font-bold text-[10px] uppercase tracking-widest transition-colors">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                        Lead Qualifier
-                    </a>
-                    <a href="products.html" class="flex items-center gap-3 px-4 py-3 text-gray-500 hover:text-white rounded-xl font-bold text-[10px] uppercase tracking-widest transition-colors">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>
-                        Product Matrix
-                    </a>
-                </nav>
-            </div>
-            
-            <!-- SQL Table: public.profiles -->
-            <div class="p-4 border-t border-white/5">
-                <div class="text-[9px] font-mono text-gray-600 mb-2 px-2 uppercase">public.profiles</div>
-                <div class="glass-panel p-4 rounded-xl border-white/10">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-8 h-8 rounded-full bg-brand-500 text-dark-900 flex items-center justify-center font-bold text-sm">JF</div>
-                        <div>
-                            <div class="text-xs font-bold text-white leading-tight">Jason Feimster</div>
-                            <div class="text-[10px] text-gray-400">Apex Funding Group</div>
-                        </div>
-                    </div>
-                    <div class="flex justify-between items-center pt-3 border-t border-white/5">
-                        <span class="text-[9px] font-bold text-brand-500 uppercase tracking-widest px-2 py-1 bg-brand-500/10 rounded">Alpha Node</span>
-                        <span class="text-[9px] text-gray-500 font-mono" id="currentPartnerId">APEX-2026</span>
-                    </div>
-                </div>
-            </div>
-        </aside>
-
-        <!-- Main Workspace -->
-        <div class="flex-1 flex flex-col h-screen">
-            <!-- Topbar -->
-            <header class="h-16 border-b border-white/5 flex items-center justify-between px-6 md:px-8 bg-dark-900/50 backdrop-blur-md">
-                <h2 class="font-display font-bold text-lg uppercase tracking-tighter">Tracking Asset Library</h2>
-                <div class="flex items-center gap-4">
-                    <button class="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-white">Sign Out</button>
-                </div>
-            </header>
-
-            <main class="flex-1 overflow-y-auto p-6 md:p-8">
-                <div class="mb-10">
-                    <h2 class="font-display text-3xl font-bold uppercase tracking-tighter mb-2">Campaign Link Generator</h2>
-                    <p class="text-gray-400 text-sm max-w-3xl">Generate fully attributed links for your engineering-as-marketing tools and vertical funnels. Leads captured via these links are automatically hardcoded to your Partner ID in the Moonshine Capital CRM.</p>
-                </div>
-
-                <!-- Link Generator Tool -->
-                <div class="glass-panel p-8 rounded-3xl border-white/10 mb-12">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                        <div>
-                            <label class="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Target Asset</label>
-                            <select id="assetSelect" class="w-full bg-dark-900 border border-white/10 p-3 rounded-xl text-white outline-none focus:border-brand-500 text-sm font-mono" onchange="generateLink()">
-                                <option value="fund-match-quiz">Funding Match Quiz</option>
-                                <option value="vertical-ecommerce">E-Commerce Landing Page</option>
-                                <option value="vertical-contractors">Contractor Landing Page</option>
-                                <option value="startup-planner">Startup Leverage Planner</option>
-                                <option value="dscr-precheck">DSCR Real Estate Tool</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">UTM Source (Optional)</label>
-                            <input type="text" id="sourceInput" placeholder="e.g. linkedin, email" class="w-full bg-dark-900 border border-white/10 p-3 rounded-xl text-white outline-none focus:border-brand-500 text-sm font-mono" oninput="generateLink()">
-                        </div>
-                        <div>
-                            <label class="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">UTM Campaign (Optional)</label>
-                            <input type="text" id="campaignInput" placeholder="e.g. q4_promo" class="w-full bg-dark-900 border border-white/10 p-3 rounded-xl text-white outline-none focus:border-brand-500 text-sm font-mono" oninput="generateLink()">
-                        </div>
-                    </div>
-
-                    <div class="p-6 bg-dark-900 border border-brand-500/30 rounded-xl relative group">
-                        <div class="text-[10px] font-bold text-brand-500 uppercase tracking-widest mb-2">Your Tracked URL</div>
-                        <div id="generatedLink" class="text-sm text-white font-mono break-all selection:bg-brand-500 selection:text-dark-900">
-                            https://fundstack.ai/fund-match-quiz.html?partner_id=APEX-2026
-                        </div>
-                        <button onclick="copyLink()" class="absolute top-6 right-6 bg-white/10 hover:bg-brand-500 hover:text-dark-900 text-white px-3 py-1.5 rounded text-[10px] font-bold uppercase tracking-widest transition-all">
-                            Copy Link
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Embeddable Widgets List -->
-                <div class="mb-6">
-                    <h3 class="font-display font-bold text-xl uppercase tracking-tighter">Embeddable iframe Widgets</h3>
-                    <p class="text-[10px] font-mono text-gray-500 mt-1 uppercase tracking-widest">Drop these into your own agency website.</p>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="glass-panel p-6 rounded-2xl border-white/10">
-                        <h4 class="font-bold text-white mb-2 uppercase">Fundability Scorecard</h4>
-                        <p class="text-xs text-gray-400 mb-6">A Credit-Karma style widget that grades your site visitors and pushes them to your CRM pipeline.</p>
-                        <div class="bg-dark-900 p-4 rounded-xl border border-white/5 relative group overflow-hidden">
-                            <code class="text-[10px] text-gray-500 font-mono break-all">
-                                &lt;iframe src="https://fundstack.ai/fundability-score.html?partner_id=APEX-2026" width="100%" height="500" frameborder="0"&gt;&lt;/iframe&gt;
-                            </code>
-                        </div>
-                    </div>
-                    <div class="glass-panel p-6 rounded-2xl border-white/10">
-                        <h4 class="font-bold text-white mb-2 uppercase">Startup Planner Tool</h4>
-                        <p class="text-xs text-gray-400 mb-6">Embed the 0% credit line estimator into your consulting funnels or membership sites.</p>
-                        <div class="bg-dark-900 p-4 rounded-xl border border-white/5 relative group overflow-hidden">
-                            <code class="text-[10px] text-gray-500 font-mono break-all">
-                                &lt;iframe src="https://fundstack.ai/startup-planner.html?partner_id=APEX-2026" width="100%" height="600" frameborder="0"&gt;&lt;/iframe&gt;
-                            </code>
-                        </div>
-                    </div>
-                </div>
-            </main>
+  <main class="fs-page-shell flex h-screen relative z-10">
+    <aside class="w-64 border-r border-white/5 bg-dark-900/80 backdrop-blur-xl flex flex-col justify-between hidden md:flex">
+      <div>
+        <div class="h-16 flex items-center px-6 border-b border-white/5">
+          <a href="index.html" class="font-display font-bold text-lg tracking-tight flex items-center gap-2"><span class="w-2 h-2 bg-brand-500 rounded-full animate-pulse"></span>FUNDSTACK<span class="text-brand-500">AI</span></a>
         </div>
+        <nav class="p-4 space-y-2">
+          <a href="dashboard.html" class="flex items-center gap-3 px-4 py-3 bg-brand-500/10 text-brand-500 rounded-xl font-bold text-[10px] uppercase tracking-widest border border-brand-500/20">Asset Dashboard</a>
+          <a href="tools/index.html" class="flex items-center gap-3 px-4 py-3 text-gray-500 hover:text-white rounded-xl font-bold text-[10px] uppercase tracking-widest transition-colors">Tool Library</a>
+          <a href="qualifier.html" class="flex items-center gap-3 px-4 py-3 text-gray-500 hover:text-white rounded-xl font-bold text-[10px] uppercase tracking-widest transition-colors">Lead Qualifier</a>
+          <a href="funding/index.html" class="flex items-center gap-3 px-4 py-3 text-gray-500 hover:text-white rounded-xl font-bold text-[10px] uppercase tracking-widest transition-colors">Funding Hub</a>
+          <a href="partners/assets.html" class="flex items-center gap-3 px-4 py-3 text-gray-500 hover:text-white rounded-xl font-bold text-[10px] uppercase tracking-widest transition-colors">Partner Assets</a>
+        </nav>
+      </div>
+      <div class="p-4 border-t border-white/5">
+        <div class="text-[9px] font-mono text-gray-600 mb-2 px-2 uppercase">Demo Partner Profile</div>
+        <div class="fs-panel p-4 rounded-xl border-white/10">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-full bg-brand-500 text-dark-900 flex items-center justify-center font-bold text-sm">JF</div>
+            <div><div class="text-xs font-bold text-white leading-tight">Jason Feimster</div><div class="text-[10px] text-gray-400">Demo Partner</div></div>
+          </div>
+          <div class="flex justify-between items-center pt-3 border-t border-white/5"><span class="text-[9px] font-bold text-brand-500 uppercase tracking-widest px-2 py-1 bg-brand-500/10 rounded">Partner ID</span><span class="text-[9px] text-gray-500 font-mono" id="currentPartnerId">DEMO-2026</span></div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="flex-1 flex flex-col h-screen">
+      <header class="h-16 border-b border-white/5 flex items-center justify-between px-6 md:px-8 bg-dark-900/50 backdrop-blur-md">
+        <h1 class="font-display font-bold text-lg uppercase tracking-tighter">Partner Asset Dashboard</h1>
+        <a href="index.html" class="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-white">Home</a>
+      </header>
+
+      <section class="flex-1 overflow-y-auto p-6 md:p-8">
+        <div class="mb-10">
+          <div class="fs-kicker mb-5">Campaign Utility</div>
+          <h2 class="fs-display text-3xl md:text-5xl font-black mb-3">Tracked Link Generator</h2>
+          <p class="text-gray-400 text-sm max-w-3xl leading-relaxed">Generate demo links with a partner ID and optional UTM values. Use this as a static concept for partner attribution workflows; production tracking should be confirmed before public rollout.</p>
+        </div>
+
+        <div class="fs-panel p-8 rounded-3xl mb-12">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div>
+              <label class="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Target Asset</label>
+              <select id="assetSelect" class="w-full bg-dark-900 border border-white/10 p-3 rounded-xl text-white outline-none focus:border-brand-500 text-sm font-mono" onchange="generateLink()">
+                <option value="tools/fund-match-quiz.html">Funding Match Quiz</option>
+                <option value="verticals/ecommerce.html">E-commerce Landing Page</option>
+                <option value="verticals/contractors.html">Contractor Landing Page</option>
+                <option value="tools/startup-planner.html">Startup Readiness Planner</option>
+                <option value="tools/dscr-precheck.html">DSCR Pre-Check</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">UTM Source</label>
+              <input type="text" id="sourceInput" placeholder="e.g. linkedin" class="w-full bg-dark-900 border border-white/10 p-3 rounded-xl text-white outline-none focus:border-brand-500 text-sm font-mono" oninput="generateLink()">
+            </div>
+            <div>
+              <label class="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">UTM Campaign</label>
+              <input type="text" id="campaignInput" placeholder="e.g. q4_partner_push" class="w-full bg-dark-900 border border-white/10 p-3 rounded-xl text-white outline-none focus:border-brand-500 text-sm font-mono" oninput="generateLink()">
+            </div>
+          </div>
+
+          <div class="p-6 bg-dark-900 border border-brand-500/30 rounded-xl relative group">
+            <div class="text-[10px] font-bold text-brand-500 uppercase tracking-widest mb-2">Generated Demo URL</div>
+            <div id="generatedLink" class="text-sm text-white font-mono break-all selection:bg-brand-500 selection:text-dark-900">https://fund-stack-ai.vercel.app/tools/fund-match-quiz.html?partner_id=DEMO-2026</div>
+            <button onclick="copyLink()" class="mt-4 md:mt-0 md:absolute md:top-6 md:right-6 bg-white/10 hover:bg-brand-500 hover:text-dark-900 text-white px-3 py-1.5 rounded text-[10px] font-bold uppercase tracking-widest transition-all">Copy Link</button>
+          </div>
+          <div class="fs-disclaimer mt-6">This dashboard is a static partner-asset concept. Confirm final domains, forms, CRM routing, attribution, and compliance language before using generated links in production campaigns.</div>
+        </div>
+
+        <div class="mb-6"><h3 class="font-display font-bold text-xl uppercase tracking-tighter">Embeddable Widget Concepts</h3><p class="text-[10px] font-mono text-gray-500 mt-1 uppercase tracking-widest">Examples for partner sites and landing pages.</p></div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="fs-panel p-6 rounded-2xl border-white/10"><h4 class="font-bold text-white mb-2 uppercase">Fundability Scorecard</h4><p class="text-xs text-gray-400 mb-6">A planning widget for gathering basic readiness signals and routing a user toward review.</p><div class="bg-dark-900 p-4 rounded-xl border border-white/5 overflow-hidden"><code class="text-[10px] text-gray-500 font-mono break-all">&lt;iframe src="https://fund-stack-ai.vercel.app/tools/fundability-score.html?partner_id=DEMO-2026" width="100%" height="500" frameborder="0"&gt;&lt;/iframe&gt;</code></div></div>
+          <div class="fs-panel p-6 rounded-2xl border-white/10"><h4 class="font-bold text-white mb-2 uppercase">Startup Readiness Planner</h4><p class="text-xs text-gray-400 mb-6">A planning widget for startup entity, credit, and readiness conversations.</p><div class="bg-dark-900 p-4 rounded-xl border border-white/5 overflow-hidden"><code class="text-[10px] text-gray-500 font-mono break-all">&lt;iframe src="https://fund-stack-ai.vercel.app/tools/startup-planner.html?partner_id=DEMO-2026" width="100%" height="600" frameborder="0"&gt;&lt;/iframe&gt;</code></div></div>
+        </div>
+      </section>
     </div>
+  </main>
 
-    <script>
-        function generateLink() {
-            const partnerId = document.getElementById('currentPartnerId').innerText;
-            const asset = document.getElementById('assetSelect').value;
-            const source = document.getElementById('sourceInput').value.trim();
-            const campaign = document.getElementById('campaignInput').value.trim();
-
-            let baseUrl = `https://fundstack.ai/${asset}.html?partner_id=${partnerId}`;
-            
-            if (source) baseUrl += `&utm_source=${encodeURIComponent(source)}`;
-            if (campaign) baseUrl += `&utm_campaign=${encodeURIComponent(campaign)}`;
-
-            document.getElementById('generatedLink').innerText = baseUrl;
-        }
-
-        function copyLink() {
-            const link = document.getElementById('generatedLink').innerText;
-            navigator.clipboard.writeText(link);
-            alert("Tracked link copied to clipboard!");
-        }
-        
-        // Init
-        generateLink();
-    </script>
+  <script>
+    function generateLink() {
+      const partnerId = document.getElementById('currentPartnerId').innerText;
+      const asset = document.getElementById('assetSelect').value;
+      const source = document.getElementById('sourceInput').value.trim();
+      const campaign = document.getElementById('campaignInput').value.trim();
+      const base = new URL(asset, 'https://fund-stack-ai.vercel.app/');
+      base.searchParams.set('partner_id', partnerId);
+      if (source) base.searchParams.set('utm_source', source);
+      if (campaign) base.searchParams.set('utm_campaign', campaign);
+      document.getElementById('generatedLink').innerText = base.toString();
+    }
+    function copyLink() {
+      const link = document.getElementById('generatedLink').innerText;
+      navigator.clipboard.writeText(link);
+      alert('Tracked demo link copied to clipboard.');
+    }
+    generateLink();
+  </script>
+  <script src="assets/js/app.js"></script>
 </body>
 </html>
