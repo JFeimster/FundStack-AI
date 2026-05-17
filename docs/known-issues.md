@@ -19,6 +19,8 @@ Multiple pages include repeated Tailwind CDN configuration, repeated glass panel
 Progress:
 
 - `assets/css/styles.css` now exists as the shared style foundation.
+- `tools/index.html` uses the shared CSS foundation.
+- Several existing pages still use inline styles and Tailwind CDN configuration.
 
 Required action:
 
@@ -34,6 +36,7 @@ Several pages include repeated or page-specific JavaScript for Tally embeds, cop
 Progress:
 
 - `assets/js/app.js` now exists as the shared JS utility foundation.
+- `tools/index.html` uses the shared JS foundation.
 
 Required action:
 
@@ -74,31 +77,25 @@ Required action:
 - Update public-facing copy to use compliance-safe language.
 - Add standard disclaimer blocks to tool pages.
 
-### 5. Current Vertical and Solution Page Inventory Needed
+### 5. Hub Page Design Pass Needed
 
 **Status:** Open
 
-Core partner/funding/tool paths have been verified, but vertical and problem-solution pages still need a fresh inventory pass before hub-page creation or sitemap generation.
-
-Routes to validate:
+The following hubs now exist but several are intentionally minimal and should receive a stronger dark-luxe design pass later:
 
 ```txt
-verticals/trucking.html
-verticals/medical.html
-verticals/ecommerce.html
-verticals/contractors.html
-verticals/real-estate.html
-solutions/bank-denial.html
-solutions/payroll-gap.html
-solutions/equipment-now.html
-solutions/zero-revenue.html
+funding/index.html
+partners/assets.html
+verticals/index.html
+solutions/index.html
 ```
 
 Required action:
 
-- Audit actual files and folders.
-- Update `docs/site-structure.md` with verified inventory.
-- Do not add stale URLs to future hub pages or sitemap.
+- Upgrade these hubs with shared CSS classes.
+- Add richer cards and CTA sections.
+- Preserve compliance-safe language.
+- Avoid large brittle rewrites unless done in a controlled batch.
 
 ### 6. Static SEO Basics Missing or Unverified
 
@@ -195,13 +192,34 @@ dscr-precheck.html
 tools/amazon-cashflow.html
 ```
 
-## Notes for Next Commit Group
+### Vertical and Solution Page Inventory Verified
 
-Recommended next group:
+**Status:** Resolved
 
-**Commit 5: Hub Pages**
+The following vertical routes have been verified:
 
-Target files:
+```txt
+verticals/trucking.html
+verticals/medical.html
+verticals/ecommerce.html
+verticals/contractors.html
+verticals/real-estate.html
+```
+
+The following solution routes have been verified:
+
+```txt
+solutions/bank-denial.html
+solutions/payroll-gap.html
+solutions/equipment-now.html
+solutions/zero-revenue.html
+```
+
+### Ecosystem Hub Pages Added
+
+**Status:** Resolved
+
+The following hub pages now exist:
 
 ```txt
 tools/index.html
@@ -209,6 +227,30 @@ funding/index.html
 partners/assets.html
 verticals/index.html
 solutions/index.html
+```
+
+Notes:
+
+- `tools/index.html` uses the shared CSS and JS foundation.
+- The other hubs are minimal static pages and should be upgraded in a later design/copy pass.
+
+## Notes for Next Commit Group
+
+Recommended next group:
+
+**Commit 6: Homepage + Partner Page Messaging Cleanup**
+
+Target files:
+
+```txt
 index.html
 partners/index.html
 ```
+
+Focus:
+
+- Tighten public-facing copy.
+- Soften risky claims.
+- Improve CTAs.
+- Link to the new hub pages where practical.
+- Preserve static-first structure and deployment controls.
