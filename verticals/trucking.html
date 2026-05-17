@@ -1,117 +1,63 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Funding for Logistics & Trucking | FundStack-AI</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Space Grotesk', 'sans-serif'] }, colors: { brand: { 500: '#00F0FF', 900: '#003B45' }, dark: { 900: '#050505', 800: '#0A0A0A' } } } }
-        }
-    </script>
-    <style>
-        body { background-color: #050505; color: #ffffff; }
-        .glass-panel { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.06); }
-        .tally-container iframe { scrollbar-width: none; -ms-overflow-style: none; }
-        .tally-container iframe::-webkit-scrollbar { display: none; }
-        .glow-text { text-shadow: 0 0 20px rgba(0, 240, 255, 0.4); }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trucking & Logistics Funding | FundStack AI</title>
+  <meta name="description" content="Funding tools and readiness resources for trucking, logistics, freight, fleet repair, payroll, fuel, and equipment cash-flow conversations.">
+  <meta property="og:title" content="Trucking & Logistics Funding | FundStack AI">
+  <meta property="og:description" content="A sharper funding page for trucking operators dealing with fuel, payroll, repairs, equipment, and delayed receivables.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fund-stack-ai.vercel.app/verticals/trucking.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 <body class="antialiased selection:bg-brand-500 selection:text-dark-900 overflow-x-hidden">
-
-    <!-- Ambient Grid Background -->
-    <div class="fixed top-[10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-blue-900/20 blur-[120px] pointer-events-none z-0"></div>
-
+  <main class="fs-page-shell">
     <nav class="fixed w-full z-50 border-b border-white/5 bg-dark-900/90 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-            <div class="font-display font-bold text-xl tracking-tight flex items-center gap-2">
-                <div class="w-3 h-3 bg-brand-500 rounded-full animate-pulse"></div>
-                MOONSHINE<span class="text-brand-500">CAPITAL</span>
-            </div>
-            <a href="#apply" class="bg-brand-500 text-dark-900 px-5 py-2 rounded-full font-bold text-[10px] uppercase tracking-tighter hover:bg-white transition-all shadow-[0_0_15px_rgba(0,240,255,0.3)]">
-                Fund Your Fleet
-            </a>
+      <div class="fs-container h-16 flex items-center justify-between">
+        <a href="../index.html" class="font-display font-bold text-xl tracking-tight flex items-center gap-2"><span class="w-3 h-3 bg-brand-500 rounded-full animate-pulse"></span>FUNDSTACK<span class="text-brand-500">AI</span></a>
+        <div class="hidden md:flex gap-8 text-[11px] font-bold uppercase tracking-[0.12em] text-gray-500">
+          <a href="index.html" class="hover:text-brand-500 transition-colors">Verticals</a>
+          <a href="../tools/index.html" class="hover:text-brand-500 transition-colors">Tools</a>
+          <a href="../solutions/payroll-gap.html" class="hover:text-brand-500 transition-colors">Payroll Gap</a>
+          <a href="../partners/index.html" class="hover:text-brand-500 transition-colors">Partners</a>
         </div>
+        <a href="../qualifier.html" class="fs-button fs-button-primary !py-2 !px-5 text-[11px]">Qualify Lead</a>
+      </div>
     </nav>
 
-    <header class="relative z-10 pt-40 pb-16 px-6 max-w-5xl mx-auto text-center">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-panel text-[10px] font-bold text-brand-500 mb-6 border-brand-500/20 uppercase tracking-widest">
-            Logistics & Transportation Funding
-        </div>
-        <h1 class="font-display text-5xl md:text-7xl font-bold tracking-tighter mb-6 leading-tight">
-            Keep your fleet moving. <br />
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-blue-400 glow-text">
-                Stop waiting on Net-60.
-            </span>
-        </h1>
-        <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Fuel, payroll, and maintenance don't wait for brokers to clear your invoices. Unlock up to $1M+ in Accounts Receivable (AR) Factoring and heavy equipment lease-backs to scale your logistics company today.
-        </p>
-        <a href="#apply" class="inline-block bg-white text-dark-900 px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-brand-500 transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)]">
-            Apply For Freight Capital
-        </a>
+    <header class="pt-40 pb-16 px-6 text-center">
+      <div class="fs-kicker mb-6">Logistics & Trucking</div>
+      <h1 class="fs-display text-5xl md:text-7xl font-black mb-6">Freight Does Not Wait for Slow Cash</h1>
+      <p class="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">Fuel, repairs, insurance, driver pay, and delayed broker payments can turn a profitable lane into a cash-flow ambush. Use this page to frame the trucking funding conversation like an operator, not a bank brochure.</p>
+      <div class="fs-button-row justify-center mt-10">
+        <a href="../qualifier.html" class="fs-button fs-button-primary">Run Lead Qualifier</a>
+        <a href="../tools/index.html" class="fs-button fs-button-secondary">Open Tool Library</a>
+      </div>
     </header>
 
-    <section class="relative z-10 py-16 px-6 max-w-5xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-            <!-- The Problem -->
-            <div class="glass-panel p-10 md:p-12 rounded-[2.5rem] border-white/5 relative overflow-hidden flex flex-col justify-center">
-                <h3 class="font-display text-2xl font-bold mb-4 uppercase tracking-tight text-white">The Freight Cash Flow Trap</h3>
-                <p class="text-gray-400 text-sm leading-relaxed mb-6">You deliver the load today, but brokers and shippers take 30, 45, or even 60 days to pay. Meanwhile, you have to cover diesel, insurance, and driver pay this Friday. Traditional bank loans are too slow to fix immediate cash crunches.</p>
-                <div class="text-[10px] font-mono text-gray-500 uppercase tracking-widest bg-white/5 p-4 rounded-xl border border-white/5">
-                    "Growth shouldn't bankrupt your operations."
-                </div>
-            </div>
+    <section class="fs-container pb-24">
+      <div class="fs-grid-3">
+        <div class="fs-card p-8"><span class="fs-pill mb-5">Cash Pressure</span><h2 class="font-display text-2xl font-bold mb-3">Receivables Lag</h2><p class="fs-muted leading-relaxed">Loads are delivered now. Payments arrive later. That timing gap is where trucking operators get squeezed.</p></div>
+        <div class="fs-card p-8"><span class="fs-pill mb-5">Fleet Reality</span><h2 class="font-display text-2xl font-bold mb-3">Repairs & Downtime</h2><p class="fs-muted leading-relaxed">One truck down can turn cash flow into a circus fire. Repair capital needs a fast, realistic review path.</p></div>
+        <div class="fs-card p-8"><span class="fs-pill mb-5">Growth</span><h2 class="font-display text-2xl font-bold mb-3">Equipment & Expansion</h2><p class="fs-muted leading-relaxed">Additional trucks, trailers, insurance, and hiring need more than “hope the next invoice clears.”</p></div>
+      </div>
 
-            <!-- The Solution -->
-            <div class="glass-panel p-10 md:p-12 rounded-[2.5rem] border-brand-500/20 bg-gradient-to-br from-brand-900/20 to-transparent relative overflow-hidden">
-                <h3 class="font-display text-2xl font-bold mb-4 uppercase tracking-tight text-white">AR Factoring & Equipment Equity</h3>
-                <p class="text-gray-400 text-sm leading-relaxed mb-6">We advance capital based on your unpaid invoices, depositing cash into your account in 1-3 days. Own your rigs free and clear? We can execute a lease-back to unlock the equity trapped in your heavy equipment.</p>
-                <ul class="space-y-4 text-gray-300 text-sm font-mono mt-6 border-t border-white/5 pt-6">
-                    <li class="flex items-center gap-3"><span class="text-brand-500 font-bold">✓</span> Up to $1M+ in AR Factoring lines</li>
-                    <li class="flex items-center gap-3"><span class="text-brand-500 font-bold">✓</span> Equipment Lease-Backs up to $2M</li>
-                    <li class="flex items-center gap-3"><span class="text-brand-500 font-bold">✓</span> Same-day or Next-day funding speed</li>
-                </ul>
-            </div>
+      <div class="fs-panel p-8 md:p-10 rounded-[2rem] mt-10">
+        <div class="fs-kicker mb-5">Best Review Inputs</div>
+        <h2 class="fs-display text-3xl md:text-5xl font-black mb-6">Bring the numbers that tell the truth.</h2>
+        <div class="fs-grid-2">
+          <div class="fs-card p-6"><h3 class="font-display text-xl font-bold mb-2">Recent bank activity</h3><p class="fs-muted text-sm leading-relaxed">Deposits, average balances, negative days, and cash-flow consistency matter.</p></div>
+          <div class="fs-card p-6"><h3 class="font-display text-xl font-bold mb-2">AR or invoice picture</h3><p class="fs-muted text-sm leading-relaxed">Unpaid invoices, customer concentration, and payment timing help shape the conversation.</p></div>
+          <div class="fs-card p-6"><h3 class="font-display text-xl font-bold mb-2">Equipment details</h3><p class="fs-muted text-sm leading-relaxed">Truck age, mileage, title status, repair quotes, and equipment use case all matter.</p></div>
+          <div class="fs-card p-6"><h3 class="font-display text-xl font-bold mb-2">Existing debt stack</h3><p class="fs-muted text-sm leading-relaxed">Current advances, loans, liens, and payment obligations should be surfaced early.</p></div>
         </div>
+        <div class="fs-button-row mt-8"><a href="../tools/cost-of-capital.html" class="fs-button fs-button-primary">Run Cost Math</a><a href="../solutions/payroll-gap.html" class="fs-button fs-button-secondary">Payroll Gap Page</a></div>
+      </div>
     </section>
-
-    <!-- Application Section -->
-    <section id="apply" class="relative z-10 py-24 px-6 max-w-5xl mx-auto border-t border-white/10 mt-8">
-        <div class="text-center mb-12">
-            <h2 class="font-display text-4xl font-bold mb-4 tracking-tighter uppercase">Get Your Rates</h2>
-            <p class="text-gray-400 max-w-2xl mx-auto">Submit your company profile below. Our deal desk specializes in transportation and will match you with the best AR or asset-backed path.</p>
-        </div>
-
-        <div class="glass-panel rounded-[2.5rem] border-white/10 shadow-2xl relative overflow-hidden bg-dark-800/40">
-            <div class="absolute inset-0 bg-brand-500/5 animate-pulse pointer-events-none"></div>
-            <div class="relative z-10 tally-container min-h-[400px]">
-                <iframe 
-                    data-tally-src="https://tally.so/embed/mOe658?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
-                    loading="lazy" 
-                    width="100%" 
-                    height="400" 
-                    frameborder="0" 
-                    marginheight="0" 
-                    marginwidth="0" 
-                    title="Join the #1 B2B Funding Platform!">
-                </iframe>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-12 border-t border-white/5 text-center text-[10px] text-gray-600 uppercase tracking-widest font-bold">
-        &copy; 2026 Moonshine Capital | Commercial Funding Desk
-    </footer>
-
-    <script>
-        var d=document,w="https://tally.so/widgets/embed.js",v=function(){
-            if ("undefined"!=typeof Tally) { Tally.loadEmbeds(); } else { d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc})); }
-        };
-        if("undefined"!=typeof Tally) v();
-        else if(d.querySelector('script[src="'+w+'"]')==null){ var s=d.createElement("script"); s.src=w; s.onload=v; s.onerror=v; d.body.appendChild(s); }
-    </script>
+  </main>
+  <script src="../assets/js/app.js"></script>
 </body>
 </html>
