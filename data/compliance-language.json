@@ -1,0 +1,59 @@
+{
+  "standardDisclaimers": {
+    "short": "Provider criteria apply. Approval, terms, amounts, and timing are not guaranteed.",
+    "tool": "This tool is for planning and education only. It does not guarantee approval, funding, terms, rates, amounts, or timing. Actual options depend on business profile, documentation, underwriting review, and provider criteria.",
+    "partner": "Partner tools support intake, education, and routing conversations. They do not replace underwriting review and should not be presented as final approval decisions.",
+    "ai": "AI-generated outputs are drafts for review. Confirm accuracy, compliance, and context before sending. Approval, terms, amounts, and timing are not guaranteed."
+  },
+  "approvedPhrases": [
+    "Explore funding options.",
+    "Check funding fit.",
+    "Run a funding pre-check.",
+    "Review your readiness.",
+    "Provider criteria apply.",
+    "Options may vary based on business profile.",
+    "Approval, terms, amounts, and timing are not guaranteed.",
+    "This tool is for planning and education only.",
+    "See what may fit your business profile."
+  ],
+  "avoidPhrases": [
+    "Guaranteed approval",
+    "Guaranteed funding",
+    "Instant approval for everyone",
+    "Everyone qualifies",
+    "No risk",
+    "Best rate guaranteed",
+    "You are approved",
+    "Claim your guaranteed funding",
+    "Lock your approval",
+    "We approve everyone"
+  ],
+  "ctaLibrary": {
+    "primary": [
+      "Explore Funding Options",
+      "Check Funding Fit",
+      "Run a Funding Pre-Check",
+      "Review Your Readiness",
+      "Become a Partner",
+      "Open the Partner Stack"
+    ],
+    "secondary": [
+      "Compare Possible Paths",
+      "Build Your Funding Plan",
+      "Review the Tool Library",
+      "See Partner Assets",
+      "Learn the Routing Logic"
+    ]
+  },
+  "riskReviewTerms": [
+    "guaranteed",
+    "approved",
+    "instant",
+    "no risk",
+    "everyone qualifies",
+    "best rate",
+    "same-day",
+    "no credit needed",
+    "bad credit approved"
+  ]
+}
