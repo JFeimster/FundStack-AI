@@ -1,233 +1,132 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Become a Funding Partner | FundStack-AI & Moonshine Capital</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            500: '#00F0FF',
-                            600: '#00D1DF',
-                            900: '#003B45',
-                        },
-                        dark: {
-                            900: '#050505',
-                            800: '#0A0A0A',
-                            700: '#111111',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body { background-color: #050505; color: #ffffff; }
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-        }
-        .bento-card { transition: all 0.3s ease; }
-        .bento-card:hover { border-color: rgba(0, 240, 255, 0.4); background: rgba(255, 255, 255, 0.04); }
-        
-        .tally-container iframe {
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-        .tally-container iframe::-webkit-scrollbar {
-            display: none;
-        }
-        .glow-text {
-            text-shadow: 0 0 25px rgba(0, 240, 255, 0.45);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Become a Funding Partner | FundStack AI</title>
+  <meta name="description" content="Partner with FundStack AI to use funding readiness tools, education pages, and partner assets for better business funding conversations.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 <body class="antialiased selection:bg-brand-500 selection:text-dark-900 overflow-x-hidden">
-
-    <!-- Ambient background glows -->
-    <div class="fixed top-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-brand-900/10 blur-[130px] pointer-events-none z-0"></div>
-    <div class="fixed bottom-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-blue-900/10 blur-[130px] pointer-events-none z-0"></div>
-
-    <!-- Navigation -->
+  <main class="fs-page-shell">
     <nav class="fixed w-full z-50 border-b border-white/5 bg-dark-900/90 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="../index.html" class="font-display font-bold text-xl tracking-tight flex items-center gap-2">
-                <div class="w-3 h-3 bg-brand-500 rounded-full animate-pulse"></div>
-                FUNDSTACK<span class="text-brand-500">AI</span>
-            </a>
-            <div class="hidden md:flex gap-8 text-[11px] font-bold uppercase tracking-[0.15em] text-gray-500">
-                <a href="guide.html" class="hover:text-brand-500 transition-colors">Success Guide</a>
-                <a href="../products.html" class="hover:text-brand-500 transition-colors">Product Matrix</a>
-                <a href="../simulator.html" class="hover:text-white transition-colors">Simulator</a>
-                <a href="link-in-bio.html" class="hover:text-white transition-colors">Partner Directory</a>
-            </div>
-            <a href="#apply-form" class="bg-brand-500 text-dark-900 px-6 py-2.5 rounded-full font-bold text-[11px] uppercase tracking-widest hover:bg-white transition-all shadow-[0_0_15px_rgba(0,240,255,0.35)]">
-                Become a Partner
-            </a>
+      <div class="fs-container h-16 flex items-center justify-between">
+        <a href="../index.html" class="font-display font-bold text-xl tracking-tight flex items-center gap-2">
+          <span class="w-3 h-3 bg-brand-500 rounded-full animate-pulse"></span>
+          FUNDSTACK<span class="text-brand-500">AI</span>
+        </a>
+        <div class="hidden md:flex gap-7 text-[11px] font-bold uppercase tracking-[0.12em] text-gray-500">
+          <a href="assets.html" class="hover:text-brand-500 transition-colors">Assets</a>
+          <a href="guide.html" class="hover:text-brand-500 transition-colors">Guide</a>
+          <a href="../tools/index.html" class="hover:text-brand-500 transition-colors">Tools</a>
+          <a href="../funding/index.html" class="hover:text-brand-500 transition-colors">Funding</a>
+          <a href="../dashboard.html" class="hover:text-brand-500 transition-colors">Dashboard</a>
         </div>
+        <a href="#apply-form" class="fs-button fs-button-primary !py-2 !px-5 text-[11px]">Apply</a>
+      </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="relative z-10 pt-48 pb-20 px-6 max-w-7xl mx-auto text-center">
-        <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full glass-panel text-[10px] font-bold text-brand-500 mb-8 border-brand-500/30 uppercase tracking-[0.25em] glow-text font-mono">
-            No investment. No overhead. No ceiling.
-        </div>
-        <h1 class="font-display text-4xl md:text-7xl font-bold tracking-tighter mb-8 leading-[1.05] uppercase">
-            Build a High-Income Business <br />
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-blue-300">
-                Helping Companies Get Funded.
-            </span>
-        </h1>
-        <p class="text-base md:text-lg text-gray-400 max-w-3xl mx-auto mb-12 font-light leading-relaxed">
-            80% of small businesses get turned down by banks, even when they're profitable and growing. As a Funding Partner, you connect them to the funding they need. We do the heavy lifting. You earn daily commissions.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 w-full justify-center max-w-md mx-auto">
-            <a href="#apply-form" class="w-full bg-white text-dark-900 px-8 py-4 font-extrabold text-sm uppercase tracking-widest rounded-full hover:bg-brand-500 transition-all text-center">
-                Become a Partner
-            </a>
-            <a href="#operator-suite" class="w-full glass-panel text-white px-8 py-4 font-bold text-sm uppercase tracking-widest rounded-full hover:bg-white/10 transition-all text-center border-white/20">
-                Explore Operator Suite
-            </a>
-        </div>
+    <header class="relative z-10 pt-44 pb-20 px-6 text-center">
+      <div class="fs-kicker mb-8">Partner Enablement Hub</div>
+      <h1 class="fs-display text-5xl md:text-7xl font-black mb-8 max-w-6xl mx-auto">
+        Build a Cleaner Funding Referral System
+      </h1>
+      <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed">
+        Use FundStack AI to educate prospects, pre-check readiness, organize referral conversations, and send cleaner files into review. You bring the relationships. The stack gives you better assets.
+      </p>
+      <div class="fs-button-row justify-center">
+        <a href="#apply-form" class="fs-button fs-button-primary">Become a Partner</a>
+        <a href="assets.html" class="fs-button fs-button-secondary">View Partner Assets</a>
+        <a href="../tools/index.html" class="fs-button fs-button-secondary">Explore Tools</a>
+      </div>
     </header>
 
-    <!-- Strategic Pillars Section -->
-    <section class="relative z-10 py-16 px-6 max-w-6xl mx-auto">
-        <div class="text-center mb-16">
-            <h2 class="font-display text-3xl md:text-5xl font-bold uppercase tracking-tighter">Why Top Brokers Originate Here</h2>
-            <p class="text-gray-400 text-sm md:text-base mt-3 max-w-xl mx-auto">We provide the dynamic infrastructure. You scale your network.</p>
+    <section class="fs-container fs-section">
+      <div class="text-center mb-14">
+        <div class="fs-kicker mb-5">Why This Exists</div>
+        <h2 class="fs-display text-4xl md:text-6xl font-black mb-4">No More Lead Roulette</h2>
+        <p class="fs-muted text-lg max-w-3xl mx-auto leading-relaxed">Most funding referrals break because the conversation starts with a vague promise and ends with missing documents. FundStack gives partners a cleaner way to educate, qualify, and route prospects.</p>
+      </div>
+      <div class="fs-grid-3">
+        <div class="fs-card p-8">
+          <span class="fs-pill mb-5">Tools</span>
+          <h3 class="font-display text-2xl font-bold mb-3">Pre-Check Before Review</h3>
+          <p class="fs-muted leading-relaxed">Use calculators and quizzes to identify likely fit, friction points, and missing information before pushing a file forward.</p>
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="glass-panel p-8 rounded-3xl border-white/5 bg-gradient-to-b from-white/[0.01] to-transparent">
-                <div class="w-12 h-12 rounded-2xl bg-brand-500/10 flex items-center justify-center text-brand-500 mb-6 border border-brand-500/20">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                </div>
-                <h3 class="font-display text-xl font-bold uppercase mb-3">Uncapped Tier Payouts</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Scale your split dynamically up to a <span class="text-brand-500 font-bold">70% net commission cut</span>. No arbitrary holdbacks or administrative gatekeeping.</p>
-            </div>
-
-            <div class="glass-panel p-8 rounded-3xl border-white/5 bg-gradient-to-b from-white/[0.01] to-transparent">
-                <div class="w-12 h-12 rounded-2xl bg-brand-500/10 flex items-center justify-center text-brand-500 mb-6 border border-brand-500/20">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                </div>
-                <h3 class="font-display text-xl font-bold uppercase mb-3">0% Bypass Risk</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Your files are entirely white-labeled. We strip all backend providers and anchor every lead back to your unique <span class="text-white font-semibold">partner_id</span> inside our CRM.</p>
-            </div>
-
-            <div class="glass-panel p-8 rounded-3xl border-white/5 bg-gradient-to-b from-white/[0.01] to-transparent">
-                <div class="w-12 h-12 rounded-2xl bg-brand-500/10 flex items-center justify-center text-brand-500 mb-6 border border-brand-500/20">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                </div>
-                <h3 class="font-display text-xl font-bold uppercase mb-3">AI-Engineered Advantage</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Leverage the Turndown Recovery AI, the Blue Collar Banker qualifier, and fast-match logic to capture, segment, and score files automatically.</p>
-            </div>
+        <div class="fs-card p-8">
+          <span class="fs-pill mb-5">Attribution</span>
+          <h3 class="font-display text-2xl font-bold mb-3">Partner-First Workflows</h3>
+          <p class="fs-muted leading-relaxed">Use tracked links, partner assets, and structured intake to support better attribution and cleaner handoff workflows.</p>
         </div>
+        <div class="fs-card p-8">
+          <span class="fs-pill mb-5">Education</span>
+          <h3 class="font-display text-2xl font-bold mb-3">Better Client Conversations</h3>
+          <p class="fs-muted leading-relaxed">Share industry pages, solution pages, and funding education without promising approval, timing, amount, or specific terms.</p>
+        </div>
+      </div>
     </section>
 
-    <!-- Embedded Tally Application Section -->
-    <section id="apply-form" class="relative z-10 py-16 px-6 max-w-5xl mx-auto border-t border-white/10">
-        <div class="text-center mb-12">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-panel text-[9px] font-bold text-brand-500 mb-4 border-brand-500/20 uppercase tracking-[0.25em]">
-                Partner Onboarding
-            </div>
-            <h2 class="font-display text-3xl md:text-5xl font-bold mb-4 tracking-tighter uppercase">Join the #1 B2B Funding Platform</h2>
-            <p class="text-gray-400 text-base max-w-xl mx-auto">Fill out the official onboarding form below. Our intake engines will review your profile to allocate your dedicated syndicate code.</p>
+    <section id="apply-form" class="fs-container fs-section border-t border-white/5">
+      <div class="text-center mb-12">
+        <div class="fs-kicker mb-5">Partner Onboarding</div>
+        <h2 class="fs-display text-4xl md:text-6xl font-black mb-5">Start the Partner Review</h2>
+        <p class="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">Complete the intake form below so we can understand your audience, referral lane, and best-fit partner support path.</p>
+      </div>
+      <div class="fs-panel rounded-[2rem] overflow-hidden bg-dark-800/40">
+        <div class="tally-container min-h-[420px] p-2">
+          <iframe
+            data-tally-src="https://tally.so/embed/mOe658?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+            loading="lazy"
+            width="100%"
+            height="420"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+            title="FundStack AI Partner Intake">
+          </iframe>
         </div>
-
-        <div class="glass-panel rounded-[2.5rem] border-white/10 shadow-2xl relative overflow-hidden bg-dark-800/40">
-            <div class="absolute inset-0 bg-brand-500/5 animate-pulse pointer-events-none"></div>
-            <div class="relative z-10 tally-container min-h-[350px] p-2">
-                <iframe 
-                    data-tally-src="https://tally.so/embed/mOe658?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
-                    loading="lazy" 
-                    width="100%" 
-                    height="350" 
-                    frameborder="0" 
-                    marginheight="0" 
-                    marginwidth="0" 
-                    title="Join the #1 B2B Funding Platform!">
-                </iframe>
-            </div>
-        </div>
+      </div>
     </section>
 
-    <!-- Connected Partner Assets (The Operator Suite) -->
-    <section id="operator-suite" class="relative z-10 py-16 px-6 max-w-6xl mx-auto border-t border-white/10">
-        <div class="text-center mb-16">
-            <h2 class="font-display text-3xl md:text-5xl font-bold uppercase tracking-tighter">The Origination Suite</h2>
-            <p class="text-gray-400 text-sm md:text-base mt-3 max-w-xl mx-auto">Equip your deal-making process with high-utility assets built to convert.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- Asset 1: Success Guide -->
-            <a href="guide.html" class="bento-card glass-panel p-8 rounded-3xl border-white/5 flex flex-col justify-between group">
-                <div>
-                    <div class="flex items-center justify-between mb-6">
-                        <span class="text-[9px] font-mono text-brand-500 uppercase tracking-widest font-bold">OPERATIONAL MANUAL</span>
-                        <svg class="w-5 h-5 text-gray-600 group-hover:text-brand-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                    </div>
-                    <h3 class="font-display text-2xl font-bold uppercase mb-3">Partner Success Guide</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-6">A digital translation of the Moonshine Capital Master Handbook. Learn how to pre-vet leads, understand the 4 Underwriting Pillars, and utilize optimal routing logic.</p>
-                </div>
-                <div class="text-xs font-bold text-brand-500 uppercase tracking-widest border-t border-white/5 pt-4">Explore Guide →</div>
-            </a>
-
-            <!-- Asset 2: Link in Bio -->
-            <a href="link-in-bio.html" class="bento-card glass-panel p-8 rounded-3xl border-white/5 flex flex-col justify-between group">
-                <div>
-                    <div class="flex items-center justify-between mb-6">
-                        <span class="text-[9px] font-mono text-brand-500 uppercase tracking-widest font-bold">MARKETING DEPLOYMENT</span>
-                        <svg class="w-5 h-5 text-gray-600 group-hover:text-brand-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                    </div>
-                    <h3 class="font-display text-2xl font-bold uppercase mb-3">Partner Link-in-Bio</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-6">A high-conversion, mobile-optimized profile card and tool index designed specifically for social media distribution, direct DM outreach, and quick broker profiling.</p>
-                </div>
-                <div class="text-xs font-bold text-brand-500 uppercase tracking-widest border-t border-white/5 pt-4">Preview Profile Asset →</div>
-            </a>
-        </div>
+    <section id="operator-suite" class="fs-container fs-section border-t border-white/5">
+      <div class="text-center mb-14">
+        <div class="fs-kicker mb-5">Partner Stack</div>
+        <h2 class="fs-display text-4xl md:text-6xl font-black mb-4">Assets Built for Real Conversations</h2>
+        <p class="fs-muted text-lg max-w-3xl mx-auto leading-relaxed">A compact toolkit for partners who want to educate prospects, sort files, and avoid sending every lead into the same generic form.</p>
+      </div>
+      <div class="fs-grid-2">
+        <a href="guide.html" class="fs-card p-8">
+          <span class="fs-pill mb-5">Guide</span>
+          <h3 class="font-display text-2xl font-bold mb-3">Partner Success Guide</h3>
+          <p class="fs-muted leading-relaxed">Review the operating principles for intake, pre-vetting, and partner-safe funding conversations.</p>
+        </a>
+        <a href="link-in-bio.html" class="fs-card p-8">
+          <span class="fs-pill mb-5">Profile Asset</span>
+          <h3 class="font-display text-2xl font-bold mb-3">Partner Link-in-Bio</h3>
+          <p class="fs-muted leading-relaxed">Use a mobile-friendly profile page to route prospects toward tools, education, and intake.</p>
+        </a>
+        <a href="../dashboard.html" class="fs-card p-8">
+          <span class="fs-pill mb-5">Dashboard</span>
+          <h3 class="font-display text-2xl font-bold mb-3">Campaign Link Generator</h3>
+          <p class="fs-muted leading-relaxed">Preview tracked link concepts and partner campaign workflows.</p>
+        </a>
+        <a href="../verticals/index.html" class="fs-card p-8">
+          <span class="fs-pill mb-5">Industry Pages</span>
+          <h3 class="font-display text-2xl font-bold mb-3">Vertical Funnels</h3>
+          <p class="fs-muted leading-relaxed">Route prospects to industry-specific pages for trucking, medical, e-commerce, contractors, and real estate.</p>
+        </a>
+      </div>
+      <div class="fs-disclaimer mt-10">Partner tools support intake, education, and routing conversations. They do not replace underwriting review and should not be presented as final approval decisions. Approval, terms, amounts, and timing are not guaranteed.</div>
     </section>
 
-    <!-- Footer -->
-    <footer class="relative z-10 py-24 px-6 border-t border-white/5 text-center bg-dark-900/50">
-        <div class="max-w-4xl mx-auto">
-            <div class="font-display font-bold text-xl tracking-tight mb-8">
-                FUNDSTACK<span class="text-brand-500">AI</span>
-            </div>
-            <p class="text-gray-500 text-sm mb-12 max-w-lg mx-auto">Only 50 partner nodes are activated per quarter to ensure premium support at our Deal Desk. Secure your onboarding space today.</p>
-            <div class="text-gray-600 font-bold text-[10px] uppercase tracking-[0.4em]">
-                &copy; 2026 FUNDSTACK-AI | A MOONSHINE CAPITAL TECHNOLOGY PARTNER
-            </div>
-        </div>
+    <footer class="relative z-10 py-20 px-6 border-t border-white/5 text-center">
+      <div class="max-w-4xl mx-auto text-gray-600 font-bold text-[10px] uppercase tracking-[0.35em]">
+        &copy; 2026 FUNDSTACK AI | A MOONSHINE CAPITAL TECHNOLOGY PARTNER
+      </div>
     </footer>
-
-    <!-- Tally Widget Embed Script -->
-    <script>
-        var d=document,w="https://tally.so/widgets/embed.js",v=function(){
-            if("undefined"!=typeof Tally) {
-                Tally.loadEmbeds();
-            } else {
-                d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}));
-            }
-        };
-        if("undefined"!=typeof Tally) v();
-        else if(d.querySelector('script[src="'+w+'"]')==null){
-            var s=d.createElement("script");
-            s.src=w;
-            s.onload=v;
-            s.onerror=v;
-            d.body.appendChild(s);
-        }
-    </script>
+  </main>
+  <script src="../assets/js/app.js"></script>
 </body>
 </html>
