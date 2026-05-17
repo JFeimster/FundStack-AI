@@ -1,114 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Real Estate Investor Capital | FundStack-AI</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Space Grotesk', 'sans-serif'] }, colors: { brand: { 500: '#00F0FF', 900: '#003B45' }, dark: { 900: '#050505', 800: '#0A0A0A' } } } }
-        }
-    </script>
-    <style>
-        body { background-color: #050505; color: #ffffff; }
-        .glass-panel { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.06); }
-        .tally-container iframe { scrollbar-width: none; -ms-overflow-style: none; }
-        .tally-container iframe::-webkit-scrollbar { display: none; }
-        .glow-text { text-shadow: 0 0 20px rgba(0, 240, 255, 0.4); }
-    </style>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real Estate Investor Funding | FundStack AI</title>
+  <meta name="description" content="Funding readiness resources for real estate investors reviewing DSCR, bridge, fix-and-flip, rental, rehab, and property-backed capital conversations.">
+  <meta property="og:title" content="Real Estate Investor Funding | FundStack AI"><meta property="og:description" content="A real estate investor funding page for DSCR, bridge, rehab, rental, and property-backed capital conversations."><meta property="og:type" content="website"><meta property="og:url" content="https://fund-stack-ai.vercel.app/verticals/real-estate.html">
+  <script src="https://cdn.tailwindcss.com"></script><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/css/styles.css">
 </head>
-<body class="antialiased selection:bg-brand-500 selection:text-dark-900 overflow-x-hidden">
-
-    <div class="fixed top-[10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-emerald-900/20 blur-[120px] pointer-events-none z-0"></div>
-
-    <nav class="fixed w-full z-50 border-b border-white/5 bg-dark-900/90 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-            <div class="font-display font-bold text-xl tracking-tight flex items-center gap-2">
-                <div class="w-3 h-3 bg-brand-500 rounded-full animate-pulse"></div>
-                MOONSHINE<span class="text-brand-500">CAPITAL</span>
-            </div>
-            <a href="#apply" class="bg-brand-500 text-dark-900 px-5 py-2 rounded-full font-bold text-[10px] uppercase tracking-tighter hover:bg-white transition-all shadow-[0_0_15px_rgba(0,240,255,0.3)]">
-                Analyze Your Deal
-            </a>
-        </div>
-    </nav>
-
-    <header class="relative z-10 pt-40 pb-16 px-6 max-w-5xl mx-auto text-center">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-panel text-[10px] font-bold text-brand-500 mb-6 border-brand-500/20 uppercase tracking-widest">
-            Fix & Flip | DSCR Rentals | Commercial Bridge
-        </div>
-        <h1 class="font-display text-5xl md:text-7xl font-bold tracking-tighter mb-6 leading-tight">
-            Scale your portfolio. <br />
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-emerald-400 glow-text">
-                Fast, asset-backed funding.
-            </span>
-        </h1>
-        <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Bypass strict personal income requirements. We underwrite based on the property. Secure Fix-and-Flip bridge loans and 30-year DSCR rental mortgages to close deals faster.
-        </p>
-        <a href="#apply" class="inline-block bg-white text-dark-900 px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-brand-500 transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)]">
-            Get Term Sheet
-        </a>
-    </header>
-
-    <section class="relative z-10 py-16 px-6 max-w-5xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-            <div class="glass-panel p-10 md:p-12 rounded-[2.5rem] border-white/5 relative overflow-hidden flex flex-col justify-center">
-                <h3 class="font-display text-2xl font-bold mb-4 uppercase tracking-tight text-white">The DTI Death Spiral</h3>
-                <p class="text-gray-400 text-sm leading-relaxed mb-6">Traditional lenders cap your growth by focusing strictly on your personal Debt-to-Income (DTI) ratio. If you want to scale a portfolio of 5, 10, or 20+ doors, conventional mortgages will eventually cut you off, regardless of how profitable the properties are.</p>
-                <div class="text-[10px] font-mono text-gray-500 uppercase tracking-widest bg-white/5 p-4 rounded-xl border border-white/5">
-                    "Underwrite the asset, not the W2."
-                </div>
-            </div>
-
-            <div class="glass-panel p-10 md:p-12 rounded-[2.5rem] border-brand-500/20 bg-gradient-to-br from-brand-900/20 to-transparent relative overflow-hidden">
-                <h3 class="font-display text-2xl font-bold mb-4 uppercase tracking-tight text-white">Property-First Underwriting</h3>
-                <p class="text-gray-400 text-sm leading-relaxed mb-6">With DSCR (Debt Service Coverage Ratio) loans, we qualify the loan based entirely on the property's rental income. Flipping? Our Bridge loans deploy in days so you never lose a deal to an all-cash buyer.</p>
-                <ul class="space-y-4 text-gray-300 text-sm font-mono mt-6 border-t border-white/5 pt-6">
-                    <li class="flex items-center gap-3"><span class="text-brand-500 font-bold">✓</span> DSCR Loans up to $5M (No DTI Check)</li>
-                    <li class="flex items-center gap-3"><span class="text-brand-500 font-bold">✓</span> Fix & Flip Bridge Paths up to 90% LTC</li>
-                    <li class="flex items-center gap-3"><span class="text-brand-500 font-bold">✓</span> Close in 5-7 days for Hard Money lines</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Application Section -->
-    <section id="apply" class="relative z-10 py-24 px-6 max-w-5xl mx-auto border-t border-white/10 mt-8">
-        <div class="text-center mb-12">
-            <h2 class="font-display text-4xl font-bold mb-4 tracking-tighter uppercase">Submit Your Deal</h2>
-            <p class="text-gray-400 max-w-2xl mx-auto">Fill out our intake form below. We will analyze your property metrics and provide a fast term sheet for your next acquisition or refi.</p>
-        </div>
-
-        <div class="glass-panel rounded-[2.5rem] border-white/10 shadow-2xl relative overflow-hidden bg-dark-800/40">
-            <div class="absolute inset-0 bg-brand-500/5 animate-pulse pointer-events-none"></div>
-            <div class="relative z-10 tally-container min-h-[400px]">
-                <iframe 
-                    data-tally-src="https://tally.so/embed/mOe658?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
-                    loading="lazy" 
-                    width="100%" 
-                    height="400" 
-                    frameborder="0" 
-                    marginheight="0" 
-                    marginwidth="0" 
-                    title="Join the #1 B2B Funding Platform!">
-                </iframe>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-12 border-t border-white/5 text-center text-[10px] text-gray-600 uppercase tracking-widest font-bold">
-        &copy; 2026 Moonshine Capital | Real Estate Deal Desk
-    </footer>
-
-    <script>
-        var d=document,w="https://tally.so/widgets/embed.js",v=function(){
-            if ("undefined"!=typeof Tally) { Tally.loadEmbeds(); } else { d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc})); }
-        };
-        if("undefined"!=typeof Tally) v();
-        else if(d.querySelector('script[src="'+w+'"]')==null){ var s=d.createElement("script"); s.src=w; s.onload=v; s.onerror=v; d.body.appendChild(s); }
-    </script>
-</body>
-</html>
+<body class="antialiased selection:bg-brand-500 selection:text-dark-900 overflow-x-hidden"><main class="fs-page-shell">
+<nav class="fixed w-full z-50 border-b border-white/5 bg-dark-900/90 backdrop-blur-md"><div class="fs-container h-16 flex items-center justify-between"><a href="../index.html" class="font-display font-bold text-xl tracking-tight flex items-center gap-2"><span class="w-3 h-3 bg-brand-500 rounded-full animate-pulse"></span>FUNDSTACK<span class="text-brand-500">AI</span></a><div class="hidden md:flex gap-8 text-[11px] font-bold uppercase tracking-[0.12em] text-gray-500"><a href="index.html" class="hover:text-brand-500 transition-colors">Verticals</a><a href="../dscr-precheck.html" class="hover:text-brand-500 transition-colors">DSCR</a><a href="../tools/index.html" class="hover:text-brand-500 transition-colors">Tools</a><a href="../funding/index.html" class="hover:text-brand-500 transition-colors">Funding</a></div><a href="../dscr-precheck.html" class="fs-button fs-button-primary !py-2 !px-5 text-[11px]">Run DSCR</a></div></nav>
+<header class="pt-40 pb-16 px-6 text-center"><div class="fs-kicker mb-6">Real Estate Investors</div><h1 class="fs-display text-5xl md:text-7xl font-black mb-6">The Property Has to Carry the Story</h1><p class="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">Investors do not need vague capital talk. They need a clean read on rent, rehab scope, collateral, debt service, borrower experience, and whether the deal math survives daylight.</p><div class="fs-button-row justify-center mt-10"><a href="../dscr-precheck.html" class="fs-button fs-button-primary">Run DSCR Pre-Check</a><a href="../tools/cost-of-capital.html" class="fs-button fs-button-secondary">Run Cost Math</a></div></header>
+<section class="fs-container pb-24"><div class="fs-grid-3"><div class="fs-card p-8"><span class="fs-pill mb-5">DSCR</span><h2 class="font-display text-2xl font-bold mb-3">Rental Coverage</h2><p class="fs-muted leading-relaxed">Rent, expenses, debt service, reserves, and property condition tell the real story.</p></div><div class="fs-card p-8"><span class="fs-pill mb-5">Bridge</span><h2 class="font-display text-2xl font-bold mb-3">Speed + Exit Plan</h2><p class="fs-muted leading-relaxed">Bridge money needs a credible payoff path. “Trust me bro” is not a refinancing strategy.</p></div><div class="fs-card p-8"><span class="fs-pill mb-5">Rehab</span><h2 class="font-display text-2xl font-bold mb-3">Scope & Budget</h2><p class="fs-muted leading-relaxed">Rehab capital conversations need contractor scope, draw timing, ARV assumptions, and contingency discipline.</p></div></div><div class="fs-panel p-8 md:p-10 rounded-[2rem] mt-10"><div class="fs-kicker mb-5">Investor Review Inputs</div><h2 class="fs-display text-3xl md:text-5xl font-black mb-6">Bring the property, the plan, and the exit.</h2><div class="fs-grid-2"><div class="fs-card p-6"><h3 class="font-display text-xl font-bold mb-2">Property details</h3><p class="fs-muted text-sm leading-relaxed">Address, property type, value, condition, occupancy, and insurance/tax picture.</p></div><div class="fs-card p-6"><h3 class="font-display text-xl font-bold mb-2">Income math</h3><p class="fs-muted text-sm leading-relaxed">Market rent, current rent, vacancies, expenses, and realistic DSCR assumptions.</p></div><div class="fs-card p-6"><h3 class="font-display text-xl font-bold mb-2">Project scope</h3><p class="fs-muted text-sm leading-relaxed">Rehab budget, timeline, contractor estimates, and whether the numbers have room for chaos.</p></div><div class="fs-card p-6"><h3 class="font-display text-xl font-bold mb-2">Borrower experience</h3><p class="fs-muted text-sm leading-relaxed">Track record, liquidity, credit profile, and exit strategy all matter.</p></div></div><div class="fs-button-row mt-8"><a href="../dscr-precheck.html" class="fs-button fs-button-primary">Run DSCR</a><a href="../funding/products.html" class="fs-button fs-button-secondary">View Funding Matrix</a></div></div></section>
+</main><script src="../assets/js/app.js"></script></body></html>
