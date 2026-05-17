@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Revenue Startup Capital | FundStack-AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Space Grotesk', 'sans-serif'] }, colors: { brand: { 500: '#00F0FF', 900: '#003B45' }, dark: { 900: '#050505', 800: '#0A0A0A' } } } }
+        }
+    </script>
+    <style>
+        body { background-color: #050505; color: #ffffff; }
+        .glass-panel { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.06); }
+        .tally-container iframe { scrollbar-width: none; -ms-overflow-style: none; }
+        .tally-container iframe::-webkit-scrollbar { display: none; }
+        .glow-text { text-shadow: 0 0 20px rgba(0, 240, 255, 0.4); }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-500 selection:text-dark-900 overflow-x-hidden">
+
+    <div class="fixed top-[10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-brand-900/20 blur-[120px] pointer-events-none z-0"></div>
+
+    <nav class="fixed w-full z-50 border-b border-white/5 bg-dark-900/90 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="font-display font-bold text-xl tracking-tight flex items-center gap-2">
+                <div class="w-3 h-3 bg-brand-500 rounded-full animate-pulse"></div>
+                MOONSHINE<span class="text-brand-500">CAPITAL</span>
+            </div>
+            <a href="#apply" class="bg-brand-500 text-dark-900 px-5 py-2 rounded-full font-bold text-[10px] uppercase tracking-tighter hover:bg-white transition-all shadow-[0_0_15px_rgba(0,240,255,0.3)]">
+                Check Eligibility
+            </a>
+        </div>
+    </nav>
+
+    <header class="relative z-10 pt-40 pb-16 px-6 max-w-5xl mx-auto text-center">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-panel text-[10px] font-bold text-brand-500 mb-6 border-brand-500/20 uppercase tracking-widest">
+            The Startup Funding Program
+        </div>
+        <h1 class="font-display text-5xl md:text-7xl font-bold tracking-tighter mb-6 leading-tight">
+            Need capital but have <br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-blue-400 glow-text">
+                $0 in revenue?
+            </span>
+        </h1>
+        <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+            Traditional lenders won't touch pre-revenue startups. We leverage your personal credit profile to unlock up to $150k in 0% introductory business credit lines. No collateral. No dilution.
+        </p>
+        <a href="#apply" class="inline-block bg-white text-dark-900 px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-brand-500 transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+            Apply For Startup Capital
+        </a>
+    </header>
+
+    <section class="relative z-10 py-16 px-6 max-w-5xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+            <div class="glass-panel p-10 md:p-12 rounded-[2.5rem] border-white/5 relative overflow-hidden flex flex-col justify-center">
+                <h3 class="font-display text-2xl font-bold mb-4 uppercase tracking-tight text-white">The Innovation Catch-22</h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">You need money to build the product and acquire customers, but banks demand 2 years of business tax returns and consistent cash flow before they'll lend you a dime. You don't need a loan; you need leverage.</p>
+                <div class="text-[10px] font-mono text-gray-500 uppercase tracking-widest bg-white/5 p-4 rounded-xl border border-white/5">
+                    "Fund the idea. Scale the business."
+                </div>
+            </div>
+
+            <div class="glass-panel p-10 md:p-12 rounded-[2.5rem] border-brand-500/20 bg-gradient-to-br from-brand-900/20 to-transparent relative overflow-hidden">
+                <h3 class="font-display text-2xl font-bold mb-4 uppercase tracking-tight text-white">Personal-to-Business Leverage</h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">If you have a 680+ FICO score and verifiable personal income, our underwriting desk can stack unsecured business credit lines. The debt sits under your LLC, protecting your personal utilization.</p>
+                <ul class="space-y-4 text-gray-300 text-sm font-mono mt-6 border-t border-white/5 pt-6">
+                    <li class="flex items-center gap-3"><span class="text-brand-500 font-bold">✓</span> Up to $150,000 in Limits</li>
+                    <li class="flex items-center gap-3"><span class="text-brand-500 font-bold">✓</span> 0% Intro Interest (6-18 Months)</li>
+                    <li class="flex items-center gap-3"><span class="text-brand-500 font-bold">✓</span> Keep 100% of Your Equity</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Section -->
+    <section id="apply" class="relative z-10 py-24 px-6 max-w-5xl mx-auto border-t border-white/10 mt-8">
+        <div class="text-center mb-12">
+            <h2 class="font-display text-4xl font-bold mb-4 tracking-tighter uppercase">Start The Audit</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">Submit your profile below to see if you meet the 680+ FICO threshold for unsecured startup leverage.</p>
+        </div>
+
+        <div class="glass-panel rounded-[2.5rem] border-white/10 shadow-2xl relative overflow-hidden bg-dark-800/40">
+            <div class="absolute inset-0 bg-brand-500/5 animate-pulse pointer-events-none"></div>
+            <div class="relative z-10 tally-container min-h-[400px]">
+                <iframe 
+                    data-tally-src="https://tally.so/embed/mOe658?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
+                    loading="lazy" 
+                    width="100%" 
+                    height="400" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0" 
+                    title="Join the #1 B2B Funding Platform!">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-white/5 text-center text-[10px] text-gray-600 uppercase tracking-widest font-bold">
+        &copy; 2026 Moonshine Capital | Startup Funding Desk
+    </footer>
+
+    <script>
+        var d=document,w="https://tally.so/widgets/embed.js",v=function(){
+            if ("undefined"!=typeof Tally) { Tally.loadEmbeds(); } else { d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc})); }
+        };
+        if("undefined"!=typeof Tally) v();
+        else if(d.querySelector('script[src="'+w+'"]')==null){ var s=d.createElement("script"); s.src=w; s.onload=v; s.onerror=v; d.body.appendChild(s); }
+    </script>
+</body>
+</html>
