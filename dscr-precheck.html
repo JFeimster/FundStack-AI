@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSCR Pre-Check | FundStack-AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Space Grotesk', 'sans-serif'] }, colors: { brand: { 500: '#00F0FF', 900: '#003B45' }, dark: { 900: '#050505', 800: '#0A0A0A' } } } }
+        }
+    </script>
+    <style>
+        body { background-color: #050505; color: #ffffff; }
+        .glass-panel { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.06); }
+        input[type=number] { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 0.5rem; padding: 0.75rem; width: 100%; outline: none; }
+        input[type=number]:focus { border-color: #00F0FF; }
+    </style>
+</head>
+<body class="antialiased min-h-screen p-6 relative">
+
+    <nav class="absolute top-0 left-0 w-full p-6 flex justify-between items-center z-50">
+        <div class="font-display font-bold text-lg flex items-center gap-2">
+            <div class="w-2 h-2 bg-brand-500 rounded-full"></div>
+            FUNDSTACK<span class="text-brand-500">RE</span>
+        </div>
+    </nav>
+
+    <div class="max-w-4xl mx-auto pt-24">
+        <div class="text-center mb-12">
+            <h1 class="font-display text-4xl md:text-5xl font-bold mb-4 tracking-tighter">DSCR Deal Analyzer</h1>
+            <p class="text-gray-400 max-w-xl mx-auto">Calculate the Debt Service Coverage Ratio (DSCR) to see if your rental property qualifies for asset-backed funding.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Inputs -->
+            <div class="glass-panel p-8 rounded-[2rem]">
+                <h2 class="font-bold text-[10px] mb-6 uppercase tracking-widest text-gray-500">Monthly Projections</h2>
+                <div class="space-y-6">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Gross Monthly Rent ($)</label>
+                        <input type="number" id="rent" value="2500" oninput="calcDSCR()">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Est. Principal & Interest ($)</label>
+                        <input type="number" id="pi" value="1500" oninput="calcDSCR()">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Taxes, Ins, HOA ($)</label>
+                        <input type="number" id="tih" value="400" oninput="calcDSCR()">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Output -->
+            <div class="glass-panel p-8 rounded-[2rem] flex flex-col justify-between items-center text-center">
+                <div class="w-full">
+                    <h2 class="font-bold text-[10px] mb-6 uppercase tracking-widest text-gray-500">Property DSCR Ratio</h2>
+                    
+                    <div class="relative w-48 h-48 mx-auto flex items-center justify-center rounded-full border-[8px] border-dark-800 mb-6">
+                        <div class="absolute inset-0 rounded-full border-[8px] border-brand-500 border-l-transparent border-b-transparent transform rotate-45" id="ringColor"></div>
+                        <div class="text-5xl font-display font-black text-white" id="dscrOutput">1.31</div>
+                    </div>
+                    
+                    <div id="dscrStatus" class="text-brand-500 font-bold text-sm uppercase tracking-widest mb-2">Excellent Coverage</div>
+                    <p id="dscrDesc" class="text-gray-400 text-xs">Ratios above 1.25 secure the most aggressive interest rates and maximum LTV leverage.</p>
+                </div>
+                
+                <button class="mt-8 w-full bg-brand-500 text-dark-900 py-4 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-white transition-colors">
+                    Request Term Sheet
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calcDSCR() {
+            const rent = parseFloat(document.getElementById('rent').value) || 0;
+            const pi = parseFloat(document.getElementById('pi').value) || 0;
+            const tih = parseFloat(document.getElementById('tih').value) || 0;
+            
+            const expenses = pi + tih;
+            const dscr = expenses > 0 ? (rent / expenses).toFixed(2) : 0;
+            
+            document.getElementById('dscrOutput').innerText = dscr;
+            
+            const ring = document.getElementById('ringColor');
+            const status = document.getElementById('dscrStatus');
+            const desc = document.getElementById('dscrDesc');
+
+            if (dscr >= 1.25) {
+                ring.className = "absolute inset-0 rounded-full border-[8px] border-green-500";
+                status.className = "text-green-500 font-bold text-sm uppercase tracking-widest mb-2";
+                status.innerText = "Excellent Coverage";
+                desc.innerText = "Qualifies for top-tier rates and max leverage (80% LTV).";
+            } else if (dscr >= 1.0) {
+                ring.className = "absolute inset-0 rounded-full border-[8px] border-yellow-500 border-l-transparent transform rotate-45";
+                status.className = "text-yellow-500 font-bold text-sm uppercase tracking-widest mb-2";
+                status.innerText = "Standard Coverage";
+                desc.innerText = "Fundable, but may require higher down payment or yield slightly higher rates.";
+            } else {
+                ring.className = "absolute inset-0 rounded-full border-[8px] border-red-500 border-l-transparent border-b-transparent transform rotate-45";
+                status.className = "text-red-500 font-bold text-sm uppercase tracking-widest mb-2";
+                status.innerText = "Negative Cash Flow";
+                desc.innerText = "Ratio is below 1.0. Harder to fund via standard DSCR lines unless significant reserves exist.";
+            }
+        }
+        calcDSCR();
+    </script>
+</body>
+</html>
