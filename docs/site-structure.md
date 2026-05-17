@@ -17,48 +17,71 @@ The immediate goal is to organize the current static pages into clear zones:
 7. Problem-solution funnels.
 8. Internal docs.
 
-## Current Discovered Structure
+## Verified Current Structure
 
-Known files and folders from current repo inspection include:
+The following files and folders have been verified during route repair:
 
 ```txt
 /
 ├── index.html
 ├── dashboard.html
 ├── qualifier.html
+├── simulator.html
+├── dscr-precheck.html
+├── products.html                  # redirect shim to funding/products.html
+├── guide.html                     # redirect shim to partners/guide.html
+├── link-in-bio.html               # redirect shim to partners/link-in-bio.html
+├── fund-match-quiz.html           # redirect shim to tools/fund-match-quiz.html
+├── startup-planner.html           # redirect shim to tools/startup-planner.html
+├── cost-of-capital.html           # redirect shim to tools/cost-of-capital.html
 ├── README.md
+├── AGENTS.md
 ├── vercel.json
+├── assets/
+│   ├── css/styles.css
+│   └── js/app.js
+├── data/
+│   ├── navigation.json
+│   ├── tools.json
+│   ├── compliance-language.json
+│   └── site-config.json
+├── funding/
+│   └── products.html
 ├── partners/
-│   └── index.html
+│   ├── index.html
+│   ├── guide.html
+│   └── link-in-bio.html
+├── tools/
+│   ├── fund-match-quiz.html
+│   ├── fundability-score.html
+│   ├── startup-planner.html
+│   ├── cost-of-capital.html
+│   ├── dscr-precheck.html         # redirect shim to ../dscr-precheck.html
+│   ├── ecom-cashflow-tool.html    # redirect shim to amazon-cashflow.html
+│   └── amazon-cashflow.html
 └── docs/
     ├── ai-agents-architecture.md
-    └── build-roadmap.md
+    ├── build-roadmap.md
+    ├── compliance-rules.md
+    ├── content-style-guide.md
+    ├── known-issues.md
+    ├── product-routing-logic.md
+    └── site-structure.md
 ```
 
-Additional pages have been referenced in commits, docs, or navigation and may exist under moved paths. These must be validated before linking or editing.
+## Redirect Shims Added
 
-Referenced or expected routes include:
+Route repair added lightweight static redirect pages so existing stale links continue to resolve while the repo moves toward cleaner canonical paths.
 
 ```txt
-funding/products.html
-funding/funding_product_portfolio_report.md
-partners/guide.html
-partners/link-in-bio.html
-tools/fund-match-quiz.html
-tools/fundability-score.html
-tools/startup-planner.html
-tools/cost-of-capital.html
-tools/dscr-precheck.html
-tools/ecom-cashflow-tool.html
-verticals/trucking.html
-verticals/medical.html
-verticals/ecommerce.html
-verticals/contractors.html
-verticals/real-estate.html
-solutions/bank-denial.html
-solutions/payroll-gap.html
-solutions/equipment-now.html
-solutions/zero-revenue.html
+products.html -> funding/products.html
+guide.html -> partners/guide.html
+link-in-bio.html -> partners/link-in-bio.html
+fund-match-quiz.html -> tools/fund-match-quiz.html
+startup-planner.html -> tools/startup-planner.html
+cost-of-capital.html -> tools/cost-of-capital.html
+tools/dscr-precheck.html -> ../dscr-precheck.html
+tools/ecom-cashflow-tool.html -> amazon-cashflow.html
 ```
 
 ## Recommended Canonical Structure
@@ -139,7 +162,7 @@ Primary files:
 
 - `partners/index.html`
 - `partners/guide.html`
-- `partners/assets.html`
+- `partners/assets.html` (recommended future hub)
 
 ### Partner Assets
 
@@ -156,17 +179,32 @@ Examples:
 
 Interactive utilities used as lead magnets, qualification helpers, or partner-facing conversation tools.
 
-Examples:
+Verified tool routes:
 
-- Qualifier.
-- Funding match quiz.
-- Cost-of-capital calculator.
-- DSCR pre-check.
-- Startup planner.
+- `qualifier.html`
+- `tools/fund-match-quiz.html`
+- `tools/fundability-score.html`
+- `tools/startup-planner.html`
+- `tools/cost-of-capital.html`
+- `dscr-precheck.html`
+- `tools/amazon-cashflow.html`
+
+Compatibility routes:
+
+- `tools/dscr-precheck.html`
+- `tools/ecom-cashflow-tool.html`
 
 ### Funding/Product Intelligence
 
 Product matrix, funding categories, and internal/external education around capital options. Public-facing versions must remain white-labeled and compliance-safe.
+
+Verified route:
+
+- `funding/products.html`
+
+Compatibility route:
+
+- `products.html`
 
 ### Vertical Funnels
 
@@ -180,6 +218,8 @@ Examples:
 - Contractors.
 - Real estate.
 
+These routes still need a fresh inventory pass before sitemap or hub-page creation.
+
 ### Problem-Solution Funnels
 
 Pages organized around an urgent capital pain point.
@@ -190,6 +230,8 @@ Examples:
 - Payroll gap.
 - Equipment need.
 - Zero-revenue/startup funding.
+
+These routes still need a fresh inventory pass before sitemap or hub-page creation.
 
 ### Internal Docs
 
