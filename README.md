@@ -1,4 +1,6 @@
-# FundStack-AI / Moonshine Capital Partner Ecosystem
+# FundStack-AI 
+
+Moonshine Capital Partner Ecosystem
 
 ## Executive Summary
 
