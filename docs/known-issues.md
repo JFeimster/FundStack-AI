@@ -76,23 +76,17 @@ Required action:
 - Preserve compliance-safe language.
 - Avoid large brittle rewrites unless done in a controlled batch.
 
-### 5. Static SEO Basics Missing or Unverified
+### 5. Hub Metadata Enhancement Deferred
 
 **Status:** Open
 
-The repo should include basic SEO and static hosting files.
-
-Recommended files:
-
-```txt
-robots.txt
-sitemap.xml
-```
+The main SEO plumbing is now in place, but one richer hub metadata rewrite was blocked by the connector safety layer during Commit 8.
 
 Required action:
 
-- Add these after route paths are confirmed.
-- Do not add stale URLs to sitemap.
+- Revisit Open Graph and meta description improvements in smaller file-specific patches.
+- Avoid oversized rewrites when only metadata changes are needed.
+- Prioritize `tools/index.html`, `funding/index.html`, `partners/assets.html`, `verticals/index.html`, and `solutions/index.html`.
 
 ### 6. Release Process Needs Documentation
 
@@ -251,29 +245,42 @@ Key cleanup completed:
 - Removed or softened phrases such as “you qualify,” “pre-approval,” “secure the capital,” and “take the capital.”
 - Added shared CSS/JS references where practical.
 
-## Notes for Next Commit Group
+### Static SEO and Hosting Basics Added
 
-Recommended next group:
+**Status:** Resolved
 
-**Commit 8: SEO + Static Hosting Basics**
-
-Target files likely include:
+The following files/settings now exist:
 
 ```txt
 robots.txt
 sitemap.xml
-vercel.json
-index.html
-tools/index.html
-funding/index.html
-partners/index.html
-verticals/index.html
-solutions/index.html
+vercel.json headers
+```
+
+Completed:
+
+- Added `robots.txt` with sitemap reference.
+- Added `sitemap.xml` using verified routes only.
+- Added static security/cache headers in `vercel.json`.
+- Preserved `git.deploymentEnabled: false`.
+
+## Notes for Next Commit Group
+
+Recommended next group:
+
+**Commit 9: Release Prep + Manual Deploy Checklist**
+
+Target files likely include:
+
+```txt
+docs/deployment-guide.md
+docs/release-checklist.md
+README.md
 ```
 
 Focus:
 
-- Add `robots.txt`.
-- Add `sitemap.xml` using verified routes only.
-- Add or improve meta descriptions/Open Graph basics where safe.
-- Preserve `git.deploymentEnabled: false` in `vercel.json`.
+- Document manual deployment process.
+- Document release checklist.
+- Update README with release guidance.
+- Do not deploy without explicit approval.
