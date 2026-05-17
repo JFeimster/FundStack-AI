@@ -1,0 +1,100 @@
+{
+  "brand": {
+    "label": "FundStack AI",
+    "home": "/index.html"
+  },
+  "primary": [
+    {
+      "label": "Home",
+      "href": "/index.html",
+      "description": "Main FundStack AI landing page."
+    },
+    {
+      "label": "Partners",
+      "href": "/partners/index.html",
+      "description": "Partner recruitment and onboarding hub."
+    },
+    {
+      "label": "Tools",
+      "href": "/tools/index.html",
+      "description": "Funding readiness tools, calculators, and pre-checks."
+    },
+    {
+      "label": "Funding",
+      "href": "/funding/index.html",
+      "description": "Funding categories, product matrix, and routing education."
+    },
+    {
+      "label": "Verticals",
+      "href": "/verticals/index.html",
+      "description": "Industry-specific funding funnels."
+    },
+    {
+      "label": "Solutions",
+      "href": "/solutions/index.html",
+      "description": "Problem-solution pages for urgent funding scenarios."
+    }
+  ],
+  "partner": [
+    {
+      "label": "Become a Partner",
+      "href": "/partners/index.html"
+    },
+    {
+      "label": "Partner Assets",
+      "href": "/partners/assets.html"
+    },
+    {
+      "label": "Partner Guide",
+      "href": "/partners/guide.html"
+    },
+    {
+      "label": "Partner Dashboard",
+      "href": "/dashboard.html"
+    }
+  ],
+  "tools": [
+    {
+      "label": "Blue Collar Banker Qualifier",
+      "href": "/qualifier.html"
+    },
+    {
+      "label": "Funding Match Quiz",
+      "href": "/tools/fund-match-quiz.html"
+    },
+    {
+      "label": "Fundability Score",
+      "href": "/tools/fundability-score.html"
+    },
+    {
+      "label": "Startup Planner",
+      "href": "/tools/startup-planner.html"
+    },
+    {
+      "label": "Cost of Capital",
+      "href": "/tools/cost-of-capital.html"
+    },
+    {
+      "label": "DSCR Pre-Check",
+      "href": "/tools/dscr-precheck.html"
+    },
+    {
+      "label": "E-commerce Cashflow Tool",
+      "href": "/tools/ecom-cashflow-tool.html"
+    }
+  ],
+  "footer": [
+    {
+      "label": "Compliance Rules",
+      "href": "/docs/compliance-rules.md"
+    },
+    {
+      "label": "Site Structure",
+      "href": "/docs/site-structure.md"
+    },
+    {
+      "label": "Known Issues",
+      "href": "/docs/known-issues.md"
+    }
+  ]
+}
