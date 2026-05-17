@@ -1,23 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vertical Funding Pages | FundStack AI</title>
+  <meta name="description" content="Industry-specific FundStack AI funding pages for trucking, medical, e-commerce, contractors, and real estate investors.">
+  <meta property="og:title" content="Vertical Funding Pages | FundStack AI">
+  <meta property="og:description" content="Industry-focused funding pages built for sharper prospect conversations and partner outreach.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fund-stack-ai.vercel.app/verticals/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
-<body style="background:#050505;color:#fff;font-family:system-ui,sans-serif;padding:2rem;line-height:1.6;">
-  <main style="max-width:900px;margin:0 auto;">
-    <p><a style="color:#00F0FF;" href="../index.html">← Home</a></p>
-    <h1>Vertical Funding Pages</h1>
-    <p>Industry-focused pages for common funding conversations.</p>
-    <ul>
-      <li><a style="color:#00F0FF;" href="trucking.html">Logistics and Trucking</a></li>
-      <li><a style="color:#00F0FF;" href="medical.html">Medical and Dental Practices</a></li>
-      <li><a style="color:#00F0FF;" href="ecommerce.html">E-commerce and Marketplace Sellers</a></li>
-      <li><a style="color:#00F0FF;" href="contractors.html">Contractors and Construction</a></li>
-      <li><a style="color:#00F0FF;" href="real-estate.html">Real Estate Investors</a></li>
-    </ul>
-    <p style="color:#9ca3af;font-size:.9rem;">These pages are educational starting points. Actual options depend on business profile and provider criteria.</p>
+<body class="antialiased selection:bg-brand-500 selection:text-dark-900 overflow-x-hidden">
+  <main class="fs-page-shell">
+    <nav class="fixed w-full z-50 border-b border-white/5 bg-dark-900/90 backdrop-blur-md">
+      <div class="fs-container h-16 flex items-center justify-between">
+        <a href="../index.html" class="font-display font-bold text-xl tracking-tight flex items-center gap-2"><span class="w-3 h-3 bg-brand-500 rounded-full animate-pulse"></span>FUNDSTACK<span class="text-brand-500">AI</span></a>
+        <div class="hidden md:flex gap-8 text-[11px] font-bold uppercase tracking-[0.12em] text-gray-500">
+          <a href="../tools/index.html" class="hover:text-brand-500 transition-colors">Tools</a>
+          <a href="../funding/index.html" class="hover:text-brand-500 transition-colors">Funding</a>
+          <a href="../partners/index.html" class="hover:text-brand-500 transition-colors">Partners</a>
+          <a href="../solutions/index.html" class="hover:text-brand-500 transition-colors">Solutions</a>
+        </div>
+        <a href="../qualifier.html" class="fs-button fs-button-primary !py-2 !px-5 text-[11px]">Qualify Lead</a>
+      </div>
+    </nav>
+
+    <header class="pt-40 pb-16 px-6 text-center">
+      <div class="fs-kicker mb-6">Industry Lanes</div>
+      <h1 class="fs-display text-5xl md:text-7xl font-black mb-6">Same Money Problem. Different Battlefield.</h1>
+      <p class="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">A trucking company, a dental office, a contractor, and an Amazon seller do not have the same funding story. These vertical pages give each conversation a sharper starting point.</p>
+    </header>
+
+    <section class="fs-container pb-24">
+      <div class="fs-grid-3">
+        <a class="fs-card p-8" href="trucking.html"><span class="fs-pill mb-5">Logistics</span><h2 class="font-display text-2xl font-bold mb-3">Trucking & Logistics</h2><p class="fs-muted leading-relaxed">Fuel, repairs, insurance, payroll, and the beautiful chaos of moving freight without starving the cash account.</p></a>
+        <a class="fs-card p-8" href="medical.html"><span class="fs-pill mb-5">Practice Growth</span><h2 class="font-display text-2xl font-bold mb-3">Medical & Dental</h2><p class="fs-muted leading-relaxed">Equipment, buildouts, receivables timing, marketing, and growth projects for practices with expensive ambitions.</p></a>
+        <a class="fs-card p-8" href="ecommerce.html"><span class="fs-pill mb-5">Sellers</span><h2 class="font-display text-2xl font-bold mb-3">E-commerce Sellers</h2><p class="fs-muted leading-relaxed">Inventory, ads, payout lag, supplier timing, and marketplace cash-flow gymnastics.</p></a>
+        <a class="fs-card p-8" href="contractors.html"><span class="fs-pill mb-5">Trades</span><h2 class="font-display text-2xl font-bold mb-3">Contractors</h2><p class="fs-muted leading-relaxed">Materials, labor, mobilization costs, delayed draws, and the joy of financing jobs before clients pay.</p></a>
+        <a class="fs-card p-8" href="real-estate.html"><span class="fs-pill mb-5">Investors</span><h2 class="font-display text-2xl font-bold mb-3">Real Estate Investors</h2><p class="fs-muted leading-relaxed">DSCR, bridge, rental, rehab, and property-backed conversations that need numbers, not vibes.</p></a>
+        <a class="fs-card p-8" href="../tools/index.html"><span class="fs-pill mb-5">Tools</span><h2 class="font-display text-2xl font-bold mb-3">Run the Numbers</h2><p class="fs-muted leading-relaxed">Use calculators and pre-checks to turn the vertical story into a cleaner review path.</p></a>
+      </div>
+      <div class="fs-panel p-8 md:p-10 rounded-[2rem] mt-10">
+        <div class="fs-kicker mb-5">Field Note</div>
+        <h2 class="fs-display text-3xl md:text-5xl font-black mb-5">Generic funding pages are where leads go to nap.</h2>
+        <p class="fs-muted text-lg leading-relaxed max-w-3xl">Vertical pages give partners a more relevant angle. The better the context, the better the intake. The better the intake, the less everyone has to cosplay as a mind reader.</p>
+      </div>
+    </section>
   </main>
+  <script src="../assets/js/app.js"></script>
 </body>
 </html>
