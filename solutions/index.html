@@ -1,22 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Funding Solution Pages | FundStack AI</title>
+  <meta name="description" content="Problem-focused FundStack AI pages for bank denials, payroll gaps, equipment needs, and pre-revenue startup capital conversations.">
+  <meta property="og:title" content="Funding Solution Pages | FundStack AI">
+  <meta property="og:description" content="Problem-specific funding pages for urgent business capital conversations.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fund-stack-ai.vercel.app/solutions/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
-<body style="background:#050505;color:#fff;font-family:system-ui,sans-serif;padding:2rem;line-height:1.6;">
-  <main style="max-width:900px;margin:0 auto;">
-    <p><a style="color:#00F0FF;" href="../index.html">← Home</a></p>
-    <h1>Funding Solution Pages</h1>
-    <p>Problem-focused pages for common business funding scenarios.</p>
-    <ul>
-      <li><a style="color:#00F0FF;" href="bank-denial.html">Bank Loan Denial</a></li>
-      <li><a style="color:#00F0FF;" href="payroll-gap.html">Payroll Gap</a></li>
-      <li><a style="color:#00F0FF;" href="equipment-now.html">Equipment Need</a></li>
-      <li><a style="color:#00F0FF;" href="zero-revenue.html">Pre-Revenue Startup Capital</a></li>
-    </ul>
-    <p style="color:#9ca3af;font-size:.9rem;">These pages are for education and planning. Approval, terms, amounts, and timing are not guaranteed.</p>
+<body class="antialiased selection:bg-brand-500 selection:text-dark-900 overflow-x-hidden">
+  <main class="fs-page-shell">
+    <nav class="fixed w-full z-50 border-b border-white/5 bg-dark-900/90 backdrop-blur-md">
+      <div class="fs-container h-16 flex items-center justify-between">
+        <a href="../index.html" class="font-display font-bold text-xl tracking-tight flex items-center gap-2"><span class="w-3 h-3 bg-brand-500 rounded-full animate-pulse"></span>FUNDSTACK<span class="text-brand-500">AI</span></a>
+        <div class="hidden md:flex gap-8 text-[11px] font-bold uppercase tracking-[0.12em] text-gray-500">
+          <a href="../tools/index.html" class="hover:text-brand-500 transition-colors">Tools</a>
+          <a href="../funding/index.html" class="hover:text-brand-500 transition-colors">Funding</a>
+          <a href="../verticals/index.html" class="hover:text-brand-500 transition-colors">Verticals</a>
+          <a href="../partners/index.html" class="hover:text-brand-500 transition-colors">Partners</a>
+        </div>
+        <a href="../tools/fund-match-quiz.html" class="fs-button fs-button-primary !py-2 !px-5 text-[11px]">Find Path</a>
+      </div>
+    </nav>
+
+    <header class="pt-40 pb-16 px-6 text-center">
+      <div class="fs-kicker mb-6">Problem-Based Funding Pages</div>
+      <h1 class="fs-display text-5xl md:text-7xl font-black mb-6">Start With the Pain Point</h1>
+      <p class="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">Most business owners do not wake up craving a loan product. They wake up with a payroll gap, denied bank application, broken equipment, or startup plan that needs oxygen.</p>
+    </header>
+
+    <section class="fs-container pb-24">
+      <div class="fs-grid-2">
+        <a class="fs-card p-8" href="bank-denial.html"><span class="fs-pill mb-5">Rejected</span><h2 class="font-display text-2xl font-bold mb-3">Bank Loan Denial</h2><p class="fs-muted leading-relaxed">Turn the “bank said no” moment into a cleaner conversation about profile, cash flow, documentation, and alternative paths.</p></a>
+        <a class="fs-card p-8" href="payroll-gap.html"><span class="fs-pill mb-5">Urgent Cash Flow</span><h2 class="font-display text-2xl font-bold mb-3">Payroll Gap</h2><p class="fs-muted leading-relaxed">For the owner staring at payroll like it’s a horror movie countdown clock.</p></a>
+        <a class="fs-card p-8" href="equipment-now.html"><span class="fs-pill mb-5">Asset Need</span><h2 class="font-display text-2xl font-bold mb-3">Equipment Need</h2><p class="fs-muted leading-relaxed">When broken, missing, or upgraded equipment is the thing standing between the business and revenue.</p></a>
+        <a class="fs-card p-8" href="zero-revenue.html"><span class="fs-pill mb-5">Startup</span><h2 class="font-display text-2xl font-bold mb-3">Pre-Revenue Startup Capital</h2><p class="fs-muted leading-relaxed">For new founders who need a path that does not pretend revenue exists when it clearly does not.</p></a>
+      </div>
+
+      <div class="fs-panel p-8 md:p-10 rounded-[2rem] mt-10">
+        <div class="fs-kicker mb-5">Operator Lens</div>
+        <h2 class="fs-display text-3xl md:text-5xl font-black mb-5">A good funding conversation starts with the fire.</h2>
+        <p class="fs-muted text-lg leading-relaxed max-w-3xl">The product comes later. First, understand what is breaking, what is urgent, what the business can document, and whether the math even makes sense.</p>
+        <div class="fs-button-row mt-8">
+          <a href="../tools/fund-match-quiz.html" class="fs-button fs-button-primary">Run Match Quiz</a>
+          <a href="../tools/index.html" class="fs-button fs-button-secondary">Open Tool Library</a>
+        </div>
+      </div>
+    </section>
   </main>
+  <script src="../assets/js/app.js"></script>
 </body>
 </html>
