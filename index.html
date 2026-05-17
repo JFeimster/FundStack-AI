@@ -1,342 +1,119 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FundStack-AI | B2B Funding Partner Network</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            500: '#00F0FF',
-                            600: '#00D1DF',
-                            900: '#003B45',
-                        },
-                        dark: {
-                            900: '#050505',
-                            800: '#0A0A0A',
-                            700: '#111111',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body { background-color: #050505; color: #ffffff; }
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-        }
-        .bento-card { transition: all 0.3s ease; }
-        .bento-card:hover { border-color: rgba(0, 240, 255, 0.4); background: rgba(255, 255, 255, 0.04); }
-        
-        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
-        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 20px; width: 20px; border-radius: 50%; background: #00F0FF; cursor: pointer; margin-top: -8px; box-shadow: 0 0 15px rgba(0,240,255,0.4); }
-        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 2px; cursor: pointer; background: rgba(255,255,255,0.1); }
-        
-        .tally-container iframe {
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-        .tally-container iframe::-webkit-scrollbar {
-            display: none;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FundStack AI | Funding Intelligence and Partner Tools</title>
+  <meta name="description" content="FundStack AI is a static-first funding intelligence and partner enablement hub for tools, funding education, vertical pages, and partner resources.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body class="antialiased selection:bg-brand-500 selection:text-dark-900 overflow-x-hidden">
-
-    <div class="fixed top-[-10%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-brand-900/20 blur-[120px] pointer-events-none z-0"></div>
-
-    <!-- Navigation -->
+  <main class="fs-page-shell">
     <nav class="fixed w-full z-50 border-b border-white/5 bg-dark-900/90 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="index.html" class="font-display font-bold text-xl tracking-tight flex items-center gap-2">
-                <div class="w-3 h-3 bg-brand-500 rounded-full animate-pulse"></div>
-                FUNDSTACK<span class="text-brand-500">AI</span>
-            </a>
-            <div class="hidden md:flex gap-8 text-[11px] font-bold uppercase tracking-[0.1em] text-gray-500">
-                <a href="products.html" class="hover:text-brand-500 transition-colors">Product Matrix</a>
-                <a href="guide.html" class="hover:text-brand-500 transition-colors">Success Guide</a>
-                <a href="#calculator" class="hover:text-white transition-colors">Earnings Simulator</a>
-                <a href="#toolkit" class="hover:text-white transition-colors">Partner Stack</a>
-            </div>
-            <a href="#apply" class="bg-brand-500 text-dark-900 px-6 py-2 rounded-full font-bold text-[11px] uppercase tracking-widest hover:bg-white transition-all shadow-[0_0_15px_rgba(0,240,255,0.3)]">
-                Become a Partner
-            </a>
+      <div class="fs-container h-16 flex items-center justify-between">
+        <a href="index.html" class="font-display font-bold text-xl tracking-tight flex items-center gap-2">
+          <span class="w-3 h-3 bg-brand-500 rounded-full animate-pulse"></span>
+          FUNDSTACK<span class="text-brand-500">AI</span>
+        </a>
+        <div class="hidden md:flex gap-7 text-[11px] font-bold uppercase tracking-[0.12em] text-gray-500">
+          <a href="tools/index.html" class="hover:text-brand-500 transition-colors">Tools</a>
+          <a href="funding/index.html" class="hover:text-brand-500 transition-colors">Funding</a>
+          <a href="partners/index.html" class="hover:text-brand-500 transition-colors">Partners</a>
+          <a href="verticals/index.html" class="hover:text-brand-500 transition-colors">Verticals</a>
+          <a href="solutions/index.html" class="hover:text-brand-500 transition-colors">Solutions</a>
         </div>
+        <a href="partners/index.html" class="fs-button fs-button-primary !py-2 !px-5 text-[11px]">Partner Hub</a>
+      </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="relative z-10 pt-48 pb-24 px-6 max-w-7xl mx-auto text-center">
-        <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full glass-panel text-xs font-bold text-brand-500 mb-8 border-brand-500/30">
-            OFFICIAL PARTNER HUB | MOONSHINE CAPITAL
-        </div>
-        <h1 class="font-display text-5xl md:text-8xl font-bold tracking-tighter mb-8 leading-[0.95]">
-            Scale Your Funding <br />
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-blue-300">
-                Business with AI.
-            </span>
-        </h1>
-        <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-12 font-light leading-relaxed">
-            The ultimate infrastructure for B2B funding partners. Access professional lead qualifiers, deal desk underwriting, and real-time commission tracking.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 w-full justify-center max-w-lg mx-auto">
-            <a href="#apply" class="w-full bg-white text-dark-900 px-8 py-4 font-extrabold text-lg rounded-full hover:bg-brand-500 transition-all text-center">
-                Get Started Now
-            </a>
-            <a href="products.html" class="w-full glass-panel text-white px-8 py-4 font-bold text-lg rounded-full hover:bg-white/10 transition-all text-center border-white/20">
-                Explore Products
-            </a>
-        </div>
+    <header class="relative z-10 pt-44 pb-20 px-6 text-center">
+      <div class="fs-kicker mb-8">Moonshine Capital Partner Ecosystem</div>
+      <h1 class="fs-display text-5xl md:text-8xl font-black mb-8 max-w-6xl mx-auto">
+        Funding Readiness Tools for Partners Who Hate Guesswork
+      </h1>
+      <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed">
+        FundStack AI helps partners and business owners organize funding conversations with pre-check tools, product education, vertical pages, and compliance-safe next steps.
+      </p>
+      <div class="fs-button-row justify-center">
+        <a href="tools/index.html" class="fs-button fs-button-primary">Explore Tools</a>
+        <a href="partners/index.html" class="fs-button fs-button-secondary">Become a Partner</a>
+        <a href="funding/index.html" class="fs-button fs-button-secondary">Review Funding Paths</a>
+      </div>
     </header>
 
-    <!-- Commission Calculator -->
-    <section id="calculator" class="relative z-10 py-24 px-6 max-w-6xl mx-auto">
-        <div class="glass-panel rounded-[2rem] p-8 md:p-16 border-white/10 shadow-2xl">
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
-                <div class="md:col-span-7">
-                    <h2 class="font-display text-4xl font-bold mb-4 uppercase tracking-tighter">Earnings Simulator</h2>
-                    <p class="text-gray-400 mb-12 text-lg">Use our <span class="text-brand-500 font-semibold">Affiliate Estimator</span> logic to project your monthly revenue based on your current B2B client flow.</p>
-                    
-                    <div class="space-y-12">
-                        <div>
-                            <div class="flex justify-between mb-4 font-bold text-sm text-gray-300">
-                                <label>Monthly Deal Volume</label>
-                                <span id="dealsValue" class="text-brand-500">5 Deals</span>
-                            </div>
-                            <input type="range" id="dealsSlider" min="1" max="50" value="5" oninput="updateCalculator()">
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-4 font-bold text-sm text-gray-300">
-                                <label>Average Funding Amount</label>
-                                <span id="sizeValue" class="text-brand-500">$150,000</span>
-                            </div>
-                            <input type="range" id="sizeSlider" min="10000" max="1000000" step="10000" value="150000" oninput="updateCalculator()">
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="md:col-span-5 bg-gradient-to-br from-brand-600 to-brand-400 rounded-3xl p-10 flex flex-col justify-between shadow-[0_20px_50px_rgba(0,240,255,0.2)]">
-                    <div>
-                        <p class="text-sm font-extrabold text-brand-900 uppercase tracking-widest mb-4">Projected Monthly Yield</p>
-                        <div class="font-display text-6xl md:text-7xl font-extrabold text-dark-900 tracking-tighter" id="totalCommission">
-                            $26,250
-                        </div>
-                    </div>
-                    <div class="pt-8 border-t border-brand-900/20">
-                        <p class="text-sm text-brand-900 font-bold mb-6">
-                            *Based on a 70% Partner Split as per the Moonshine Capital Master Handbook.
-                        </p>
-                        <a href="#apply" class="block w-full bg-dark-900 text-white py-5 rounded-2xl font-black text-xl hover:scale-105 transition-transform uppercase tracking-tighter text-center">
-                            Join the Network
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <section class="fs-container fs-section">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a href="tools/index.html" class="fs-card p-8">
+          <span class="fs-pill mb-5">Tool Library</span>
+          <h2 class="font-display text-2xl font-bold mb-3">Pre-Check Before You Pitch</h2>
+          <p class="fs-muted leading-relaxed">Use calculators, quizzes, and readiness tools to identify strengths, friction points, and next steps before a full review.</p>
+        </a>
+        <a href="funding/index.html" class="fs-card p-8">
+          <span class="fs-pill mb-5">Funding Education</span>
+          <h2 class="font-display text-2xl font-bold mb-3">Match the Profile to the Path</h2>
+          <p class="fs-muted leading-relaxed">Review product categories and routing logic without exposing backend relationships or promising outcomes.</p>
+        </a>
+        <a href="partners/assets.html" class="fs-card p-8">
+          <span class="fs-pill mb-5">Partner Assets</span>
+          <h2 class="font-display text-2xl font-bold mb-3">Share Better Resources</h2>
+          <p class="fs-muted leading-relaxed">Give partners simple launch assets, link-in-bio pages, dashboard concepts, and scripts they can use in real conversations.</p>
+        </a>
+      </div>
     </section>
 
-    <!-- Partner Toolkit -->
-    <section id="toolkit" class="relative z-10 py-24 px-6 max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-            <div class="max-w-2xl">
-                <h2 class="font-display text-4xl md:text-5xl font-bold tracking-tight uppercase">The Partner Stack</h2>
-                <p class="text-gray-400 mt-4 text-xl">Professional-grade tools designed to move deals through our capital rails.</p>
-            </div>
-            <div class="px-6 py-2 glass-panel border-brand-500/20 text-brand-500 font-bold rounded-full text-sm">
-                59+ FUNDING PRODUCTS ACTIVE
-            </div>
+    <section class="fs-container fs-section border-t border-white/5">
+      <div class="flex flex-col md:flex-row justify-between gap-8 mb-12">
+        <div class="max-w-2xl">
+          <div class="fs-kicker mb-5">Ecosystem Map</div>
+          <h2 class="fs-display text-4xl md:text-6xl font-black mb-4">One Hub. Multiple Entry Points.</h2>
+          <p class="fs-muted text-lg leading-relaxed">Send prospects to the right starting point: tools for readiness, vertical pages for industry context, or solution pages for urgent capital conversations.</p>
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <!-- Product Matrix Card -->
-            <div class="bento-card glass-panel p-10 rounded-[2rem] border-white/5 bg-gradient-to-br from-brand-900/20 to-transparent group flex flex-col justify-between">
-                <div>
-                    <div class="w-14 h-14 bg-brand-500/10 rounded-2xl flex items-center justify-center text-brand-500 mb-8 border border-brand-500/20">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 10h16M4 14h16M4 18h16" stroke-width="2.5"></path></svg>
-                    </div>
-                    <h3 class="font-display text-2xl font-bold mb-4 uppercase">Product Matrix</h3>
-                    <p class="text-gray-400 leading-relaxed mb-6">Search our live catalog of 59 funding products. Filter by credit tier, funding speed, and industry niche.</p>
-                </div>
-                <a href="products.html" class="text-brand-500 font-bold border-b border-brand-500/30 pb-1 self-start hover:border-brand-500 transition-all uppercase text-xs tracking-widest">Open Matrix</a>
-            </div>
-
-            <!-- Cash Command Center -->
-            <div class="bento-card glass-panel p-10 rounded-[2rem] border-white/5 relative overflow-hidden">
-                <h3 class="font-display text-2xl font-bold mb-4 uppercase">Cash Command Center</h3>
-                <p class="text-gray-400 leading-relaxed mb-8">Post-funding portal for your borrowers. They manage renewals; you capture automatic commissions on every draw.</p>
-                <div class="mt-4 p-4 bg-dark-900 border border-white/5 rounded-xl font-mono text-[10px] text-brand-500">
-                    [LIVE STATUS]: Verified on Vercel<br/>
-                    [DOMAIN]: cash-command-pi.vercel.app
-                </div>
-            </div>
-
-            <!-- Success Guide Card -->
-            <div class="bento-card glass-panel p-10 rounded-[2rem] border-white/5 bg-gradient-to-tr from-brand-900/40 to-transparent flex flex-col justify-between">
-                <div>
-                    <div class="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-white mb-8 border border-white/10">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" stroke-width="2.5"></path></svg>
-                    </div>
-                    <h3 class="font-display text-2xl font-bold mb-4 uppercase">Success Guide</h3>
-                    <p class="text-gray-400 leading-relaxed mb-8">The Moonshine Capital blueprint. Learn the 4 Pillars of Funding and our internal routing logic.</p>
-                </div>
-                <a href="guide.html" class="text-brand-500 font-bold border-b border-brand-500/30 pb-1 self-start hover:border-brand-500 transition-all uppercase text-xs tracking-widest">Open Guide</a>
-            </div>
-
-            <!-- AI Recovery Card -->
-            <div class="bento-card glass-panel p-10 rounded-[2rem] border-brand-500/20 md:col-span-2 flex flex-col md:flex-row gap-8 items-center">
-                <div class="flex-1">
-                    <h3 class="font-display text-3xl font-bold mb-4 uppercase">Recovery AI</h3>
-                    <p class="text-gray-400 leading-relaxed mb-6 text-lg">Banks reject 80% of B2B loan requests. Our AI tool converts those rejections into professional pivot scripts.</p>
-                    <a href="#ai-demo" class="inline-block bg-brand-500 text-dark-900 px-6 py-2 rounded-full font-bold text-sm uppercase">Try Live Demo</a>
-                </div>
-                <div class="flex-1 w-full bg-dark-900/50 p-6 rounded-2xl border border-white/5">
-                    <div class="flex gap-2 mb-4">
-                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                    </div>
-                    <div class="font-mono text-xs text-gray-500 mb-2">// BANK REJECTION DETECTED</div>
-                    <div class="text-brand-500 font-mono text-xs">"Insufficient collateral for traditional term loan."</div>
-                    <div class="mt-4 pt-4 border-t border-white/5 text-white font-sans text-xs">
-                        "Hey [Name], I saw the bank passed on the collateral side. Fortunately, our Alt-Fin desk underwrites based on cash flow, not hard assets. We should talk..."
-                    </div>
-                </div>
-            </div>
-
-            <!-- Lead Qualifier Card -->
-            <div class="bento-card glass-panel p-10 rounded-[2rem] border-white/5 group">
-                <div class="w-14 h-14 bg-brand-500/10 rounded-2xl flex items-center justify-center text-brand-500 mb-8 border border-brand-500/20">
-                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944" stroke-width="2.5"></path></svg>
-                </div>
-                <h3 class="font-display text-2xl font-bold mb-4 uppercase">Blue Collar Banker</h3>
-                <p class="text-gray-400 leading-relaxed mb-6">Instantly grade B2B leads based on cash-flow and collateral. Stop wasting time on files that won't fund.</p>
-            </div>
-        </div>
+      </div>
+      <div class="fs-grid-2">
+        <a href="verticals/index.html" class="fs-card p-8">
+          <span class="fs-pill mb-5">Verticals</span>
+          <h3 class="font-display text-2xl font-bold mb-3">Industry Pages</h3>
+          <p class="fs-muted leading-relaxed">Trucking, medical, e-commerce, contractors, and real estate investor pages for more relevant conversations.</p>
+        </a>
+        <a href="solutions/index.html" class="fs-card p-8">
+          <span class="fs-pill mb-5">Solutions</span>
+          <h3 class="font-display text-2xl font-bold mb-3">Problem-Based Pages</h3>
+          <p class="fs-muted leading-relaxed">Bank denial, payroll gap, equipment need, and pre-revenue startup pages for common pressure points.</p>
+        </a>
+      </div>
     </section>
 
-    <!-- AI Demo Interaction -->
-    <section id="ai-demo" class="relative z-10 py-24 px-6 max-w-4xl mx-auto border-t border-white/10">
-        <div class="text-center mb-16">
-            <h2 class="font-display text-4xl font-bold mb-4 tracking-tighter uppercase">AI Recovery Demo</h2>
-            <p class="text-gray-400 text-lg">Input a bank rejection reason to see our retrieval logic in action.</p>
+    <section id="apply" class="fs-container fs-section border-t border-white/5">
+      <div class="text-center mb-12">
+        <div class="fs-kicker mb-5">Partner Intake</div>
+        <h2 class="fs-display text-4xl md:text-6xl font-black mb-5">Build Better Funding Conversations</h2>
+        <p class="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">Use FundStack AI as your partner enablement layer for intake, education, and routing support. Submit your partner profile to start the review process.</p>
+      </div>
+      <div class="fs-panel rounded-[2rem] overflow-hidden bg-dark-800/40">
+        <div class="tally-container min-h-[500px]">
+          <iframe
+            data-tally-src="https://tally.so/embed/mOe658?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+            loading="lazy"
+            width="100%"
+            height="500"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+            title="FundStack AI Partner Intake">
+          </iframe>
         </div>
-        
-        <div class="glass-panel p-8 md:p-12 rounded-[2rem] border-white/10">
-            <div class="space-y-8">
-                <div>
-                    <label class="block font-bold text-xs text-gray-500 uppercase tracking-widest mb-4">Bank Rejection Note</label>
-                    <textarea id="rejectionReason" rows="2" class="w-full bg-white/5 border border-white/10 p-6 text-white text-lg focus:outline-none focus:border-brand-500 transition-all rounded-2xl" placeholder="e.g. Too short time in business..."></textarea>
-                </div>
-                
-                <button id="generateBtn" onclick="generateScript()" class="bg-brand-500 text-dark-900 px-10 py-4 font-black text-lg rounded-full flex items-center gap-4 hover:scale-105 transition-transform mx-auto uppercase">
-                    <span>Generate Script</span>
-                    <div id="loadingSpinner" class="hidden w-4 h-4 border-2 border-dark-900 border-t-transparent rounded-full animate-spin"></div>
-                </button>
-
-                <div id="resultContainer" class="hidden mt-12 pt-12 border-t border-white/5 animate-in fade-in slide-in-from-bottom-4 duration-500">
-                    <div class="bg-dark-900 p-8 rounded-2xl border border-white/5 relative group">
-                        <button onclick="copyScript()" class="absolute top-4 right-4 text-brand-500 font-bold text-xs uppercase opacity-0 group-hover:opacity-100 transition-opacity">Copy Script</button>
-                        <p id="scriptOutput" class="text-gray-300 leading-relaxed whitespace-pre-wrap"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
+      <div class="fs-disclaimer mt-8">FundStack AI tools are for planning, education, intake, and routing support only. Provider criteria apply. Approval, terms, amounts, timing, and available options are not guaranteed.</div>
     </section>
 
-    <!-- Application Section -->
-    <section id="apply" class="relative z-10 py-24 px-6 max-w-5xl mx-auto border-t border-white/10">
-        <div class="text-center mb-16">
-            <h2 class="font-display text-4xl md:text-6xl font-bold mb-6 tracking-tighter uppercase">Become a Partner</h2>
-            <p class="text-gray-400 text-xl max-w-2xl mx-auto">Complete the official application below to secure your seat in the Q2 cohort.</p>
-        </div>
-
-        <div class="glass-panel rounded-[2.5rem] border-white/10 shadow-2xl relative overflow-hidden bg-dark-800/40">
-            <div class="absolute inset-0 bg-brand-500/5 animate-pulse pointer-events-none"></div>
-            <div class="relative z-10 tally-container min-h-[500px]">
-                <iframe 
-                    data-tally-src="https://tally.so/embed/mOe658?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
-                    loading="lazy" 
-                    width="100%" 
-                    height="500" 
-                    frameborder="0" 
-                    marginheight="0" 
-                    marginwidth="0" 
-                    title="Join the #1 B2B Funding Platform!">
-                </iframe>
-            </div>
-        </div>
-    </section>
-
-    <footer class="relative z-10 py-32 px-6 border-t border-white/5 text-center">
-        <div class="max-w-4xl mx-auto text-gray-600 font-bold text-[10px] uppercase tracking-[0.4em]">
-            &copy; 2026 FUNDSTACK-AI | A MOONSHINE CAPITAL TECHNOLOGY PARTNER
-        </div>
+    <footer class="relative z-10 py-20 px-6 border-t border-white/5 text-center">
+      <div class="max-w-4xl mx-auto text-gray-600 font-bold text-[10px] uppercase tracking-[0.35em]">
+        &copy; 2026 FUNDSTACK AI | A MOONSHINE CAPITAL TECHNOLOGY PARTNER
+      </div>
     </footer>
-
-    <script>
-        var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
-
-        const apiKey = ""; 
-
-        function formatCurrency(value) {
-            return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(value);
-        }
-
-        function updateCalculator() {
-            const deals = parseInt(document.getElementById('dealsSlider').value);
-            const size = parseInt(document.getElementById('sizeSlider').value);
-            document.getElementById('dealsValue').innerText = `${deals} Deals`;
-            document.getElementById('sizeValue').innerText = formatCurrency(size);
-            const yieldVal = (size * 0.05) * 0.70 * deals;
-            document.getElementById('totalCommission').innerText = formatCurrency(yieldVal);
-        }
-        
-        updateCalculator();
-
-        async function generateScript() {
-            const reason = document.getElementById('rejectionReason').value.trim();
-            const btn = document.getElementById('generateBtn');
-            const spinner = document.getElementById('loadingSpinner');
-            const result = document.getElementById('resultContainer');
-            const output = document.getElementById('scriptOutput');
-            if (!reason) return;
-            btn.disabled = true;
-            spinner.classList.remove('hidden');
-            const sys = `You are a Moonshine Capital advisor. A partner's client was rejected by a bank. Write a short, persuasive email (max 90 words). Acknowledge the bank's reason but pivot to Moonshine's alternative funding. Professional, direct. End with 'Let's chat for 5 mins.'`;
-            try {
-                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        contents: [{ parts: [{ text: `Rejection reason: ${reason}` }] }],
-                        systemInstruction: { parts: [{ text: sys }] }
-                    })
-                });
-                const data = await response.json();
-                output.innerText = data.candidates?.[0]?.content?.parts?.[0]?.text;
-                result.classList.remove('hidden');
-            } catch (e) {
-                output.innerText = "Error connecting to AI Node.";
-                result.classList.remove('hidden');
-            } finally {
-                btn.disabled = false;
-                spinner.classList.add('hidden');
-            }
-        }
-        function copyScript() { navigator.clipboard.writeText(document.getElementById('scriptOutput').innerText); }
-    </script>
+  </main>
+  <script src="assets/js/app.js"></script>
 </body>
 </html>
