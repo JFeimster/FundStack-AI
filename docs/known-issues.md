@@ -10,80 +10,37 @@ This file tracks active cleanup items, implementation risks, and route/documenta
 
 ## Open Issues
 
-### 1. Route and Link Drift
-
-**Status:** Open
-
-Several pages and docs reference routes that may have moved or may not exist at their old root-level paths.
-
-Examples that require validation:
-
-```txt
-products.html
-guide.html
-simulator.html
-link-in-bio.html
-fund-match-quiz.html
-startup-planner.html
-cost-of-capital.html
-dscr-precheck.html
-ecom-cashflow-tool.html
-vertical-trucking.html
-vertical-medical.html
-vertical-ecommerce.html
-vertical-contractors.html
-solution-bank-denial.html
-solution-payroll-gap.html
-solution-equipment-now.html
-solution-zero-revenue.html
-```
-
-Likely canonical direction:
-
-```txt
-funding/products.html
-partners/guide.html
-partners/link-in-bio.html
-tools/fund-match-quiz.html
-tools/startup-planner.html
-tools/cost-of-capital.html
-tools/dscr-precheck.html
-tools/ecom-cashflow-tool.html
-verticals/*.html
-solutions/*.html
-```
-
-Required action:
-
-- Audit all links in `index.html` and `partners/index.html`.
-- Confirm actual current files before rewriting links.
-- Update this file after route repair.
-
-### 2. Duplicated Inline CSS and Tailwind Config
+### 1. Duplicated Inline CSS and Tailwind Config
 
 **Status:** Open
 
 Multiple pages include repeated Tailwind CDN configuration, repeated glass panel styles, repeated button/card styling, and repeated background/glow styles.
 
+Progress:
+
+- `assets/css/styles.css` now exists as the shared style foundation.
+
 Required action:
 
-- Create `assets/css/styles.css`.
 - Move shared visual patterns into reusable classes where practical.
 - Keep Tailwind CDN only if remaining static-first and no build step is approved.
 
-### 3. Duplicated Inline JavaScript
+### 2. Duplicated Inline JavaScript
 
 **Status:** Open
 
 Several pages include repeated or page-specific JavaScript for Tally embeds, copy helpers, calculators, sliders, and AI/demo behavior.
 
+Progress:
+
+- `assets/js/app.js` now exists as the shared JS utility foundation.
+
 Required action:
 
-- Create `assets/js/app.js`.
 - Move shared utility helpers into that file where safe.
 - Keep page-specific calculator logic separate if it is easier to maintain.
 
-### 4. Client-Side AI API Risk
+### 3. Client-Side AI API Risk
 
 **Status:** Open
 
@@ -99,7 +56,7 @@ Required action:
 - Keep the demo disabled or mocked unless a secure implementation is approved.
 - Document AI implementation options before adding real API credentials.
 
-### 5. Public Copy Compliance Review Needed
+### 4. Public Copy Compliance Review Needed
 
 **Status:** Open
 
@@ -117,39 +74,33 @@ Required action:
 - Update public-facing copy to use compliance-safe language.
 - Add standard disclaimer blocks to tool pages.
 
-### 6. Need Shared Data Foundation
+### 5. Current Vertical and Solution Page Inventory Needed
 
 **Status:** Open
 
-The repo needs a simple data layer for navigation, tool registry, compliance language, and site configuration.
+Core partner/funding/tool paths have been verified, but vertical and problem-solution pages still need a fresh inventory pass before hub-page creation or sitemap generation.
 
-Recommended files:
+Routes to validate:
 
 ```txt
-data/navigation.json
-data/tools.json
-data/compliance-language.json
-data/site-config.json
+verticals/trucking.html
+verticals/medical.html
+verticals/ecommerce.html
+verticals/contractors.html
+verticals/real-estate.html
+solutions/bank-denial.html
+solutions/payroll-gap.html
+solutions/equipment-now.html
+solutions/zero-revenue.html
 ```
 
 Required action:
 
-- Add JSON files in a controlled data foundation commit.
-- Use data as an operating source of truth even before wiring it dynamically.
-
-### 7. Current Page Inventory Validation Needed
-
-**Status:** Open
-
-The repo has several files referenced by commits and docs, but not all paths have been verified in the current structure.
-
-Required action:
-
 - Audit actual files and folders.
-- Update `docs/site-structure.md` with verified current structure.
-- Update README once route inventory is confirmed.
+- Update `docs/site-structure.md` with verified inventory.
+- Do not add stale URLs to future hub pages or sitemap.
 
-### 8. Static SEO Basics Missing or Unverified
+### 6. Static SEO Basics Missing or Unverified
 
 **Status:** Open
 
@@ -167,7 +118,7 @@ Required action:
 - Add these after route paths are confirmed.
 - Do not add stale URLs to sitemap.
 
-### 9. Release Process Needs Documentation
+### 7. Release Process Needs Documentation
 
 **Status:** Open
 
@@ -198,17 +149,66 @@ Required action:
 
 This setting must remain in place unless a release step is explicitly approved.
 
+### Data Foundation Added
+
+**Status:** Resolved
+
+The following files now exist:
+
+```txt
+data/navigation.json
+data/tools.json
+data/compliance-language.json
+data/site-config.json
+```
+
+These provide a lightweight source-of-truth layer for navigation, tool registry, compliance copy, and site configuration.
+
+### Core Route and Link Drift Compatibility Added
+
+**Status:** Resolved
+
+Route repair added redirect shims for moved or commonly referenced old paths:
+
+```txt
+products.html -> funding/products.html
+guide.html -> partners/guide.html
+link-in-bio.html -> partners/link-in-bio.html
+fund-match-quiz.html -> tools/fund-match-quiz.html
+startup-planner.html -> tools/startup-planner.html
+cost-of-capital.html -> tools/cost-of-capital.html
+tools/dscr-precheck.html -> ../dscr-precheck.html
+tools/ecom-cashflow-tool.html -> amazon-cashflow.html
+```
+
+Verified canonical paths include:
+
+```txt
+funding/products.html
+partners/guide.html
+partners/link-in-bio.html
+tools/fund-match-quiz.html
+tools/fundability-score.html
+tools/startup-planner.html
+tools/cost-of-capital.html
+dscr-precheck.html
+tools/amazon-cashflow.html
+```
+
 ## Notes for Next Commit Group
 
 Recommended next group:
 
-**Commit 2: Compliance + Product Routing Docs**
+**Commit 5: Hub Pages**
 
 Target files:
 
 ```txt
-docs/compliance-rules.md
-docs/product-routing-logic.md
-docs/content-style-guide.md
-docs/ai-agents-architecture.md
+tools/index.html
+funding/index.html
+partners/assets.html
+verticals/index.html
+solutions/index.html
+index.html
+partners/index.html
 ```
