@@ -10,50 +10,50 @@ This file tracks active cleanup items, implementation risks, and route/documenta
 
 ## Open Issues
 
-### 1. Duplicated Inline CSS and Tailwind Config
+### 1. Remaining CSS and Tailwind Consolidation
 
 **Status:** Open
 
-Multiple pages include repeated Tailwind CDN configuration, repeated glass panel styles, repeated button/card styling, and repeated background/glow styles.
+Several older vertical and solution pages still include repeated Tailwind CDN configuration, inline styles, glass panel styling, button classes, and background/glow patterns.
 
 Progress:
 
 - `assets/css/styles.css` now exists as the shared style foundation.
-- `tools/index.html`, `index.html`, and `partners/index.html` use the shared CSS foundation.
-- Several existing tool, vertical, and solution pages still use inline styles and Tailwind CDN configuration.
+- `tools/index.html`, `index.html`, `partners/index.html`, `qualifier.html`, `dashboard.html`, and several core tool pages use the shared CSS foundation.
 
 Required action:
 
-- Move shared visual patterns into reusable classes where practical.
+- Continue moving shared visual patterns into reusable classes where practical.
 - Keep Tailwind CDN only if remaining static-first and no build step is approved.
+- Prioritize vertical and solution pages in a later visual standardization pass.
 
-### 2. Duplicated Inline JavaScript
+### 2. Remaining JavaScript Consolidation
 
 **Status:** Open
 
-Several pages include repeated or page-specific JavaScript for Tally embeds, copy helpers, calculators, sliders, and AI/demo behavior.
+Some pages still include page-specific JavaScript for calculators, sliders, redirects, and widgets.
 
 Progress:
 
 - `assets/js/app.js` now exists as the shared JS utility foundation.
-- `tools/index.html`, `index.html`, and `partners/index.html` use the shared JS foundation.
+- `tools/index.html`, `index.html`, `partners/index.html`, `qualifier.html`, `dashboard.html`, and several core tool pages use the shared JS foundation.
 - The homepage client-side AI/Gemini demo stub has been removed.
 
 Required action:
 
-- Move shared utility helpers into that file where safe.
-- Keep page-specific calculator logic separate if it is easier to maintain.
+- Move shared helpers into `assets/js/app.js` where safe.
+- Keep calculator-specific logic inside individual pages where that keeps the static site easier to maintain.
 
-### 3. Tool Page Compliance Review Needed
+### 3. Vertical and Solution Page Compliance Review Needed
 
 **Status:** Open
 
-Homepage and partner-page risky claims have been cleaned up, but several tool, vertical, and solution pages may still include aggressive or absolute language.
+Core tool pages have received a compliance-focused standardization pass, but vertical and solution pages may still include aggressive or absolute language.
 
 Required action:
 
-- Review tool outputs and CTAs.
-- Add standard disclaimer blocks to tool pages.
+- Review vertical and solution page outputs and CTAs.
+- Add standard disclaimer blocks.
 - Soften language that implies approval, terms, amounts, timing, or outcomes are guaranteed.
 
 ### 4. Hub Page Design Pass Needed
@@ -226,13 +226,11 @@ The homepage and partner page were rewritten to:
 - Preserve the Tally partner intake embed.
 - Keep the repo static-first.
 
-## Notes for Next Commit Group
+### Core Tool Pages Standardized
 
-Recommended next group:
+**Status:** Resolved
 
-**Commit 7: Tool Page Standardization**
-
-Target files likely include:
+The following core tool pages were standardized for safer messaging, clearer navigation, consistent CTAs, and planning-focused disclaimers:
 
 ```txt
 qualifier.html
@@ -241,15 +239,41 @@ tools/fund-match-quiz.html
 tools/fundability-score.html
 tools/startup-planner.html
 tools/cost-of-capital.html
-tools/dscr-precheck.html
-tools/ecom-cashflow-tool.html
+dscr-precheck.html
+tools/amazon-cashflow.html
+```
+
+Key cleanup completed:
+
+- Replaced approval-style language with planning/review language.
+- Added or improved disclaimer language.
+- Replaced hardcoded `fundstack.ai` dashboard links with the current Vercel domain.
+- Removed or softened phrases such as “you qualify,” “pre-approval,” “secure the capital,” and “take the capital.”
+- Added shared CSS/JS references where practical.
+
+## Notes for Next Commit Group
+
+Recommended next group:
+
+**Commit 8: SEO + Static Hosting Basics**
+
+Target files likely include:
+
+```txt
+robots.txt
+sitemap.xml
+vercel.json
+index.html
+tools/index.html
+funding/index.html
+partners/index.html
+verticals/index.html
+solutions/index.html
 ```
 
 Focus:
 
-- Standardize headers/nav.
-- Standardize footer.
-- Add consistent disclaimer blocks.
-- Add consistent CTA blocks.
-- Add clear “what this tool does / does not do” language.
-- Move shared helpers into `assets/js/app.js` where safe.
+- Add `robots.txt`.
+- Add `sitemap.xml` using verified routes only.
+- Add or improve meta descriptions/Open Graph basics where safe.
+- Preserve `git.deploymentEnabled: false` in `vercel.json`.
