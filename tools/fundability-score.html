@@ -1,197 +1,113 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Embed | Fundability Scorecard</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Space Grotesk', 'sans-serif'] },
-                    colors: { brand: { 500: '#00F0FF' }, dark: { 900: '#050505', 800: '#111111' } }
-                }
-            }
-        }
-    </script>
-    <style>
-        body { background-color: transparent; color: #ffffff; margin: 0; padding: 0; }
-        .glass-panel { background: rgba(5, 5, 5, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .dial-container { position: relative; width: 150px; height: 75px; overflow: hidden; margin: 0 auto; }
-        .dial-bg { position: absolute; width: 150px; height: 150px; border-radius: 50%; border: 10px solid rgba(255,255,255,0.1); border-bottom-color: transparent; border-right-color: transparent; transform: rotate(45deg); box-sizing: border-box; }
-        .dial-fill { position: absolute; width: 150px; height: 150px; border-radius: 50%; border: 10px solid #00F0FF; border-bottom-color: transparent; border-right-color: transparent; transform: rotate(-135deg); box-sizing: border-box; transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1); }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fundability Scorecard | FundStack AI</title>
+  <meta name="description" content="An embeddable planning widget for collecting funding readiness signals.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body { background-color: transparent; color: #ffffff; margin: 0; padding: 0; font-family: Inter, system-ui, sans-serif; }
+    .glass-panel { background: rgba(5, 5, 5, 0.88); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+    .dial-container { position: relative; width: 150px; height: 75px; overflow: hidden; margin: 0 auto; }
+    .dial-bg { position: absolute; width: 150px; height: 150px; border-radius: 50%; border: 10px solid rgba(255,255,255,0.1); border-bottom-color: transparent; border-right-color: transparent; transform: rotate(45deg); box-sizing: border-box; }
+    .dial-fill { position: absolute; width: 150px; height: 150px; border-radius: 50%; border: 10px solid #00F0FF; border-bottom-color: transparent; border-right-color: transparent; transform: rotate(-135deg); box-sizing: border-box; transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1); }
+  </style>
 </head>
 <body class="antialiased flex items-center justify-center p-4">
-
-    <!-- Embeddable Widget Container -->
-    <div class="glass-panel w-full max-w-md rounded-2xl p-6 shadow-2xl relative overflow-hidden" id="widgetContainer">
-        
-        <div id="formSection">
-            <div class="text-center mb-6">
-                <h2 class="font-display text-xl font-bold uppercase tracking-tight">Fundability Scorecard</h2>
-                <p class="text-xs text-gray-400 mt-1">Discover your capital capacity instantly.</p>
-            </div>
-
-            <form id="leadForm" class="space-y-4" onsubmit="submitWebhook(event)">
-                <input type="hidden" id="partnerId" name="partner_id" value="">
-                
-                <div>
-                    <label class="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1">Business Name</label>
-                    <input type="text" id="businessName" required class="w-full bg-dark-800 border border-white/10 rounded-lg p-3 text-sm text-white outline-none focus:border-brand-500">
-                </div>
-                
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1">Monthly Rev</label>
-                        <select id="monthlyRev" class="w-full bg-dark-800 border border-white/10 rounded-lg p-3 text-sm text-white outline-none focus:border-brand-500">
-                            <option value="5000">< $15k</option>
-                            <option value="25000">$15k - $50k</option>
-                            <option value="100000">$50k+</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1">Est FICO</label>
-                        <select id="ficoScore" class="w-full bg-dark-800 border border-white/10 rounded-lg p-3 text-sm text-white outline-none focus:border-brand-500">
-                            <option value="550">< 600</option>
-                            <option value="650">600 - 679</option>
-                            <option value="720">680+</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div>
-                    <label class="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1">Email Address</label>
-                    <input type="email" id="email" required class="w-full bg-dark-800 border border-white/10 rounded-lg p-3 text-sm text-white outline-none focus:border-brand-500">
-                </div>
-
-                <button type="submit" id="submitBtn" class="w-full bg-brand-500 text-dark-900 py-3 rounded-lg font-bold text-sm uppercase tracking-widest hover:bg-white transition-all flex items-center justify-center gap-2 mt-2">
-                    <span>Calculate Score</span>
-                    <div id="spinner" class="hidden w-4 h-4 border-2 border-dark-900 border-t-transparent rounded-full animate-spin"></div>
-                </button>
-            </form>
+  <div class="glass-panel w-full max-w-md rounded-2xl p-6 shadow-2xl relative overflow-hidden" id="widgetContainer">
+    <div id="formSection">
+      <div class="text-center mb-6">
+        <h1 class="font-display text-xl font-bold uppercase tracking-tight">Fundability Scorecard</h1>
+        <p class="text-xs text-gray-400 mt-1">Check basic readiness signals before requesting a deeper review.</p>
+      </div>
+      <form id="leadForm" class="space-y-4" onsubmit="submitWebhook(event)">
+        <input type="hidden" id="partnerId" name="partner_id" value="">
+        <div><label class="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1">Business Name</label><input type="text" id="businessName" required class="w-full bg-[#111] border border-white/10 rounded-lg p-3 text-sm text-white outline-none focus:border-[#00F0FF]"></div>
+        <div class="grid grid-cols-2 gap-4">
+          <div><label class="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1">Monthly Revenue</label><select id="monthlyRev" class="w-full bg-[#111] border border-white/10 rounded-lg p-3 text-sm text-white outline-none focus:border-[#00F0FF]"><option value="5000">< $15k</option><option value="25000">$15k - $50k</option><option value="100000">$50k+</option></select></div>
+          <div><label class="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1">Est. FICO</label><select id="ficoScore" class="w-full bg-[#111] border border-white/10 rounded-lg p-3 text-sm text-white outline-none focus:border-[#00F0FF]"><option value="550">< 600</option><option value="650">600 - 679</option><option value="720">680+</option></select></div>
         </div>
-
-        <div id="resultSection" class="hidden text-center py-4">
-            <h2 class="font-display text-lg font-bold uppercase tracking-tight mb-4">Your Score</h2>
-            
-            <!-- Custom CSS Half-Circle Dial -->
-            <div class="dial-container mb-2">
-                <div class="dial-bg"></div>
-                <div class="dial-fill" id="dialFill"></div>
-            </div>
-            
-            <div class="font-display text-4xl font-black text-brand-500 mb-2" id="scoreValue">0</div>
-            <p class="text-sm font-bold text-white mb-2" id="scoreStatus">Evaluating...</p>
-            <p class="text-xs text-gray-400 mb-6">Your results have been securely routed to our Deal Desk. An advisor will review your file shortly.</p>
-            
-            <button onclick="resetForm()" class="text-[10px] font-bold text-gray-500 uppercase tracking-widest hover:text-white border-b border-gray-500 pb-1">Start Over</button>
-        </div>
-        
-        <div class="mt-4 text-center">
-            <span class="text-[8px] text-gray-600 uppercase tracking-widest font-bold">Powered by Moonshine Capital</span>
-        </div>
+        <div><label class="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1">Email Address</label><input type="email" id="email" required class="w-full bg-[#111] border border-white/10 rounded-lg p-3 text-sm text-white outline-none focus:border-[#00F0FF]"></div>
+        <button type="submit" id="submitBtn" class="w-full bg-[#00F0FF] text-[#050505] py-3 rounded-lg font-bold text-sm uppercase tracking-widest hover:bg-white transition-all flex items-center justify-center gap-2 mt-2"><span>Calculate Snapshot</span><div id="spinner" class="hidden w-4 h-4 border-2 border-[#050505] border-t-transparent rounded-full animate-spin"></div></button>
+      </form>
     </div>
-
-    <script>
-        // Extract partner_id from iframe src URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const partnerId = urlParams.get('partner_id') || 'ORGANIC';
-        document.getElementById('partnerId').value = partnerId;
-
-        async function submitWebhook(e) {
-            e.preventDefault();
-            const btn = document.getElementById('submitBtn');
-            const spinner = document.getElementById('spinner');
-            
-            btn.disabled = true;
-            spinner.classList.remove('hidden');
-
-            const payload = {
-                partner_id: document.getElementById('partnerId').value,
-                business_name: document.getElementById('businessName').value,
-                monthly_rev: parseInt(document.getElementById('monthlyRev').value),
-                fico_score: parseInt(document.getElementById('ficoScore').value),
-                email: document.getElementById('email').value,
-                source: "fundability_widget",
-                timestamp: new Date().toISOString()
-            };
-
-            // Calculate Score Logic (0 to 100)
-            let score = 40; // Base score
-            if(payload.monthly_rev >= 25000) score += 30;
-            if(payload.fico_score >= 680) score += 30;
-
-            // --- CRM WEBHOOK INTEGRATION (Simulated for Demo) ---
-            // In production, uncomment the fetch block and replace the URL with your Make.com / n8n webhook URL.
-            /*
-            try {
-                await fetch('https://hook.us1.make.com/YOUR_WEBHOOK_ID', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-            } catch (err) {
-                console.error("Webhook failed", err);
-            }
-            */
-            // ----------------------------------------------------
-
-            // Simulate network delay for UX
-            setTimeout(() => {
-                showResult(score);
-                spinner.classList.add('hidden');
-                btn.disabled = false;
-            }, 1200);
-        }
-
-        function showResult(score) {
-            document.getElementById('formSection').classList.add('hidden');
-            document.getElementById('resultSection').classList.remove('hidden');
-            
-            // Animate number
-            let current = 0;
-            const timer = setInterval(() => {
-                current += 2;
-                document.getElementById('scoreValue').innerText = current;
-                if(current >= score) {
-                    clearInterval(timer);
-                    document.getElementById('scoreValue').innerText = score;
-                }
-            }, 20);
-
-            // Animate Dial (Rotate from -135deg to +45deg for 0-100%)
-            // Range is 180 degrees.
-            const degree = -135 + ((score / 100) * 180);
-            document.getElementById('dialFill').style.transform = `rotate(${degree}deg)`;
-
-            const status = document.getElementById('scoreStatus');
-            if(score >= 80) {
-                status.innerText = "Highly Fundable";
-                status.className = "text-sm font-bold text-green-400 mb-2";
-                document.getElementById('dialFill').style.borderColor = "#4ade80";
-                document.getElementById('scoreValue').className = "font-display text-4xl font-black text-green-400 mb-2";
-            } else if(score >= 60) {
-                status.innerText = "Alternative Capital Ready";
-                status.className = "text-sm font-bold text-brand-500 mb-2";
-            } else {
-                status.innerText = "Credit Builder Needed";
-                status.className = "text-sm font-bold text-yellow-500 mb-2";
-                document.getElementById('dialFill').style.borderColor = "#eab308";
-                document.getElementById('scoreValue').className = "font-display text-4xl font-black text-yellow-500 mb-2";
-            }
-        }
-
-        function resetForm() {
-            document.getElementById('leadForm').reset();
-            document.getElementById('formSection').classList.remove('hidden');
-            document.getElementById('resultSection').classList.add('hidden');
-            document.getElementById('dialFill').style.transform = `rotate(-135deg)`;
-            document.getElementById('dialFill').style.borderColor = "#00F0FF";
-            document.getElementById('scoreValue').className = "font-display text-4xl font-black text-brand-500 mb-2";
-        }
-    </script>
+    <div id="resultSection" class="hidden text-center py-4">
+      <h2 class="font-display text-lg font-bold uppercase tracking-tight mb-4">Readiness Snapshot</h2>
+      <div class="dial-container mb-2"><div class="dial-bg"></div><div class="dial-fill" id="dialFill"></div></div>
+      <div class="font-display text-4xl font-black text-[#00F0FF] mb-2" id="scoreValue">0</div>
+      <p class="text-sm font-bold text-white mb-2" id="scoreStatus">Evaluating...</p>
+      <p class="text-xs text-gray-400 mb-6" id="scoreNote">Use this as a planning snapshot. A human review should confirm documentation, fit, and next steps.</p>
+      <button onclick="resetForm()" class="text-[10px] font-bold text-gray-500 uppercase tracking-widest hover:text-white border-b border-gray-500 pb-1">Start Over</button>
+    </div>
+    <div class="mt-4 text-center"><span class="text-[8px] text-gray-600 uppercase tracking-widest font-bold">Planning tool powered by FundStack AI</span></div>
+    <p class="mt-4 text-[9px] text-gray-500 leading-relaxed text-center">This widget is for planning and education only. It does not guarantee approval, funding, terms, rates, amounts, or timing.</p>
+  </div>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const partnerId = urlParams.get('partner_id') || 'ORGANIC';
+    document.getElementById('partnerId').value = partnerId;
+    async function submitWebhook(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      const spinner = document.getElementById('spinner');
+      btn.disabled = true;
+      spinner.classList.remove('hidden');
+      const payload = {
+        partner_id: document.getElementById('partnerId').value,
+        business_name: document.getElementById('businessName').value,
+        monthly_rev: parseInt(document.getElementById('monthlyRev').value),
+        fico_score: parseInt(document.getElementById('ficoScore').value),
+        email: document.getElementById('email').value,
+        source: 'fundability_widget',
+        timestamp: new Date().toISOString()
+      };
+      let score = 40;
+      if (payload.monthly_rev >= 25000) score += 30;
+      if (payload.fico_score >= 680) score += 30;
+      setTimeout(() => { showResult(score); spinner.classList.add('hidden'); btn.disabled = false; }, 900);
+    }
+    function showResult(score) {
+      document.getElementById('formSection').classList.add('hidden');
+      document.getElementById('resultSection').classList.remove('hidden');
+      let current = 0;
+      const timer = setInterval(() => {
+        current += 2;
+        document.getElementById('scoreValue').innerText = current;
+        if (current >= score) { clearInterval(timer); document.getElementById('scoreValue').innerText = score; }
+      }, 20);
+      const degree = -135 + ((score / 100) * 180);
+      document.getElementById('dialFill').style.transform = `rotate(${degree}deg)`;
+      const status = document.getElementById('scoreStatus');
+      const note = document.getElementById('scoreNote');
+      if (score >= 80) {
+        status.innerText = 'Strong Review Signal';
+        status.className = 'text-sm font-bold text-green-400 mb-2';
+        note.innerText = 'This profile shows stronger readiness signals. Review documents and business context before next steps.';
+        document.getElementById('dialFill').style.borderColor = '#4ade80';
+        document.getElementById('scoreValue').className = 'font-display text-4xl font-black text-green-400 mb-2';
+      } else if (score >= 60) {
+        status.innerText = 'Possible Review Path';
+        status.className = 'text-sm font-bold text-[#00F0FF] mb-2';
+        note.innerText = 'This profile may have a path, but key details should be reviewed before submission.';
+      } else {
+        status.innerText = 'Readiness Work Suggested';
+        status.className = 'text-sm font-bold text-yellow-500 mb-2';
+        note.innerText = 'This profile may need preparation before heavier funding applications.';
+        document.getElementById('dialFill').style.borderColor = '#eab308';
+        document.getElementById('scoreValue').className = 'font-display text-4xl font-black text-yellow-500 mb-2';
+      }
+    }
+    function resetForm() {
+      document.getElementById('leadForm').reset();
+      document.getElementById('partnerId').value = partnerId;
+      document.getElementById('formSection').classList.remove('hidden');
+      document.getElementById('resultSection').classList.add('hidden');
+      document.getElementById('dialFill').style.transform = 'rotate(-135deg)';
+      document.getElementById('dialFill').style.borderColor = '#00F0FF';
+      document.getElementById('scoreValue').className = 'font-display text-4xl font-black text-[#00F0FF] mb-2';
+    }
+  </script>
 </body>
 </html>
