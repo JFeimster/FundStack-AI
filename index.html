@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FundStack AI | Funding Intelligence and Partner Tools</title>
-  <meta name="description" content="FundStack AI is a static-first funding intelligence and partner enablement hub for tools, funding education, vertical pages, and partner resources.">
+  <title>FundStack AI | Funding Readiness, Tools and Partner Assets</title>
+  <meta name="description" content="FundStack AI routes business owners and partners into funding readiness, calculators, vertical funnels, problem-solution guides, and partner assets.">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
@@ -13,106 +13,57 @@
   <main class="fs-page-shell">
     <nav class="fixed w-full z-50 border-b border-white/5 bg-dark-900/90 backdrop-blur-md">
       <div class="fs-container h-16 flex items-center justify-between">
-        <a href="index.html" class="font-display font-bold text-xl tracking-tight flex items-center gap-2">
-          <span class="w-3 h-3 bg-brand-500 rounded-full animate-pulse"></span>
-          FUNDSTACK<span class="text-brand-500">AI</span>
-        </a>
+        <a href="/" class="font-display font-bold text-xl tracking-tight flex items-center gap-2"><span class="w-3 h-3 bg-brand-500 rounded-full animate-pulse"></span>FUNDSTACK<span class="text-brand-500">AI</span></a>
         <div class="hidden md:flex gap-7 text-[11px] font-bold uppercase tracking-[0.12em] text-gray-500">
-          <a href="tools/index.html" class="hover:text-brand-500 transition-colors">Tools</a>
-          <a href="funding/index.html" class="hover:text-brand-500 transition-colors">Funding</a>
-          <a href="partners/index.html" class="hover:text-brand-500 transition-colors">Partners</a>
-          <a href="verticals/index.html" class="hover:text-brand-500 transition-colors">Verticals</a>
-          <a href="solutions/index.html" class="hover:text-brand-500 transition-colors">Solutions</a>
+          <a href="/tools/index.html" class="hover:text-brand-500 transition-colors">Tools</a>
+          <a href="/funding/index.html" class="hover:text-brand-500 transition-colors">Funding</a>
+          <a href="/verticals/index.html" class="hover:text-brand-500 transition-colors">Verticals</a>
+          <a href="/solutions/index.html" class="hover:text-brand-500 transition-colors">Solutions</a>
+          <a href="/partners/index.html" class="hover:text-brand-500 transition-colors">Partners</a>
         </div>
-        <a href="partners/index.html" class="fs-button fs-button-primary !py-2 !px-5 text-[11px]">Partner Hub</a>
+        <a href="https://am-i-fundable.vercel.app/" class="fs-button fs-button-primary !py-2 !px-5 text-[11px]" data-preserve-attribution>Check Readiness</a>
       </div>
     </nav>
 
     <header class="relative z-10 pt-44 pb-20 px-6 text-center">
-      <div class="fs-kicker mb-8">Moonshine Capital Partner Ecosystem</div>
-      <h1 class="fs-display text-5xl md:text-8xl font-black mb-8 max-w-6xl mx-auto">
-        Funding Readiness Tools for Partners Who Hate Guesswork
-      </h1>
-      <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed">
-        FundStack AI helps partners and business owners organize funding conversations with pre-check tools, product education, vertical pages, and compliance-safe next steps.
-      </p>
+      <div class="fs-kicker mb-8">Public Funding Intelligence Hub</div>
+      <h1 class="fs-display text-5xl md:text-8xl font-black mb-8 max-w-6xl mx-auto">Find the Right Starting Point Before You Apply</h1>
+      <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed">Use readiness checks, calculators, vertical guides, and problem-based funnels to organize the funding conversation before a human review.</p>
       <div class="fs-button-row justify-center">
-        <a href="tools/index.html" class="fs-button fs-button-primary">Explore Tools</a>
-        <a href="partners/index.html" class="fs-button fs-button-secondary">Become a Partner</a>
-        <a href="funding/index.html" class="fs-button fs-button-secondary">Review Funding Paths</a>
+        <a href="https://am-i-fundable.vercel.app/" class="fs-button fs-button-primary" data-preserve-attribution>Check Funding Readiness</a>
+        <a href="/tools/index.html" class="fs-button fs-button-secondary" data-preserve-attribution>Explore Funding Tools</a>
+        <a href="/partners/index.html" class="fs-button fs-button-secondary" data-preserve-attribution>Become a Partner</a>
       </div>
     </header>
 
     <section class="fs-container fs-section">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <a href="tools/index.html" class="fs-card p-8">
-          <span class="fs-pill mb-5">Tool Library</span>
-          <h2 class="font-display text-2xl font-bold mb-3">Pre-Check Before You Pitch</h2>
-          <p class="fs-muted leading-relaxed">Use calculators, quizzes, and readiness tools to identify strengths, friction points, and next steps before a full review.</p>
-        </a>
-        <a href="funding/index.html" class="fs-card p-8">
-          <span class="fs-pill mb-5">Funding Education</span>
-          <h2 class="font-display text-2xl font-bold mb-3">Match the Profile to the Path</h2>
-          <p class="fs-muted leading-relaxed">Review product categories and routing logic without exposing backend relationships or promising outcomes.</p>
-        </a>
-        <a href="partners/assets.html" class="fs-card p-8">
-          <span class="fs-pill mb-5">Partner Assets</span>
-          <h2 class="font-display text-2xl font-bold mb-3">Share Better Resources</h2>
-          <p class="fs-muted leading-relaxed">Give partners simple launch assets, link-in-bio pages, dashboard concepts, and scripts they can use in real conversations.</p>
-        </a>
+      <div class="fs-grid-3">
+        <a href="/tools/index.html" class="fs-card p-8" data-preserve-attribution><span class="fs-pill mb-5">Tool Library</span><h2 class="font-display text-2xl font-bold mb-3">Diagnose the Situation</h2><p class="fs-muted leading-relaxed">Use calculators and quizzes for cost, cash-flow, property, startup, and product-family questions.</p></a>
+        <a href="https://am-i-fundable.vercel.app/" class="fs-card p-8" data-preserve-attribution><span class="fs-pill mb-5">Canonical Readiness</span><h2 class="font-display text-2xl font-bold mb-3">Check Funding Readiness</h2><p class="fs-muted leading-relaxed">Use Am I Fundable for the canonical readiness score, tier, strengths, risks, document checklist, and next steps.</p></a>
+        <a href="/funding/index.html" class="fs-card p-8" data-preserve-attribution><span class="fs-pill mb-5">Funding Education</span><h2 class="font-display text-2xl font-bold mb-3">Understand the Product Families</h2><p class="fs-muted leading-relaxed">Review public-safe product categories and routing logic before requesting a deeper review.</p></a>
       </div>
     </section>
 
     <section class="fs-container fs-section border-t border-white/5">
-      <div class="flex flex-col md:flex-row justify-between gap-8 mb-12">
-        <div class="max-w-2xl">
-          <div class="fs-kicker mb-5">Ecosystem Map</div>
-          <h2 class="fs-display text-4xl md:text-6xl font-black mb-4">One Hub. Multiple Entry Points.</h2>
-          <p class="fs-muted text-lg leading-relaxed">Send prospects to the right starting point: tools for readiness, vertical pages for industry context, or solution pages for urgent capital conversations.</p>
-        </div>
-      </div>
-      <div class="fs-grid-2">
-        <a href="verticals/index.html" class="fs-card p-8">
-          <span class="fs-pill mb-5">Verticals</span>
-          <h3 class="font-display text-2xl font-bold mb-3">Industry Pages</h3>
-          <p class="fs-muted leading-relaxed">Trucking, medical, e-commerce, contractors, and real estate investor pages for more relevant conversations.</p>
-        </a>
-        <a href="solutions/index.html" class="fs-card p-8">
-          <span class="fs-pill mb-5">Solutions</span>
-          <h3 class="font-display text-2xl font-bold mb-3">Problem-Based Pages</h3>
-          <p class="fs-muted leading-relaxed">Bank denial, payroll gap, equipment need, and pre-revenue startup pages for common pressure points.</p>
-        </a>
+      <div class="text-center mb-12"><div class="fs-kicker mb-5">Choose the Best Entry Point</div><h2 class="fs-display text-4xl md:text-6xl font-black mb-4">Traffic Should Flow Somewhere Useful</h2><p class="fs-muted text-lg max-w-3xl mx-auto leading-relaxed">Industry context, urgent problem guides, and partner assets all route into a consistent readiness and review workflow.</p></div>
+      <div class="fs-grid-3">
+        <a href="/verticals/index.html" class="fs-card p-8" data-preserve-attribution><span class="fs-pill mb-5">Vertical Funnels</span><h3 class="font-display text-2xl font-bold mb-3">Start With the Industry</h3><p class="fs-muted leading-relaxed">Trucking, medical, e-commerce, contractors, and real estate investor guides.</p></a>
+        <a href="/solutions/index.html" class="fs-card p-8" data-preserve-attribution><span class="fs-pill mb-5">Problem Funnels</span><h3 class="font-display text-2xl font-bold mb-3">Start With the Pressure Point</h3><p class="fs-muted leading-relaxed">Bank denial, payroll gaps, equipment needs, and zero-revenue preparation.</p></a>
+        <a href="/partners/assets.html" class="fs-card p-8" data-preserve-attribution><span class="fs-pill mb-5">Partner Assets</span><h3 class="font-display text-2xl font-bold mb-3">Distribute Tracked Resources</h3><p class="fs-muted leading-relaxed">Use campaign pages, tools, and partner assets while preserving referral attribution.</p></a>
       </div>
     </section>
 
-    <section id="apply" class="fs-container fs-section border-t border-white/5">
-      <div class="text-center mb-12">
-        <div class="fs-kicker mb-5">Partner Intake</div>
-        <h2 class="fs-display text-4xl md:text-6xl font-black mb-5">Build Better Funding Conversations</h2>
-        <p class="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">Use FundStack AI as your partner enablement layer for intake, education, and routing support. Submit your partner profile to start the review process.</p>
+    <section id="partner" class="fs-container fs-section border-t border-white/5">
+      <div class="fs-panel p-8 md:p-12 rounded-[2rem] text-center">
+        <div class="fs-kicker mb-5">Partner Distribution</div>
+        <h2 class="fs-display text-4xl md:text-6xl font-black mb-5">Bring the Audience. Keep the Attribution.</h2>
+        <p class="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed mb-8">Join the partner network to receive tracked links, campaign assets, education pages, and a cleaner handoff into funding-readiness review.</p>
+        <div class="fs-button-row justify-center"><a href="https://tally.so/r/mOe658" class="fs-button fs-button-primary" data-preserve-attribution>Join the Partner Network</a><a href="/partners/assets.html" class="fs-button fs-button-secondary" data-preserve-attribution>View Partner Assets</a></div>
       </div>
-      <div class="fs-panel rounded-[2rem] overflow-hidden bg-dark-800/40">
-        <div class="tally-container min-h-[500px]">
-          <iframe
-            data-tally-src="https://tally.so/embed/mOe658?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-            loading="lazy"
-            width="100%"
-            height="500"
-            frameborder="0"
-            marginheight="0"
-            marginwidth="0"
-            title="FundStack AI Partner Intake">
-          </iframe>
-        </div>
-      </div>
-      <div class="fs-disclaimer mt-8">FundStack AI tools are for planning, education, intake, and routing support only. Provider criteria apply. Approval, terms, amounts, timing, and available options are not guaranteed.</div>
+      <div class="fs-disclaimer mt-8">FundStack AI provides planning, education, intake, and routing support. Approval, funding, terms, amounts, timing, and provider availability are not guaranteed.</div>
     </section>
 
-    <footer class="relative z-10 py-20 px-6 border-t border-white/5 text-center">
-      <div class="max-w-4xl mx-auto text-gray-600 font-bold text-[10px] uppercase tracking-[0.35em]">
-        &copy; 2026 FUNDSTACK AI | A MOONSHINE CAPITAL TECHNOLOGY PARTNER
-      </div>
-    </footer>
+    <footer class="relative z-10 py-20 px-6 border-t border-white/5 text-center"><div class="max-w-4xl mx-auto text-gray-600 font-bold text-[10px] uppercase tracking-[0.35em]">&copy; 2026 FUNDSTACK AI | A MOONSHINE CAPITAL TECHNOLOGY PARTNER</div></footer>
   </main>
   <script src="assets/js/app.js"></script>
 </body>
