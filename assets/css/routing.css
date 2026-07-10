@@ -1,0 +1,11 @@
+/* FundStack AI shared CTA routing component */
+.fs-route-cta{border-top:1px solid var(--fs-border)}
+.fs-route-cta-panel{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(16rem,.6fr);gap:2rem;align-items:center;padding:clamp(1.5rem,4vw,3rem);background:radial-gradient(circle at top right,rgba(0,240,255,.12),transparent 24rem),rgba(255,255,255,.03)}
+.fs-route-cta-copy{max-width:48rem}
+.fs-route-cta-title{margin:1.15rem 0 1rem;font-size:clamp(2.25rem,5vw,4.75rem)}
+.fs-route-cta-problem{margin:0;max-width:46rem;font-size:1.05rem;line-height:1.75}
+.fs-route-cta-meta{margin:1rem 0 0;color:var(--fs-muted-strong);font-size:.78rem;font-weight:700;letter-spacing:.03em}
+.fs-route-cta-actions{justify-content:flex-end}
+.fs-route-cta-actions .fs-button{min-width:13rem}
+@media(max-width:900px){.fs-route-cta-panel{grid-template-columns:1fr}.fs-route-cta-actions{justify-content:flex-start}}
+@media(max-width:768px){.fs-route-cta-title{font-size:clamp(2rem,12vw,3.25rem)}.fs-route-cta-actions .fs-button{width:100%}}
