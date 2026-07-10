@@ -1,0 +1,984 @@
+{
+  "schema_version": "1.0.0",
+  "site": "FundStack AI",
+  "canonical_domain": "https://fundstack-ai.vercel.app",
+  "compatibility_domain": "https://fund-stack-ai.vercel.app",
+  "readiness_destination": "https://am-i-fundable.vercel.app/",
+  "partner_signup_destination": "https://tally.so/r/mOe658",
+  "required_attribution_fields": [
+    "partner_id",
+    "tracking_link_id",
+    "campaign_id",
+    "widget_id",
+    "source_url",
+    "utm_source",
+    "utm_medium",
+    "utm_campaign",
+    "utm_term",
+    "utm_content"
+  ],
+  "routes": [
+    {
+      "route_id": "home",
+      "canonical_path": "/",
+      "aliases": [
+        "/index.html"
+      ],
+      "route_type": "hub",
+      "audience": "Business owners, referral partners, and operators entering the FundStack AI ecosystem",
+      "problem": "Visitors need a clear first step instead of choosing among tools without context.",
+      "primary_cta": {
+        "label": "Check Funding Readiness",
+        "destination": "https://am-i-fundable.vercel.app/"
+      },
+      "secondary_cta": {
+        "label": "Explore Funding Tools",
+        "destination": "/tools/index.html"
+      },
+      "lead_workflow": "FundStack AI education hub → Am I Fundable readiness assessment → human review → canonical lead router",
+      "attribution": {
+        "source_asset": "fundstack_home",
+        "utm_source": "fundstack_ai",
+        "utm_medium": "onsite_cta",
+        "utm_campaign": "fundstack_home_readiness",
+        "fields": [
+          "partner_id",
+          "tracking_link_id",
+          "campaign_id",
+          "widget_id",
+          "source_url",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_term",
+          "utm_content"
+        ]
+      },
+      "related_tool": "Am I Fundable",
+      "related_vertical": "All business types",
+      "partner_use_case": "Primary share link for general partner traffic",
+      "revenue_path": "Readiness assessment → qualified review → funded transaction or nurture"
+    },
+    {
+      "route_id": "tools_hub",
+      "canonical_path": "/tools/index.html",
+      "aliases": [
+        "/tools/"
+      ],
+      "route_type": "tools_hub",
+      "audience": "Business owners and partners comparing funding calculators and readiness tools",
+      "problem": "Users need the right diagnostic tool and a consistent route into readiness review.",
+      "primary_cta": {
+        "label": "Check Funding Readiness",
+        "destination": "https://am-i-fundable.vercel.app/"
+      },
+      "secondary_cta": {
+        "label": "Browse Funding Paths",
+        "destination": "/funding/index.html"
+      },
+      "lead_workflow": "Tool discovery → selected calculator or readiness assessment → human review → lead router",
+      "attribution": {
+        "source_asset": "fundstack_tools_hub",
+        "utm_source": "fundstack_ai",
+        "utm_medium": "tools_hub",
+        "utm_campaign": "tool_to_readiness",
+        "fields": [
+          "partner_id",
+          "tracking_link_id",
+          "campaign_id",
+          "widget_id",
+          "source_url",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_term",
+          "utm_content"
+        ]
+      },
+      "related_tool": "FundStack AI tool library",
+      "related_vertical": "All business types",
+      "partner_use_case": "Send prospects to a curated tool menu without losing attribution",
+      "revenue_path": "Tool engagement → readiness capture → referred funding opportunity"
+    },
+    {
+      "route_id": "fundability_score",
+      "canonical_path": "/tools/fundability-score.html",
+      "aliases": [
+        "/fundability-score.html"
+      ],
+      "route_type": "readiness",
+      "audience": "Business owners seeking a funding-readiness score",
+      "problem": "The prior local widget used a simplified noncanonical score and could create conflicting readiness results.",
+      "primary_cta": {
+        "label": "Run the Full Readiness Check",
+        "destination": "https://am-i-fundable.vercel.app/"
+      },
+      "secondary_cta": {
+        "label": "Review Funding Paths",
+        "destination": "/funding/index.html"
+      },
+      "lead_workflow": "Compatibility page → Am I Fundable canonical scoring → document checklist or human review → lead router",
+      "attribution": {
+        "source_asset": "fundability_score",
+        "utm_source": "fundstack_ai",
+        "utm_medium": "readiness_redirect",
+        "utm_campaign": "canonical_readiness",
+        "fields": [
+          "partner_id",
+          "tracking_link_id",
+          "campaign_id",
+          "widget_id",
+          "source_url",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_term",
+          "utm_content"
+        ]
+      },
+      "related_tool": "Am I Fundable",
+      "related_vertical": "All business types",
+      "partner_use_case": "Canonical readiness link for partners who previously shared the local score widget",
+      "revenue_path": "Canonical score → qualified review → funded transaction or preparation plan"
+    },
+    {
+      "route_id": "fund_match_quiz",
+      "canonical_path": "/tools/fund-match-quiz.html",
+      "aliases": [
+        "/fund-match-quiz.html"
+      ],
+      "route_type": "routing_tool",
+      "audience": "Business owners unsure which funding family fits their use case",
+      "problem": "The prospect needs education about likely funding families before a deeper readiness review.",
+      "primary_cta": {
+        "label": "Check Readiness for the Match",
+        "destination": "https://am-i-fundable.vercel.app/"
+      },
+      "secondary_cta": {
+        "label": "Open Funding Product Map",
+        "destination": "/funding/products.html"
+      },
+      "lead_workflow": "Funding match education → Am I Fundable readiness assessment → human review → lead router",
+      "attribution": {
+        "source_asset": "fund_match_quiz",
+        "utm_source": "fundstack_ai",
+        "utm_medium": "routing_quiz",
+        "utm_campaign": "match_to_readiness",
+        "fields": [
+          "partner_id",
+          "tracking_link_id",
+          "campaign_id",
+          "widget_id",
+          "source_url",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_term",
+          "utm_content"
+        ]
+      },
+      "related_tool": "Funding Match Quiz",
+      "related_vertical": "All business types",
+      "partner_use_case": "Pre-frame a prospect before readiness intake",
+      "revenue_path": "Product-family interest → readiness review → matched funding opportunity"
+    },
+    {
+      "route_id": "qualifier",
+      "canonical_path": "/qualifier.html",
+      "aliases": [],
+      "route_type": "qualification_tool",
+      "audience": "Partners and operators doing a quick pre-screen",
+      "problem": "A fast triage is needed without presenting the result as approval or underwriting.",
+      "primary_cta": {
+        "label": "Continue to Full Readiness Check",
+        "destination": "https://am-i-fundable.vercel.app/"
+      },
+      "secondary_cta": {
+        "label": "Use the Funding Match Quiz",
+        "destination": "/tools/fund-match-quiz.html"
+      },
+      "lead_workflow": "Quick qualifier → Am I Fundable canonical readiness → human review → lead router",
+      "attribution": {
+        "source_asset": "qualifier",
+        "utm_source": "fundstack_ai",
+        "utm_medium": "qualifier",
+        "utm_campaign": "qualifier_to_readiness",
+        "fields": [
+          "partner_id",
+          "tracking_link_id",
+          "campaign_id",
+          "widget_id",
+          "source_url",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_term",
+          "utm_content"
+        ]
+      },
+      "related_tool": "Blue Collar Banker Qualifier",
+      "related_vertical": "All business types",
+      "partner_use_case": "Rapid conversation triage before sending a full readiness link",
+      "revenue_path": "Qualified interest → readiness assessment → funding review"
+    },
+    {
+      "route_id": "startup_planner",
+      "canonical_path": "/tools/startup-planner.html",
+      "aliases": [
+        "/startup-planner.html"
+      ],
+      "route_type": "planning_tool",
+      "audience": "Startups and newer businesses with limited operating history",
+      "problem": "The owner needs a realistic preparation path instead of an approval promise.",
+      "primary_cta": {
+        "label": "Build Your Readiness Plan",
+        "destination": "https://am-i-fundable.vercel.app/"
+      },
+      "secondary_cta": {
+        "label": "Review Zero-Revenue Options",
+        "destination": "/solutions/zero-revenue.html"
+      },
+      "lead_workflow": "Startup planning → readiness assessment → preparation checklist or human review → nurture",
+      "attribution": {
+        "source_asset": "startup_planner",
+        "utm_source": "fundstack_ai",
+        "utm_medium": "startup_tool",
+        "utm_campaign": "startup_readiness",
+        "fields": [
+          "partner_id",
+          "tracking_link_id",
+          "campaign_id",
+          "widget_id",
+          "source_url",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_term",
+          "utm_content"
+        ]
+      },
+      "related_tool": "Startup Planner",
+      "related_vertical": "Startups and pre-revenue businesses",
+      "partner_use_case": "Educate early-stage prospects without forcing them into a mature-business application",
+      "revenue_path": "Preparation plan → future readiness → funding or business-credit opportunity"
+    },
+    {
+      "route_id": "cost_of_capital",
+      "canonical_path": "/tools/cost-of-capital.html",
+      "aliases": [
+        "/cost-of-capital.html"
+      ],
+      "route_type": "calculator",
+      "audience": "Business owners evaluating whether capital cost is justified by the opportunity",
+      "problem": "The owner needs to compare expected return against estimated financing cost.",
+      "primary_cta": {
+        "label": "Check Funding Readiness",
+        "destination": "https://am-i-fundable.vercel.app/"
+      },
+      "secondary_cta": {
+        "label": "Review Funding Products",
+        "destination": "/funding/products.html"
+      },
+      "lead_workflow": "Cost analysis → readiness check → human funding review → lead router",
+      "attribution": {
+        "source_asset": "cost_of_capital",
+        "utm_source": "fundstack_ai",
+        "utm_medium": "calculator",
+        "utm_campaign": "capital_cost_to_readiness",
+        "fields": [
+          "partner_id",
+          "tracking_link_id",
+          "campaign_id",
+          "widget_id",
+          "source_url",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_term",
+          "utm_content"
+        ]
+      },
+      "related_tool": "Cost of Capital Calculator",
+      "related_vertical": "All revenue-producing businesses",
+      "partner_use_case": "Help prospects frame the business case before requesting capital",
+      "revenue_path": "ROI-qualified need → readiness review → funding transaction"
+    },
+    {
+      "route_id": "dscr_precheck",
+      "canonical_path": "/tools/dscr-precheck.html",
+      "aliases": [
+        "/dscr-precheck.html"
+      ],
+      "route_type": "calculator",
+      "audience": "Rental-property investors and real estate partners",
+      "problem": "The user needs an educational debt-service coverage pre-check before a property review.",
+      "primary_cta": {
+        "label": "Check Overall Funding Readiness",
+        "destination": "https://am-i-fundable.vercel.app/"
+      },
+      "secondary_cta": {
+        "label": "Open Real Estate Funding Guide",
+        "destination": "/verticals/real-estate.html"
+      },
+      "lead_workflow": "DSCR pre-check → readiness assessment → property-specific human review → lead router",
+      "attribution": {
+        "source_asset": "dscr_precheck",
+        "utm_source": "fundstack_ai",
+        "utm_medium": "real_estate_tool",
+        "utm_campaign": "dscr_to_review",
+        "fields": [
+          "partner_id",
+          "tracking_link_id",
+          "campaign_id",
+          "widget_id",
+          "source_url",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_term",
+          "utm_content"
+        ]
+      },
+      "related_tool": "DSCR Pre-Check",
+      "related_vertical": "Real estate investors",
+      "partner_use_case": "Pre-frame rental-property conversations before collecting a full file",
+      "revenue_path": "Property pre-check → human review → real estate financing opportunity"
+    },
+    {
+      "route_id": "amazon_cashflow",
+      "canonical_path": "/tools/amazon-cashflow.html",
+      "aliases": [
+        "/tools/ecom-cashflow-tool.html"
+      ],
+      "route_type": "calculator",
+      "audience": "Amazon and marketplace sellers managing inventory and payout timing",
+      "problem": "Cash is trapped between inventory spend, sales, and marketplace payout timing.",
+      "primary_cta": {
+        "label": "Check Funding Readiness",
+        "destination": "https://am-i-fundable.vercel.app/"
+      },
+      "secondary_cta": {
+        "label": "Open E-commerce Funding Guide",
+        "destination": "/verticals/ecommerce.html"
+      },
+      "lead_workflow": "Cash-flow gap analysis → readiness check → e-commerce funding review → lead router",
+      "attribution": {
+        "source_asset": "amazon_cashflow",
+        "utm_source": "fundstack_ai",
+        "utm_medium": "ecommerce_tool",
+        "utm_campaign": "amazon_cashflow_readiness",
+        "fields": [
+          "partner_id",
+          "tracking_link_id",
+          "campaign_id",
+          "widget_id",
+          "source_url",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_term",
+          "utm_content"
+        ]
+      },
+      "related_tool": "Amazon Cash-Flow Tool",
+      "related_vertical": "E-commerce",
+      "partner_use_case": "Diagnose inventory and payout gaps for seller referrals",
+      "revenue_path": "Identified cash-flow gap → readiness review → working-capital opportunity"
+    },
+    {
+      "route_id": "funding_hub",
+      "canonical_path": "/funding/index.html",
+      "aliases": [
+        "/funding/"
+      ],
+      "route_type": "funding_hub",
+      "audience": "Business owners and partners learning how profile factors affect funding paths",
+      "problem": "Visitors need product education before choosing a tool or requesting review.",
+      "primary_cta": {
+        "label": "Check Funding Readiness",
+        "destination": "https://am-i-fundable.vercel.app/"
+      },
+      "secondary_cta": {
+        "label": "Open Product Matrix",
+        "destination": "/funding/products.html"
+      },
+      "lead_workflow": "Funding education → readiness assessment → human review → lead router",
+      "attribution": {
+        "source_asset": "funding_hub",
+        "utm_source": "fundstack_ai",
+        "utm_medium": "funding_hub",
+        "utm_campaign": "education_to_readiness",
+        "fields": [
+          "partner_id",
+          "tracking_link_id",
+          "campaign_id",
+          "widget_id",
+          "source_url",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_term",
+          "utm_content"
+        ]
+      },
+      "related_tool": "Funding Product Map",
+      "related_vertical": "All business types",
+      "partner_use_case": "Educational destination for prospects asking broad product questions",
+      "revenue_path": "Product education → readiness review → matched funding opportunity"
+    },
+    {
+      "route_id": "funding_products",
+      "canonical_path": "/funding/products.html",
+      "aliases": [
+        "/products.html"
+      ],
+      "route_type": "product_education",
+      "audience": "Business owners and partners comparing funding families",
+      "problem": "Users need a safe product-family overview without provider-specific promises.",
+      "primary_cta": {
+        "label": "Check Your Readiness",
+        "destination": "https://am-i-fundable.vercel.app/"
+      },
+      "secondary_cta": {
+        "label": "Run Funding Match Quiz",
+        "destination": "/tools/fund-match-quiz.html"
+      },
+      "lead_workflow": "Product education → readiness assessment → human review → lead router",
+      "attribution": {
+        "source_asset": "funding_products",
+        "utm_source": "fundstack_ai",
+        "utm_medium": "product_matrix",
+        "utm_campaign": "product_to_readiness",
+        "fields": [
+          "partner_id",
+          "tracking_link_id",
+          "campaign_id",
+          "widget_id",
+          "source_url",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_term",
+          "utm_content"
+        ]
+      },
+      "related_tool": "Funding Product Map",
+      "related_vertical": "All business types",
+      "partner_use_case": "Share a compliance-safe product overview before readiness intake",
+      "revenue_path": "Product interest → readiness qualification → funding review"
+    },
+    {
+      "route_id": "verticals_hub",
+      "canonical_path": "/verticals/index.html",
+      "aliases": [
+        "/verticals/"
+      ],
+      "route_type": "vertical_hub",
+      "audience": "Business owners and referral partners seeking industry-specific context",
+      "problem": "Generic funding language does not reflect the operating pressures of each industry.",
+      "primary_cta": {
+        "label": "Check Funding Readiness",
+        "destination": "https://am-i-fundable.vercel.app/"
+      },
+      "secondary_cta": {
+        "label": "Explore Problem-Based Guides",
+        "destination": "/solutions/index.html"
+      },
+      "lead_workflow": "Industry education → readiness assessment → vertical-aware human review → lead router",
+      "attribution": {
+        "source_asset": "verticals_hub",
+        "utm_source": "fundstack_ai",
+        "utm_medium": "vertical_hub",
+        "utm_campaign": "vertical_to_readiness",
+        "fields": [
+          "partner_id",
+          "tracking_link_id",
+          "campaign_id",
+          "widget_id",
+          "source_url",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_term",
+          "utm_content"
+        ]
+      },
+      "related_tool": "Am I Fundable",
+      "related_vertical": "Trucking, medical, e-commerce, contractors, and real estate",
+      "partner_use_case": "Industry-specific campaign landing hub",
+      "revenue_path": "Vertical traffic → readiness review → matched funding opportunity"
+    },
+    {
+      "route_id": "trucking",
+      "canonical_path": "/verticals/trucking.html",
+      "aliases": [],
+      "route_type": "vertical",
+      "audience": "Owner-operators, fleets, dispatchers, and trucking referral partners",
+      "problem": "Fuel, repairs, insurance, payroll, and equipment costs create uneven cash flow.",
+      "primary_cta": {
+        "label": "Check Trucking Funding Readiness",
+        "destination": "https://am-i-fundable.vercel.app/"
+      },
+      "secondary_cta": {
+        "label": "Review Equipment Funding Guide",
+        "destination": "/solutions/equipment-now.html"
+      },
+      "lead_workflow": "Trucking funnel → readiness assessment → human review → lead router",
+      "attribution": {
+        "source_asset": "vertical_trucking",
+        "utm_source": "fundstack_ai",
+        "utm_medium": "vertical_funnel",
+        "utm_campaign": "trucking_readiness",
+        "fields": [
+          "partner_id",
+          "tracking_link_id",
+          "campaign_id",
+          "widget_id",
+          "source_url",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_term",
+          "utm_content"
+        ]
+      },
+      "related_tool": "Cost of Capital Calculator",
+      "related_vertical": "Trucking",
+      "partner_use_case": "Campaign page for trucking partners and fleet-service referrals",
+      "revenue_path": "Industry lead → readiness review → working-capital or equipment opportunity"
+    },
+    {
+      "route_id": "medical",
+      "canonical_path": "/verticals/medical.html",
+      "aliases": [],
+      "route_type": "vertical",
+      "audience": "Medical, dental, wellness, and healthcare practice owners",
+      "problem": "Collections timing, payroll, equipment, and expansion costs pressure practice cash flow.",
+      "primary_cta": {
+        "label": "Check Practice Funding Readiness",
+        "destination": "https://am-i-fundable.vercel.app/"
+      },
+      "secondary_cta": {
+        "label": "Review Equipment Funding Guide",
+        "destination": "/solutions/equipment-now.html"
+      },
+      "lead_workflow": "Medical funnel → readiness assessment → practice funding review → lead router",
+      "attribution": {
+        "source_asset": "vertical_medical",
+        "utm_source": "fundstack_ai",
+        "utm_medium": "vertical_funnel",
+        "utm_campaign": "medical_readiness",
+        "fields": [
+          "partner_id",
+          "tracking_link_id",
+          "campaign_id",
+          "widget_id",
+          "source_url",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_term",
+          "utm_content"
+        ]
+      },
+      "related_tool": "Cost of Capital Calculator",
+      "related_vertical": "Medical and healthcare",
+      "partner_use_case": "Campaign page for practice consultants, vendors, and referral partners",
+      "revenue_path": "Practice lead → readiness review → working-capital or equipment opportunity"
+    },
+    {
+      "route_id": "ecommerce",
+      "canonical_path": "/verticals/ecommerce.html",
+      "aliases": [],
+      "route_type": "vertical",
+      "audience": "Marketplace sellers, DTC brands, and e-commerce consultants",
+      "problem": "Inventory purchases and platform payout timing create recurring cash-flow gaps.",
+      "primary_cta": {
+        "label": "Check E-commerce Funding Readiness",
+        "destination": "https://am-i-fundable.vercel.app/"
+      },
+      "secondary_cta": {
+        "label": "Run Amazon Cash-Flow Tool",
+        "destination": "/tools/amazon-cashflow.html"
+      },
+      "lead_workflow": "E-commerce funnel → cash-flow tool or readiness assessment → human review → lead router",
+      "attribution": {
+        "source_asset": "vertical_ecommerce",
+        "utm_source": "fundstack_ai",
+        "utm_medium": "vertical_funnel",
+        "utm_campaign": "ecommerce_readiness",
+        "fields": [
+          "partner_id",
+          "tracking_link_id",
+          "campaign_id",
+          "widget_id",
+          "source_url",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_term",
+          "utm_content"
+        ]
+      },
+      "related_tool": "Amazon Cash-Flow Tool",
+      "related_vertical": "E-commerce",
+      "partner_use_case": "Campaign page for e-commerce consultants and seller communities",
+      "revenue_path": "Seller lead → readiness review → inventory or working-capital opportunity"
+    },
+    {
+      "route_id": "contractors",
+      "canonical_path": "/verticals/contractors.html",
+      "aliases": [],
+      "route_type": "vertical",
+      "audience": "Contractors, trades, and construction service businesses",
+      "problem": "Materials, payroll, mobilization, and slow receivables create project cash gaps.",
+      "primary_cta": {
+        "label": "Check Contractor Funding Readiness",
+        "destination": "https://am-i-fundable.vercel.app/"
+      },
+      "secondary_cta": {
+        "label": "Review Payroll Gap Guide",
+        "destination": "/solutions/payroll-gap.html"
+      },
+      "lead_workflow": "Contractor funnel → readiness assessment → human review → lead router",
+      "attribution": {
+        "source_asset": "vertical_contractors",
+        "utm_source": "fundstack_ai",
+        "utm_medium": "vertical_funnel",
+        "utm_campaign": "contractor_readiness",
+        "fields": [
+          "partner_id",
+          "tracking_link_id",
+          "campaign_id",
+          "widget_id",
+          "source_url",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_term",
+          "utm_content"
+        ]
+      },
+      "related_tool": "Cost of Capital Calculator",
+      "related_vertical": "Contractors and trades",
+      "partner_use_case": "Campaign page for contractor consultants, suppliers, and trade communities",
+      "revenue_path": "Contractor lead → readiness review → project or working-capital opportunity"
+    },
+    {
+      "route_id": "real_estate",
+      "canonical_path": "/verticals/real-estate.html",
+      "aliases": [],
+      "route_type": "vertical",
+      "audience": "Real estate investors, agents, brokers, and property professionals",
+      "problem": "Property acquisitions and refinances require a different review than operating-business funding.",
+      "primary_cta": {
+        "label": "Check Investor Readiness",
+        "destination": "https://am-i-fundable.vercel.app/"
+      },
+      "secondary_cta": {
+        "label": "Run DSCR Pre-Check",
+        "destination": "/tools/dscr-precheck.html"
+      },
+      "lead_workflow": "Real-estate funnel → DSCR/readiness assessment → property review → lead router",
+      "attribution": {
+        "source_asset": "vertical_real_estate",
+        "utm_source": "fundstack_ai",
+        "utm_medium": "vertical_funnel",
+        "utm_campaign": "real_estate_readiness",
+        "fields": [
+          "partner_id",
+          "tracking_link_id",
+          "campaign_id",
+          "widget_id",
+          "source_url",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_term",
+          "utm_content"
+        ]
+      },
+      "related_tool": "DSCR Pre-Check",
+      "related_vertical": "Real estate investors",
+      "partner_use_case": "Campaign page for agents, brokers, wholesalers, and investor communities",
+      "revenue_path": "Investor lead → property review → real estate financing opportunity"
+    },
+    {
+      "route_id": "solutions_hub",
+      "canonical_path": "/solutions/index.html",
+      "aliases": [
+        "/solutions/"
+      ],
+      "route_type": "solution_hub",
+      "audience": "Business owners arriving through an urgent capital problem",
+      "problem": "Users identify with a cash-pressure event more than a product category.",
+      "primary_cta": {
+        "label": "Check Funding Readiness",
+        "destination": "https://am-i-fundable.vercel.app/"
+      },
+      "secondary_cta": {
+        "label": "Explore Industry Guides",
+        "destination": "/verticals/index.html"
+      },
+      "lead_workflow": "Problem education → readiness assessment → human review → lead router",
+      "attribution": {
+        "source_asset": "solutions_hub",
+        "utm_source": "fundstack_ai",
+        "utm_medium": "solution_hub",
+        "utm_campaign": "problem_to_readiness",
+        "fields": [
+          "partner_id",
+          "tracking_link_id",
+          "campaign_id",
+          "widget_id",
+          "source_url",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_term",
+          "utm_content"
+        ]
+      },
+      "related_tool": "Am I Fundable",
+      "related_vertical": "All business types",
+      "partner_use_case": "Problem-first campaign hub for urgent prospect conversations",
+      "revenue_path": "Problem-aware lead → readiness review → matched funding opportunity"
+    },
+    {
+      "route_id": "bank_denial",
+      "canonical_path": "/solutions/bank-denial.html",
+      "aliases": [],
+      "route_type": "solution",
+      "audience": "Business owners recently declined by a bank",
+      "problem": "A bank denial does not explain which readiness gaps matter or what preparation is needed.",
+      "primary_cta": {
+        "label": "Diagnose Funding Readiness",
+        "destination": "https://am-i-fundable.vercel.app/"
+      },
+      "secondary_cta": {
+        "label": "Review Funding Product Families",
+        "destination": "/funding/products.html"
+      },
+      "lead_workflow": "Bank-denial education → readiness assessment → preparation or human review → lead router",
+      "attribution": {
+        "source_asset": "solution_bank_denial",
+        "utm_source": "fundstack_ai",
+        "utm_medium": "problem_funnel",
+        "utm_campaign": "bank_denial_readiness",
+        "fields": [
+          "partner_id",
+          "tracking_link_id",
+          "campaign_id",
+          "widget_id",
+          "source_url",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_term",
+          "utm_content"
+        ]
+      },
+      "related_tool": "Am I Fundable",
+      "related_vertical": "All business types",
+      "partner_use_case": "Follow-up page for declined-bank prospects",
+      "revenue_path": "Declined prospect → readiness diagnosis → alternative path or nurture"
+    },
+    {
+      "route_id": "payroll_gap",
+      "canonical_path": "/solutions/payroll-gap.html",
+      "aliases": [],
+      "route_type": "solution",
+      "audience": "Businesses facing a short-term payroll timing gap",
+      "problem": "Payroll is due before receivables or customer payments arrive.",
+      "primary_cta": {
+        "label": "Check Funding Readiness",
+        "destination": "https://am-i-fundable.vercel.app/"
+      },
+      "secondary_cta": {
+        "label": "Calculate Cost of Capital",
+        "destination": "/tools/cost-of-capital.html"
+      },
+      "lead_workflow": "Payroll-gap funnel → readiness assessment → urgent human review → lead router",
+      "attribution": {
+        "source_asset": "solution_payroll_gap",
+        "utm_source": "fundstack_ai",
+        "utm_medium": "problem_funnel",
+        "utm_campaign": "payroll_gap_readiness",
+        "fields": [
+          "partner_id",
+          "tracking_link_id",
+          "campaign_id",
+          "widget_id",
+          "source_url",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_term",
+          "utm_content"
+        ]
+      },
+      "related_tool": "Cost of Capital Calculator",
+      "related_vertical": "Contractors, service businesses, and seasonal operators",
+      "partner_use_case": "Urgency-based campaign page for payroll conversations",
+      "revenue_path": "Urgent cash-gap lead → readiness review → working-capital opportunity"
+    },
+    {
+      "route_id": "equipment_now",
+      "canonical_path": "/solutions/equipment-now.html",
+      "aliases": [],
+      "route_type": "solution",
+      "audience": "Businesses that need equipment, vehicles, or machinery to operate or grow",
+      "problem": "The business needs to evaluate equipment urgency, economics, and readiness.",
+      "primary_cta": {
+        "label": "Check Funding Readiness",
+        "destination": "https://am-i-fundable.vercel.app/"
+      },
+      "secondary_cta": {
+        "label": "Calculate Cost of Capital",
+        "destination": "/tools/cost-of-capital.html"
+      },
+      "lead_workflow": "Equipment-need funnel → readiness assessment → equipment-specific review → lead router",
+      "attribution": {
+        "source_asset": "solution_equipment_now",
+        "utm_source": "fundstack_ai",
+        "utm_medium": "problem_funnel",
+        "utm_campaign": "equipment_readiness",
+        "fields": [
+          "partner_id",
+          "tracking_link_id",
+          "campaign_id",
+          "widget_id",
+          "source_url",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_term",
+          "utm_content"
+        ]
+      },
+      "related_tool": "Cost of Capital Calculator",
+      "related_vertical": "Trucking, medical, contractors, and operating businesses",
+      "partner_use_case": "Vendor and equipment-broker campaign page",
+      "revenue_path": "Equipment need → readiness review → equipment financing opportunity"
+    },
+    {
+      "route_id": "zero_revenue",
+      "canonical_path": "/solutions/zero-revenue.html",
+      "aliases": [],
+      "route_type": "solution",
+      "audience": "Pre-revenue startups and newly formed businesses",
+      "problem": "The owner needs preparation guidance and realistic pathways without false approval expectations.",
+      "primary_cta": {
+        "label": "Build a Startup Readiness Plan",
+        "destination": "/tools/startup-planner.html"
+      },
+      "secondary_cta": {
+        "label": "Check Current Readiness",
+        "destination": "https://am-i-fundable.vercel.app/"
+      },
+      "lead_workflow": "Zero-revenue education → startup plan → readiness assessment → nurture or human review",
+      "attribution": {
+        "source_asset": "solution_zero_revenue",
+        "utm_source": "fundstack_ai",
+        "utm_medium": "problem_funnel",
+        "utm_campaign": "zero_revenue_plan",
+        "fields": [
+          "partner_id",
+          "tracking_link_id",
+          "campaign_id",
+          "widget_id",
+          "source_url",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_term",
+          "utm_content"
+        ]
+      },
+      "related_tool": "Startup Planner",
+      "related_vertical": "Startups and pre-revenue businesses",
+      "partner_use_case": "Expectation-setting page for early-stage referrals",
+      "revenue_path": "Preparation workflow → future readiness → funding or credit-building opportunity"
+    },
+    {
+      "route_id": "partner_recruitment",
+      "canonical_path": "/partners/index.html",
+      "aliases": [
+        "/partners/"
+      ],
+      "route_type": "partner_recruitment",
+      "audience": "Affiliates, brokers, consultants, creators, and strategic referral partners",
+      "problem": "Prospective partners need a clear value proposition and a direct onboarding path.",
+      "primary_cta": {
+        "label": "Join the Partner Network",
+        "destination": "https://tally.so/r/mOe658"
+      },
+      "secondary_cta": {
+        "label": "View Partner Assets",
+        "destination": "/partners/assets.html"
+      },
+      "lead_workflow": "Partner recruitment → partner signup → classification/onboarding → tracking link and asset assignment",
+      "attribution": {
+        "source_asset": "partner_recruitment",
+        "utm_source": "fundstack_ai",
+        "utm_medium": "partner_hub",
+        "utm_campaign": "partner_signup",
+        "fields": [
+          "partner_id",
+          "tracking_link_id",
+          "campaign_id",
+          "widget_id",
+          "source_url",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_term",
+          "utm_content"
+        ]
+      },
+      "related_tool": "Partner Intake",
+      "related_vertical": "Partner ecosystem",
+      "partner_use_case": "Primary recruitment and onboarding destination",
+      "revenue_path": "Partner signup → activation → attributed lead flow → funded-deal revenue"
+    },
+    {
+      "route_id": "partner_assets",
+      "canonical_path": "/partners/assets.html",
+      "aliases": [],
+      "route_type": "partner_assets",
+      "audience": "Active and prospective partners looking for campaign and education assets",
+      "problem": "Partners need reusable assets that preserve attribution and route traffic correctly.",
+      "primary_cta": {
+        "label": "Open Partner Dashboard",
+        "destination": "/dashboard.html"
+      },
+      "secondary_cta": {
+        "label": "Join the Partner Network",
+        "destination": "https://tally.so/r/mOe658"
+      },
+      "lead_workflow": "Asset selection → tracked campaign link → FundStack funnel/tool → readiness review → lead router",
+      "attribution": {
+        "source_asset": "partner_assets",
+        "utm_source": "fundstack_ai",
+        "utm_medium": "partner_assets",
+        "utm_campaign": "partner_distribution",
+        "fields": [
+          "partner_id",
+          "tracking_link_id",
+          "campaign_id",
+          "widget_id",
+          "source_url",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_term",
+          "utm_content"
+        ]
+      },
+      "related_tool": "Partner Dashboard and tracked links",
+      "related_vertical": "Partner ecosystem",
+      "partner_use_case": "Distribution library for campaigns, tools, verticals, and problem funnels",
+      "revenue_path": "Asset distribution → attributed traffic → qualified leads → funded-deal revenue"
+    }
+  ]
+}
