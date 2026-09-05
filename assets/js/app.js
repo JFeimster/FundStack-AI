@@ -278,7 +278,7 @@
 
   async function loadRoutingRegistry() {
     try {
-      const response = await fetch("/data/cta-routing.json", { cache: "no-store" });
+      const response = await fetch("/data/cta-routing.json");
       if (!response.ok) return null;
       return await response.json();
     } catch (error) {

@@ -76,8 +76,8 @@ Verify these pages exist and should be checked after deployment:
 
 After deployment, verify:
 
-- [ ] `https://fund-stack-ai.vercel.app/robots.txt`
-- [ ] `https://fund-stack-ai.vercel.app/sitemap.xml`
+- [ ] `https://fundstack-ai.vercel.app/robots.txt`
+- [ ] `https://fundstack-ai.vercel.app/sitemap.xml`
 
 ## 7. Partner Intake Check
 

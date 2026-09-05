@@ -47,7 +47,7 @@ The machine-readable source of truth is `data/cta-routing.json`.
 ## Domain handling
 
 - Canonical domain: `https://fundstack-ai.vercel.app`
-- Compatibility domain: `https://fund-stack-ai.vercel.app`
+- Legacy compatibility domain: `https://fund-stack-ai.vercel.app` (paused; do not advertise or use for new links)
 - Readiness destination: `https://am-i-fundable.vercel.app/`
 - Partner signup: `https://tally.so/r/mOe658`
 

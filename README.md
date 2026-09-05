@@ -6,7 +6,7 @@ FundStack AI is a static-first partner enablement and funding-intelligence hub f
 
 Live site:
 
-- https://fund-stack-ai.vercel.app/
+- https://fundstack-ai.vercel.app/
 
 Repository:
 

@@ -6,7 +6,7 @@ This guide documents the release process for FundStack AI.
 
 Live site:
 
-- https://fund-stack-ai.vercel.app/
+- https://fundstack-ai.vercel.app/
 
 Repository:
 
