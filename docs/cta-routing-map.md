@@ -46,7 +46,8 @@ The machine-readable source of truth is `data/cta-routing.json`.
 
 ## Domain handling
 
-- Canonical domain: `https://fundstack-ai.vercel.app`
+- Canonical domain: `https://fundstack.distilledfunding.com`
+- Cloudflare Pages fallback: `https://fundstack-ai.pages.dev`
 - Legacy compatibility domain: `https://fund-stack-ai.vercel.app` (paused; do not advertise or use for new links)
 - Readiness destination: `https://am-i-fundable.vercel.app/`
 - Partner signup: `https://tally.so/r/mOe658`
