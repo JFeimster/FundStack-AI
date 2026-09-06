@@ -1,21 +1,20 @@
 # Release Checklist
 
-Use this checklist before any manual Vercel deployment for FundStack AI.
+Use this checklist for FundStack AI releases on Cloudflare Pages.
 
-Do not deploy unless the user explicitly approves deployment after this checklist has been reviewed.
+## 1. Hosting and Canonical Domain
 
-## 1. Deployment Control Check
+- [ ] Cloudflare Pages project is connected to `JFeimster/FundStack-AI`.
+- [ ] Production branch is `main`.
+- [ ] Framework preset is `None`.
+- [ ] Build command is blank.
+- [ ] Build output directory is `.`.
+- [ ] Canonical production domain is `https://fundstack.distilledfunding.com/`.
+- [ ] Wix DNS contains `fundstack.distilledfunding.com` CNAME → `fundstack-ai.pages.dev`.
 
-- [ ] Confirm `vercel.json` exists.
-- [ ] Confirm `vercel.json` still includes `git.deploymentEnabled: false`.
-- [ ] Confirm no one has manually triggered deployment without approval.
-- [ ] Confirm the intended release branch is `main` unless another branch is explicitly approved.
+## 2. Core Pages
 
-## 2. Core Page Smoke Check
-
-Verify these pages exist in the repo and should be checked after deployment:
-
-- [ ] `/index.html`
+- [ ] `/`
 - [ ] `/partners/index.html`
 - [ ] `/partners/assets.html`
 - [ ] `/tools/index.html`
@@ -23,9 +22,7 @@ Verify these pages exist in the repo and should be checked after deployment:
 - [ ] `/verticals/index.html`
 - [ ] `/solutions/index.html`
 
-## 3. Core Tool Smoke Check
-
-Verify these tool pages exist and should be checked after deployment:
+## 3. Core Tools
 
 - [ ] `/qualifier.html`
 - [ ] `/dashboard.html`
@@ -36,127 +33,40 @@ Verify these tool pages exist and should be checked after deployment:
 - [ ] `/dscr-precheck.html`
 - [ ] `/tools/amazon-cashflow.html`
 
-Compatibility redirect shims:
+## 4. Redirect Compatibility
 
-- [ ] `/products.html`
-- [ ] `/guide.html`
-- [ ] `/link-in-bio.html`
-- [ ] `/fund-match-quiz.html`
-- [ ] `/startup-planner.html`
-- [ ] `/cost-of-capital.html`
-- [ ] `/tools/dscr-precheck.html`
-- [ ] `/tools/ecom-cashflow-tool.html`
+- [ ] `/products.html` → `/funding/products.html`
+- [ ] `/guide.html` → `/partners/guide.html`
+- [ ] `/link-in-bio.html` → `/partners/link-in-bio.html`
+- [ ] `/fund-match-quiz.html` → `/tools/fund-match-quiz.html`
+- [ ] `/startup-planner.html` → `/tools/startup-planner.html`
+- [ ] `/cost-of-capital.html` → `/tools/cost-of-capital.html`
+- [ ] `/tools/dscr-precheck.html` → `/dscr-precheck.html`
+- [ ] `/tools/ecom-cashflow-tool.html` → `/tools/amazon-cashflow.html`
 
-## 4. Vertical Page Smoke Check
+## 5. SEO and Static Hosting
 
-Verify these pages exist and should be checked after deployment:
+- [ ] `_headers` exists and contains security/cache rules plus canonical Link headers.
+- [ ] `_redirects` exists and contains compatibility redirects.
+- [ ] `robots.txt` points to `https://fundstack.distilledfunding.com/sitemap.xml`.
+- [ ] `sitemap.xml` contains only `https://fundstack.distilledfunding.com/...` URLs.
+- [ ] `data/cta-routing.json` uses `https://fundstack.distilledfunding.com` as `canonical_domain`.
 
-- [ ] `/verticals/trucking.html`
-- [ ] `/verticals/medical.html`
-- [ ] `/verticals/ecommerce.html`
-- [ ] `/verticals/contractors.html`
-- [ ] `/verticals/real-estate.html`
+## 6. Partner and Conversion Paths
 
-## 5. Solution Page Smoke Check
+- [ ] Homepage partner intake loads.
+- [ ] Partner page intake loads.
+- [ ] CTA links preserve attribution parameters.
+- [ ] Dashboard-generated links use the canonical FundStack domain.
 
-Verify these pages exist and should be checked after deployment:
+## 7. Compliance
 
-- [ ] `/solutions/bank-denial.html`
-- [ ] `/solutions/payroll-gap.html`
-- [ ] `/solutions/equipment-now.html`
-- [ ] `/solutions/zero-revenue.html`
+- [ ] No guaranteed approval/funding language.
+- [ ] No guaranteed amount, speed, rate, or terms.
+- [ ] Backend lender/provider relationships are not exposed publicly unless intentionally approved.
 
-## 6. SEO and Static Hosting Check
+## 8. Legacy Vercel
 
-- [ ] `robots.txt` exists.
-- [ ] `sitemap.xml` exists.
-- [ ] Sitemap uses verified routes only.
-- [ ] `vercel.json` includes security/cache headers.
-- [ ] `vercel.json` preserves auto-deploy disabled.
-
-After deployment, verify:
-
-- [ ] `https://fundstack-ai.vercel.app/robots.txt`
-- [ ] `https://fundstack-ai.vercel.app/sitemap.xml`
-
-## 7. Partner Intake Check
-
-Before deployment:
-
-- [ ] Confirm homepage still includes the Tally partner intake embed.
-- [ ] Confirm partner page still includes the Tally partner intake embed.
-- [ ] Confirm CTA links point to valid pages or anchors.
-
-After deployment:
-
-- [ ] Homepage form/iframe loads.
-- [ ] Partner page form/iframe loads.
-- [ ] No mixed-content or blocked iframe issues.
-
-## 8. Compliance Check
-
-Review public-facing copy for prohibited language.
-
-Do not deploy if pages include unapproved claims such as:
-
-- [ ] Guaranteed approval.
-- [ ] Guaranteed funding.
-- [ ] Guaranteed funding amount.
-- [ ] Guaranteed speed/timing.
-- [ ] Guaranteed rate or terms.
-- [ ] “You are approved.”
-- [ ] “You qualify” without qualification or caveat.
-- [ ] Backend lender/provider exposure on public pages.
-
-Approved language patterns:
-
-- [ ] Explore funding options.
-- [ ] May fit your profile.
-- [ ] Provider criteria apply.
-- [ ] Approval, terms, amounts, and timing are not guaranteed.
-- [ ] Planning and education only.
-
-## 9. Navigation Check
-
-Before deployment, spot-check links in:
-
-- [ ] `index.html`
-- [ ] `partners/index.html`
-- [ ] `tools/index.html`
-- [ ] `funding/index.html`
-- [ ] `verticals/index.html`
-- [ ] `solutions/index.html`
-- [ ] `dashboard.html`
-
-## 10. Mobile and Visual Check
-
-After deployment, check on desktop and mobile:
-
-- [ ] Homepage layout.
-- [ ] Partner page layout.
-- [ ] Tool library layout.
-- [ ] At least two core tool pages.
-- [ ] Tally embed visibility.
-- [ ] No horizontal overflow that breaks mobile use.
-
-## 11. Approval Gate
-
-Before any deployment, ask:
-
-> Approve deploying the current `main` branch to Vercel?
-
-Deployment should only happen after explicit approval.
-
-## 12. Post-Deployment Notes
-
-After deployment, record:
-
-```txt
-Deployment date:
-Deployment method:
-Commit SHA deployed:
-Production URL:
-Smoke test result:
-Issues found:
-Next fix batch:
-```
+- [ ] `vercel.json` still disables automatic Vercel Git deployments.
+- [ ] No new public links use `fundstack-ai.vercel.app`.
+- [ ] Retire the legacy Vercel project after the Cloudflare custom domain is active.
