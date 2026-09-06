@@ -1,0 +1,9 @@
+# Cloudflare Pages redirects migrated from vercel.json
+/products.html /funding/products.html 301
+/guide.html /partners/guide.html 301
+/link-in-bio.html /partners/link-in-bio.html 301
+/fund-match-quiz.html /tools/fund-match-quiz.html 301
+/startup-planner.html /tools/startup-planner.html 301
+/cost-of-capital.html /tools/cost-of-capital.html 301
+/tools/dscr-precheck.html /dscr-precheck.html 301
+/tools/ecom-cashflow-tool.html /tools/amazon-cashflow.html 301
