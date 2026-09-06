@@ -2,11 +2,15 @@
 
 Moonshine Capital Partner Ecosystem
 
-FundStack AI is a static-first partner enablement and funding-intelligence hub for Moonshine Capital. It combines partner recruitment pages, borrower-facing funding tools, qualification logic, vertical funnels, and internal operating documentation into one GitHub-backed website deployed on Vercel.
+FundStack AI is a static-first partner enablement and funding-intelligence hub for Moonshine Capital. It combines partner recruitment pages, borrower-facing funding tools, qualification logic, vertical funnels, and internal operating documentation into one GitHub-backed website deployed on Cloudflare Pages.
 
 Live site:
 
-- https://fundstack-ai.vercel.app/
+- https://fundstack.distilledfunding.com/
+
+Cloudflare Pages fallback:
+
+- https://fundstack-ai.pages.dev/
 
 Repository:
 
@@ -42,7 +46,9 @@ Known architecture patterns:
 - Shared JavaScript utility foundation at `assets/js/app.js`.
 - Lightweight data/config files under `data/`.
 - Tally embed usage for partner/application intake.
-- Vercel hosting with automatic Git deployments disabled.
+- Cloudflare Pages hosting from the `main` branch.
+- Wix-managed DNS for the canonical `fundstack.distilledfunding.com` subdomain.
+- Legacy Vercel configuration retained only to keep Vercel auto-deploy disabled during retirement.
 
 Future cleanup should continue moving repeated styling and behavior into shared files under:
 
@@ -100,43 +106,45 @@ The repo currently includes or has referenced the following page categories:
 
 ## Deployment Status
 
-Automatic Vercel Git deployments are intentionally disabled through `vercel.json`:
+Primary production hosting is Cloudflare Pages.
 
-```json
-{
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "git": {
-    "deploymentEnabled": false
-  }
-}
+```text
+Canonical domain:      https://fundstack.distilledfunding.com/
+Pages fallback:        https://fundstack-ai.pages.dev/
+Production branch:     main
+Framework preset:      None
+Build command:         blank
+Build output directory: .
+DNS:                   fundstack.distilledfunding.com CNAME → fundstack-ai.pages.dev
 ```
 
-Do not remove or override this setting unless a release/deployment step is explicitly approved.
+Cloudflare production behavior is defined by:
 
-This repo should be edited in controlled commit groups. Avoid small one-off commits that burn deployment capacity or create avoidable review noise.
+- `_headers`
+- `_redirects`
+- `robots.txt`
+- `sitemap.xml`
+
+`vercel.json` remains as a legacy safety/configuration file. Automatic Vercel Git deployments remain disabled so the old project cannot become canonical again accidentally.
 
 ## Release Process
 
-Use the release docs before any production deployment:
+Changes merged to `main` deploy through the Cloudflare Pages Git integration. Keep related changes grouped and treat `fundstack.distilledfunding.com` as the production surface.
 
-- `docs/deployment-guide.md` — explains deployment controls, manual release options, and Vercel safety rules.
-- `docs/release-checklist.md` — checklist to run before and after an approved manual deployment.
+Release references:
 
-Default release rule:
-
-> Do not deploy without explicit approval.
-
-Before any deployment, ask:
-
-> Approve deploying the current `main` branch to Vercel?
+- `docs/deployment-guide.md` — Cloudflare Pages production configuration and release path.
+- `docs/release-checklist.md` — production checklist for the current Cloudflare deployment.
 
 ## Static SEO and Hosting
 
-The repo now includes:
+The repo includes:
 
 - `robots.txt`
 - `sitemap.xml`
-- static headers in `vercel.json`
+- `_headers`
+- `_redirects`
+- legacy `vercel.json`
 
 The sitemap should only include verified routes. Do not add speculative URLs or planned pages that do not exist yet.
 
@@ -166,14 +174,14 @@ Avoid language such as:
 - **Partner protection:** Partner links, referral IDs, and attribution logic must be preserved when editing intake paths or CTAs.
 - **Routing discipline:** Do not imply that every applicant fits every product. Funding options should be framed around business profile, documentation, revenue, credit tier, time in business, and provider criteria.
 - **Static-first discipline:** Do not introduce a framework, build step, API route, package manager, auth provider, or server-side dependency unless explicitly approved.
-- **Deployment discipline:** Keep automatic Git deployments disabled unless a release step is explicitly approved.
+- **Hosting discipline:** Keep Cloudflare Pages as the canonical host and do not reactivate the legacy Vercel project unless there is a deliberate rollback decision.
 
 ## Editing Rules for Operators and AI Agents
 
 1. Confirm file paths before editing.
 2. Keep related changes grouped.
-3. Preserve `vercel.json` deployment controls.
-4. Do not manually deploy to Vercel without approval.
+3. Preserve `_headers`, `_redirects`, and the legacy `vercel.json` deployment-disable controls.
+4. Do not reactivate or manually deploy the legacy Vercel project.
 5. Keep public copy compliance-safe.
 6. Keep backend/provider routing details out of public pages.
 7. Prefer shared assets and data files over duplicated inline code.
@@ -183,7 +191,7 @@ Avoid language such as:
 
 ## Recommended Next Priorities
 
-1. Review the release checklist before any manual deployment.
+1. Retire the legacy Vercel project after Cloudflare custom-domain activation is confirmed.
 2. Continue hub page design polish for `funding/`, `partners/assets.html`, `verticals/`, and `solutions/`.
 3. Review vertical and solution pages for compliance-safe copy.
 4. Improve hub-page metadata in smaller file-specific patches.
@@ -196,7 +204,7 @@ Avoid language such as:
 - `docs/site-structure.md` — current and recommended route structure.
 - `docs/known-issues.md` — active cleanup list and known risks.
 - `docs/deployment-guide.md` — deployment controls and release process.
-- `docs/release-checklist.md` — checklist before any approved deployment.
+- `docs/release-checklist.md` — checklist before production changes.
 - `docs/build-roadmap.md` — roadmap already present in the repo.
 - `docs/ai-agents-architecture.md` — AI agent architecture notes.
 - `docs/compliance-rules.md` — compliance-safe copy rules.
