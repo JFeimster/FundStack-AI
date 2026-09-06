@@ -17,3 +17,88 @@
 /robots.txt
   Content-Type: text/plain; charset=utf-8
   Cache-Control: public, max-age=3600
+
+# Canonical production URLs
+/
+  Link: <https://fundstack.distilledfunding.com/>; rel="canonical"
+
+/index.html
+  Link: <https://fundstack.distilledfunding.com/>; rel="canonical"
+
+/partners/index.html
+  Link: <https://fundstack.distilledfunding.com/partners/index.html>; rel="canonical"
+
+/partners/assets.html
+  Link: <https://fundstack.distilledfunding.com/partners/assets.html>; rel="canonical"
+
+/partners/guide.html
+  Link: <https://fundstack.distilledfunding.com/partners/guide.html>; rel="canonical"
+
+/partners/link-in-bio.html
+  Link: <https://fundstack.distilledfunding.com/partners/link-in-bio.html>; rel="canonical"
+
+/tools/index.html
+  Link: <https://fundstack.distilledfunding.com/tools/index.html>; rel="canonical"
+
+/qualifier.html
+  Link: <https://fundstack.distilledfunding.com/qualifier.html>; rel="canonical"
+
+/dashboard.html
+  Link: <https://fundstack.distilledfunding.com/dashboard.html>; rel="canonical"
+
+/tools/fund-match-quiz.html
+  Link: <https://fundstack.distilledfunding.com/tools/fund-match-quiz.html>; rel="canonical"
+
+/tools/fundability-score.html
+  Link: <https://fundstack.distilledfunding.com/tools/fundability-score.html>; rel="canonical"
+
+/tools/startup-planner.html
+  Link: <https://fundstack.distilledfunding.com/tools/startup-planner.html>; rel="canonical"
+
+/tools/cost-of-capital.html
+  Link: <https://fundstack.distilledfunding.com/tools/cost-of-capital.html>; rel="canonical"
+
+/dscr-precheck.html
+  Link: <https://fundstack.distilledfunding.com/dscr-precheck.html>; rel="canonical"
+
+/tools/amazon-cashflow.html
+  Link: <https://fundstack.distilledfunding.com/tools/amazon-cashflow.html>; rel="canonical"
+
+/funding/index.html
+  Link: <https://fundstack.distilledfunding.com/funding/index.html>; rel="canonical"
+
+/funding/products.html
+  Link: <https://fundstack.distilledfunding.com/funding/products.html>; rel="canonical"
+
+/verticals/index.html
+  Link: <https://fundstack.distilledfunding.com/verticals/index.html>; rel="canonical"
+
+/verticals/trucking.html
+  Link: <https://fundstack.distilledfunding.com/verticals/trucking.html>; rel="canonical"
+
+/verticals/medical.html
+  Link: <https://fundstack.distilledfunding.com/verticals/medical.html>; rel="canonical"
+
+/verticals/ecommerce.html
+  Link: <https://fundstack.distilledfunding.com/verticals/ecommerce.html>; rel="canonical"
+
+/verticals/contractors.html
+  Link: <https://fundstack.distilledfunding.com/verticals/contractors.html>; rel="canonical"
+
+/verticals/real-estate.html
+  Link: <https://fundstack.distilledfunding.com/verticals/real-estate.html>; rel="canonical"
+
+/solutions/index.html
+  Link: <https://fundstack.distilledfunding.com/solutions/index.html>; rel="canonical"
+
+/solutions/bank-denial.html
+  Link: <https://fundstack.distilledfunding.com/solutions/bank-denial.html>; rel="canonical"
+
+/solutions/payroll-gap.html
+  Link: <https://fundstack.distilledfunding.com/solutions/payroll-gap.html>; rel="canonical"
+
+/solutions/equipment-now.html
+  Link: <https://fundstack.distilledfunding.com/solutions/equipment-now.html>; rel="canonical"
+
+/solutions/zero-revenue.html
+  Link: <https://fundstack.distilledfunding.com/solutions/zero-revenue.html>; rel="canonical"
