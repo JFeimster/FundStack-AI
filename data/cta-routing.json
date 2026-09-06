@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "site": "FundStack AI",
-  "canonical_domain": "https://fundstack-ai.vercel.app",
+  "canonical_domain": "https://fundstack.distilledfunding.com",
   "compatibility_domain": "https://fund-stack-ai.vercel.app",
   "readiness_destination": "https://am-i-fundable.vercel.app/",
   "partner_signup_destination": "https://tally.so/r/mOe658",
