@@ -1,0 +1,258 @@
+name: Complete FundStack Cloudflare cutover
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cloudflare-cutover.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  cutover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Rewrite canonical hosting references
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          old = "https://fundstack-ai.vercel.app"
+          new = "https://fundstack.distilledfunding.com"
+
+          # Replace the old canonical hostname everywhere it appears in tracked text files.
+          for path in Path('.').rglob('*'):
+              if not path.is_file() or '.git' in path.parts:
+                  continue
+              try:
+                  text = path.read_text(encoding='utf-8')
+              except UnicodeDecodeError:
+                  continue
+              if old in text:
+                  path.write_text(text.replace(old, new), encoding='utf-8')
+
+          # Bring the README deployment model up to date.
+          readme = Path('README.md')
+          text = readme.read_text(encoding='utf-8')
+          text = text.replace('website deployed on Vercel.', 'website deployed on Cloudflare Pages.')
+          text = text.replace('- Vercel hosting with automatic Git deployments disabled.', '- Cloudflare Pages hosting from the `main` branch with `fundstack.distilledfunding.com` as the canonical production domain.')
+          text = text.replace('- static headers in `vercel.json`', '- Cloudflare Pages headers and redirects in `_headers` and `_redirects`')
+          text = text.replace('3. Preserve `vercel.json` deployment controls.\n4. Do not manually deploy to Vercel without approval.', '3. Preserve `_headers`, `_redirects`, and the legacy `vercel.json` deployment-disable controls.\n4. Do not reactivate or manually deploy the legacy Vercel project.')
+          replacement = '''## Deployment Status
+
+Primary production hosting is Cloudflare Pages.
+
+- Canonical production URL: https://fundstack.distilledfunding.com/
+- Cloudflare Pages fallback: https://fundstack-ai.pages.dev/
+- Production branch: `main`
+- Framework preset: `None`
+- Build command: blank
+- Build output directory: `.`
+- DNS: Wix CNAME `fundstack` → `fundstack-ai.pages.dev`
+- Legacy Vercel hosting is no longer canonical and remains disabled pending retirement.
+
+`vercel.json` is retained only as a legacy safety/configuration file. Cloudflare Pages uses `_headers` and `_redirects` for the production static-hosting rules.
+
+## Release Process
+
+Changes merged to `main` deploy through the Cloudflare Pages Git integration. Keep related changes grouped, validate the static site, and treat `fundstack.distilledfunding.com` as the production surface.
+
+Release references:
+
+- `docs/deployment-guide.md`
+- `docs/release-checklist.md`
+
+## Static SEO and Hosting'''
+          text = re.sub(r'## Deployment Status\n.*?\n## Static SEO and Hosting', replacement, text, flags=re.S)
+          readme.write_text(text, encoding='utf-8')
+
+          # Replace the obsolete Vercel deployment guide.
+          Path('docs/deployment-guide.md').write_text('''# Deployment Guide
+
+This guide documents the production release path for FundStack AI.
+
+## Current Production State
+
+- Canonical production URL: https://fundstack.distilledfunding.com/
+- Cloudflare Pages URL: https://fundstack-ai.pages.dev/
+- Repository: `JFeimster/FundStack-AI`
+- Hosting: Cloudflare Pages
+- Production branch: `main`
+- Framework preset: `None`
+- Build command: blank
+- Build output directory: `.`
+- Root directory: repository root
+- DNS provider: Wix
+- DNS record: `fundstack.distilledfunding.com` CNAME → `fundstack-ai.pages.dev`
+
+The legacy Vercel project is not canonical and should remain disabled until it is retired.
+
+## Cloudflare Pages Files
+
+Production hosting behavior is controlled by:
+
+- `_headers` — security, cache, content-type, and canonical Link headers.
+- `_redirects` — compatibility redirects for legacy paths.
+- `robots.txt` — crawl guidance using the canonical domain.
+- `sitemap.xml` — canonical production URLs.
+- `data/cta-routing.json` — canonical routing metadata used by the site.
+
+`vercel.json` remains only as a legacy safety/configuration file so an accidental Vercel deployment does not become canonical.
+
+## Release Workflow
+
+1. Make related changes in a coherent commit group.
+2. Push or merge to `main`.
+3. Cloudflare Pages deploys the repository through its Git integration.
+4. Use `fundstack.distilledfunding.com` as the production hostname.
+5. If a release fails, inspect the Cloudflare Pages deployment log and fix the repo/build configuration rather than reactivating Vercel.
+
+## Static Site Constraints
+
+FundStack AI is intentionally static-first. Do not add a framework, package manager, server runtime, API route, or authentication layer unless a future product requirement actually needs one.
+
+## Legacy Vercel State
+
+- Previous canonical hostname: `https://fundstack-ai.vercel.app/`
+- Automatic Vercel Git deployments remain disabled in `vercel.json`.
+- The old Vercel project should be retired after the Cloudflare custom domain is active and serving the current Pages deployment.
+''', encoding='utf-8')
+
+          # Replace the obsolete Vercel release checklist.
+          Path('docs/release-checklist.md').write_text('''# Release Checklist
+
+Use this checklist for FundStack AI releases on Cloudflare Pages.
+
+## 1. Hosting and Canonical Domain
+
+- [ ] Cloudflare Pages project is connected to `JFeimster/FundStack-AI`.
+- [ ] Production branch is `main`.
+- [ ] Framework preset is `None`.
+- [ ] Build command is blank.
+- [ ] Build output directory is `.`.
+- [ ] Canonical production domain is `https://fundstack.distilledfunding.com/`.
+- [ ] Wix DNS contains `fundstack.distilledfunding.com` CNAME → `fundstack-ai.pages.dev`.
+
+## 2. Core Pages
+
+- [ ] `/`
+- [ ] `/partners/index.html`
+- [ ] `/partners/assets.html`
+- [ ] `/tools/index.html`
+- [ ] `/funding/index.html`
+- [ ] `/verticals/index.html`
+- [ ] `/solutions/index.html`
+
+## 3. Core Tools
+
+- [ ] `/qualifier.html`
+- [ ] `/dashboard.html`
+- [ ] `/tools/fund-match-quiz.html`
+- [ ] `/tools/fundability-score.html`
+- [ ] `/tools/startup-planner.html`
+- [ ] `/tools/cost-of-capital.html`
+- [ ] `/dscr-precheck.html`
+- [ ] `/tools/amazon-cashflow.html`
+
+## 4. Redirect Compatibility
+
+- [ ] `/products.html` → `/funding/products.html`
+- [ ] `/guide.html` → `/partners/guide.html`
+- [ ] `/link-in-bio.html` → `/partners/link-in-bio.html`
+- [ ] `/fund-match-quiz.html` → `/tools/fund-match-quiz.html`
+- [ ] `/startup-planner.html` → `/tools/startup-planner.html`
+- [ ] `/cost-of-capital.html` → `/tools/cost-of-capital.html`
+- [ ] `/tools/dscr-precheck.html` → `/dscr-precheck.html`
+- [ ] `/tools/ecom-cashflow-tool.html` → `/tools/amazon-cashflow.html`
+
+## 5. SEO and Static Hosting
+
+- [ ] `_headers` exists and contains security/cache rules plus canonical Link headers.
+- [ ] `_redirects` exists and contains compatibility redirects.
+- [ ] `robots.txt` points to `https://fundstack.distilledfunding.com/sitemap.xml`.
+- [ ] `sitemap.xml` contains only `https://fundstack.distilledfunding.com/...` URLs.
+- [ ] `data/cta-routing.json` uses `https://fundstack.distilledfunding.com` as `canonical_domain`.
+
+## 6. Partner and Conversion Paths
+
+- [ ] Homepage partner intake loads.
+- [ ] Partner page intake loads.
+- [ ] CTA links preserve attribution parameters.
+- [ ] Dashboard-generated links use the canonical FundStack domain.
+
+## 7. Compliance
+
+- [ ] No guaranteed approval/funding language.
+- [ ] No guaranteed amount, speed, rate, or terms.
+- [ ] Backend lender/provider relationships are not exposed publicly unless intentionally approved.
+
+## 8. Legacy Vercel
+
+- [ ] `vercel.json` still disables automatic Vercel Git deployments.
+- [ ] No new public links use `fundstack-ai.vercel.app`.
+- [ ] Retire the legacy Vercel project after the Cloudflare custom domain is active.
+''', encoding='utf-8')
+
+          # Add Cloudflare-native canonical Link headers for the known public routes.
+          headers = Path('_headers')
+          base = headers.read_text(encoding='utf-8').rstrip() + '\n\n'
+          marker = '# Canonical production URLs\n'
+          if marker in base:
+              base = base.split(marker, 1)[0].rstrip() + '\n\n'
+          canonical_routes = [
+              ('/', '/'),
+              ('/index.html', '/'),
+              ('/partners/index.html', '/partners/index.html'),
+              ('/partners/assets.html', '/partners/assets.html'),
+              ('/partners/guide.html', '/partners/guide.html'),
+              ('/partners/link-in-bio.html', '/partners/link-in-bio.html'),
+              ('/tools/index.html', '/tools/index.html'),
+              ('/qualifier.html', '/qualifier.html'),
+              ('/dashboard.html', '/dashboard.html'),
+              ('/tools/fund-match-quiz.html', '/tools/fund-match-quiz.html'),
+              ('/tools/fundability-score.html', '/tools/fundability-score.html'),
+              ('/tools/startup-planner.html', '/tools/startup-planner.html'),
+              ('/tools/cost-of-capital.html', '/tools/cost-of-capital.html'),
+              ('/dscr-precheck.html', '/dscr-precheck.html'),
+              ('/tools/amazon-cashflow.html', '/tools/amazon-cashflow.html'),
+              ('/funding/index.html', '/funding/index.html'),
+              ('/funding/products.html', '/funding/products.html'),
+              ('/verticals/index.html', '/verticals/index.html'),
+              ('/verticals/trucking.html', '/verticals/trucking.html'),
+              ('/verticals/medical.html', '/verticals/medical.html'),
+              ('/verticals/ecommerce.html', '/verticals/ecommerce.html'),
+              ('/verticals/contractors.html', '/verticals/contractors.html'),
+              ('/verticals/real-estate.html', '/verticals/real-estate.html'),
+              ('/solutions/index.html', '/solutions/index.html'),
+              ('/solutions/bank-denial.html', '/solutions/bank-denial.html'),
+              ('/solutions/payroll-gap.html', '/solutions/payroll-gap.html'),
+              ('/solutions/equipment-now.html', '/solutions/equipment-now.html'),
+              ('/solutions/zero-revenue.html', '/solutions/zero-revenue.html'),
+          ]
+          blocks = [marker]
+          for route, canonical_path in canonical_routes:
+              blocks.append(f'{route}\n  Link: <{new}{canonical_path}>; rel="canonical"\n')
+          headers.write_text(base + '\n'.join(blocks).rstrip() + '\n', encoding='utf-8')
+          PY
+
+          # This workflow is a one-shot migration helper; remove it from the final repo state.
+          rm -f .github/workflows/cloudflare-cutover.yml
+
+          # Fail rather than commit if the old canonical host remains anywhere except git metadata.
+          if grep -R --exclude-dir=.git -n "https://fundstack-ai.vercel.app" .; then
+            echo "Old canonical host still present"
+            exit 1
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Cut over FundStack canonical hosting to Cloudflare Pages"
+          git push
